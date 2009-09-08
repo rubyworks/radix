@@ -1,0 +1,11 @@
+= Release History
+
+== 1.0.0 // 2009-07-01
+
+This is the initial stand-alone release of Radix,
+ported from the basex.rb library of Ruby Facets.
+
+Changes:
+
+  * Happy Birthday!
+
