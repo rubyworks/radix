@@ -1,9 +1,9 @@
 ---
 rdoc:
   service  : RDoc
+  template : hanna
   include  : ~
   exclude  : ~
-  template : ~
   main     : ~
   extra    : ~
   active   : true
