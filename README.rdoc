@@ -1,7 +1,7 @@
 = Radix
 
-* http://death.rubyforge.org
-* http://death.rubyforge.org/radix
+* http://rubyworks.github.com/radix
+* http://github.com/rubyworks/radix
 
 
 == DESCRIPTION
