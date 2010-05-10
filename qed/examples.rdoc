@@ -10,21 +10,21 @@ First we setup the radix for each.
   b10 = Radix.new(Radix::BASE10)
   b16 = Radix.new(Radix::BASE16)
 
-Now we can covert from one to the other.
+Now we can covert from one base to the other.
 
   b16.convert("16" , b10).should == "10"
   b16.convert("160", b10).should == "A0"
   b16.convert("255", b10).should == "FF"
 
-To Confirm, we convert from deciaml to hexidecimal.
+To confirm, lets convert from deciaml to hexidecimal.
 
   b10.convert("10", b16).should == "16"
   b10.convert("A0", b16).should == "160"
   b10.convert("FF", b16).should == "255"
 
 If we we want to use standard encodings then we
-can simple provide an integer base, rather than
-a Radix class.
+can simply provide an integer base, rather than
+a Radix object.
 
   b10.convert("10", 16).should == "16"
   b10.convert("A0", 16).should == "160"
@@ -38,7 +38,7 @@ creating an instance of Radix.
   Radix.convert("A0", 16, 10).should == "160"
   Radix.convert("FF", 16, 10).should == "255"
 
-Let's try that again with the mazimum base supported.
+Let's try that again with the maximum base supported.
 
   Radix.convert(     "62", 10, 62).should == "10"
   Radix.convert("8814542", 10, 62).should == "AZ42"

@@ -1,0 +1,20 @@
+= Sexy API
+
+There first version of Radix worked well enough,
+but its API was very functional and thus a bit difficult
+to read at a glance.
+
+To improve upon this Radix now offers an option operater
+API.
+
+  require 'radix/operator'
+
+With it, the #b method extends String and Array classes to
+simplify all mulit-base operations.
+
+  r = "AZAZ".b(62) + "54".b(10)
+  r.assert == ""
+
+  r = [100,10].b(256) + "54".b(10)
+  r.assert == ""
+
