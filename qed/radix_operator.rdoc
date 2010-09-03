@@ -1,4 +1,4 @@
-= Sexy API
+= Radix Base Operator
 
 There first version of Radix worked well enough,
 but its API was very functional and thus a bit difficult

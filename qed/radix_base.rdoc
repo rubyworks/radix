@@ -69,4 +69,3 @@ latin characters to represent them.
   Radix::Base.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
   Radix::Base.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
 
-QED.
