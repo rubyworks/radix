@@ -9,7 +9,7 @@ module Radix
 
     attr :base
 
-    def initialize(value, base)
+    def initialize(value, base=10)
       case value
       when ::Array
         @digits = value
@@ -46,7 +46,7 @@ module Radix
           digits == other.convert(base).digits
         end
       else
-
+        self == Radix::Number(other)
       end
     end
 
