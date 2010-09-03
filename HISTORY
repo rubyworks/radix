@@ -1,11 +1,26 @@
 = Release History
 
-== 1.0.0 // 2009-07-01
+== 1.1.0 / 2010-09-03
+
+Radix now provides an actual Numeric subclass, Radix::Number, that stores
+the base and can be used like any other Numeric object. This makes it very
+easy to convert and manipulate numbers in any base. The implementation is still
+a bit nascent. For the moment, it only supports the most basic math operators
+and only handles integer values, but furture releases will continue to expand
+on it's capabilites.
+
+Changes:
+
+* Add Radix::Number to handle bases like any other numeric.
+* Rename Radix class to Radix::Base.
+
+
+== 1.0.0 / 2009-07-01
 
 This is the initial stand-alone release of Radix,
 ported from the basex.rb library of Ruby Facets.
 
 Changes:
 
-  * Happy Birthday!
+* Happy Birthday!
 

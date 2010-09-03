@@ -1,0 +1,17 @@
+#!mast -x Syckfile lib meta qed [A-Z]*
+lib/radix/base.rb
+lib/radix/meta/data.rb
+lib/radix/meta/package
+lib/radix/meta/profile
+lib/radix/number.rb
+lib/radix/operator.rb
+lib/radix.rb
+meta/data.rb
+meta/package
+meta/profile
+qed/applique/ae.rb
+qed/radix_base.rdoc
+qed/radix_operator.rdoc
+LICENSE
+README.rdoc
+HISTORY

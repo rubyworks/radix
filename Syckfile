@@ -26,6 +26,7 @@ ridoc:
   service: RIDoc
   include: ~
   exclude: ~
+  output : ri
   active : true
 
 rdoc:
@@ -33,6 +34,7 @@ rdoc:
   template: newfish
   include : ~
   exclude : [ Syckfile ]
+  output  : doc
   active  : true
 
 syntax:

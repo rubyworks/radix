@@ -1,5 +1,4 @@
 log
-doc/rdoc
-doc/ri
+doc
+ri
 pkg
-MANIFEST
