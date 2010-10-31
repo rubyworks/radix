@@ -1,0 +1,7 @@
+== Overview of Radix Rational
+
+Radix also provides a Rational class. Like the Integer and Float classes
+Radix::Rational delegates to an underlying instance of Ruby standard
+Rational class.
+
+

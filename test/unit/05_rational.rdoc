@@ -1,8 +1,8 @@
-= Radix Rational
+== Radix Rational
 
   require 'radix'
 
-== Initialization
+=== Initialization
 
 Radix::Rational's initializer takes a numerator and a denominator,
 either of which can be an Integer, Float, String or Array along witha
@@ -30,7 +30,7 @@ specified.
   ok  8, 1, 16,  8.0
   ok 16, 1, 16, 16.0
 
-== Reduction
+=== Reduction
 
   check do |a, x|
     r = a.reduce
@@ -40,9 +40,9 @@ specified.
   ok [10,5].br(10),  [2,1].br(10)
   ok [30,3].br(10), [10,1].br(10)
 
-== Operations
+=== Operations
 
-=== Addition
+==== Addition
 
   check do |a, b, x|
     r = a + b
@@ -51,7 +51,11 @@ specified.
 
   ok [8,5].br(10), [1,2].br(10), [21,10].br(10)
 
-=== Subtraction
+  ok [8,5].br(10), 1, [13,5].br(10)
+
+  ok [8,5].br(10), 0.5, [21,10].br(10)
+
+==== Subtraction
 
   check do |a, b, x|
     r = a - b
@@ -60,7 +64,7 @@ specified.
 
   ok [8,5].br(10), [1,2].br(10), [11,10].br(10)
 
-=== Multiplication
+==== Multiplication
 
   check do |a, b, x|
     r = a * b
@@ -69,7 +73,7 @@ specified.
 
   ok [8,5].br(10), [1,2].br(10), [8,10].br(10)
 
-=== Division
+==== Division
 
   check do |a, b, x|
     r = a / b

@@ -1,0 +1,36 @@
+== Overview of Radix Float
+
+Radix provides a Float class for working with floating point numbers in
+any base.
+
+  require 'radix'
+
+With it, the #b method extends String and Array classes to
+simplify all mulit-base operations.
+
+  b = "100.01".b(2)
+  b.digits.assert == [1,0,0,'.',0,1]
+
+Convert to base 10.
+
+  t = b.convert(10)
+  t.digits.assert == [4,'.',2,5]
+
+Like a Numeric class, Radix::Float's can be added, subtracted, multipled, etc.
+
+  r = "1000.01".b(2) + "2".b(8)
+  r.assert == "1010.01".b(2)
+  r.assert == "12.2".b(8)
+  r.assert == "10.25".b(10)
+
+Even complex conversions are supported.
+
+  r = "AZ42".b(62) + "54".b(10)
+  r.assert == "8814596".b(10)
+
+To work with bases greater than 62, use arrays. A '.' entry in the array
+can be used to separate the whole from the fractional part of the number.
+
+  r = [100,10,'.',64].b(256) + "54".b(10)
+  r.assert == "25664.25".b(10)
+

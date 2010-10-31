@@ -1,4 +1,4 @@
-= Overview of Radix::Base
+== Overview of Radix Base
 
 First require the library.
 
