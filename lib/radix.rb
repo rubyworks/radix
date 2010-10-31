@@ -1,1 +1,5 @@
+require 'radix/base'
 require 'radix/operator'
+require 'radix/integer'
+require 'radix/rational'
+#require 'radix/float'
