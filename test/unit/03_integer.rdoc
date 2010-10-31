@@ -1,10 +1,10 @@
-== Radix Integer
+= Radix Integer
 
 Radix provides an Integer class for working with integers in various bases.
 
   require 'radix'
 
-=== Initialization
+== Initialization
 
 Radix::Integer's initializer can accept either an Integer, String or
 Array as a value and an integer base.
@@ -83,7 +83,7 @@ passes the receiver on to `Radix::Integer#new`.
   ok %w"1 0 0 0", 2, [1,0,0,0]
   ok   %w"1 0 0", 2, [1,0,0]
 
-=== Conversion
+== Conversion
 
 Radix integers can ve converted to other bases with the #convert method.
 
@@ -98,7 +98,7 @@ method.
   d = b.to_i
   d.assert == 8
 
-=== Equality
+== Equality
 
 Radix extend the Integer, String and Array classes with the #b method
 which simplifies the creation of Radix::Integer instances. The following
@@ -126,7 +126,7 @@ must be a Radix::Integer too.
 
 Radix::Integer supports all the usual mathematical operators.
 
-==== Addition
+=== Addition
 
   check do |a, b, x|
     (a + b).assert == x
@@ -155,7 +155,7 @@ Adding negative integers will, of course, be akin to subtraction.
   ok "-1000".b(2),    "-2".b(8), "-1010".b(2)
   ok "-1000".b(2),    "-2".b(8),   "-10".b(10)
 
-==== Subtraction
+=== Subtraction
 
   check do |a, b, x|
     (a - b).assert == x
@@ -171,7 +171,7 @@ A more complex example.
   x = "AZ42".b(62) - "54".b(10)
   x.assert == "8814488".b(10)
 
-==== Multiplication
+=== Multiplication
 
   check do |a, b, x|
     (a * b).assert == x
@@ -187,7 +187,7 @@ A more complex example.
   x = "Z42".b(62) * "4".b(10)
   x.assert == "938936".b(10)
 
-==== Division
+=== Division
 
   check do |a, b, x|
     (a / b).assert == x
@@ -203,7 +203,7 @@ A more complex example.
   x = "AZ42".b(62) / "54".b(10)
   x.assert == "163232".b(10)
 
-==== Power
+=== Power
 
   check do |a, b, x|
     (a ** b).assert == x
@@ -211,7 +211,7 @@ A more complex example.
 
   ok "1000".b(2), "10".b(2), 64
 
-==== Modulo
+=== Modulo
 
   check do |a, b, x|
     (a % b).assert == x
@@ -220,7 +220,7 @@ A more complex example.
   ok "1000".b(2), "10".b(2), 0
   ok "1000".b(2), "11".b(2), 2
 
-==== Bitwise Shift
+=== Bitwise Shift
 
   check do |a, b, x|
     (a << b).assert == x
@@ -230,7 +230,7 @@ A more complex example.
   ok "10".b(2),         2, "1000".b(2)
   ok "10".b(2),         2, 8
 
-==== Bitwise AND
+=== Bitwise AND
 
   check do |a, b, x|
     (a & b).assert == x
@@ -239,7 +239,7 @@ A more complex example.
   ok "1010".b(2), "10".b(2), "10".b(2)
   ok "1010".b(2),  "2".b(8), "10".b(2)
 
-=== Coerce
+== Coerce
 
 When a Radix::Integer is the operand in an operation against a regular
 Ruby Integer, the calculation should still work via #coerce.
@@ -249,4 +249,4 @@ Ruby Integer, the calculation should still work via #coerce.
   end
 
   ok 10, "10".b(2), "12".b(10)
-  
+

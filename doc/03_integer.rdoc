@@ -1,4 +1,4 @@
-== Overview of Radix Integer
+= Radix Integer
 
 Radix provides an Integer class for working with integers in various bases.
 

@@ -1,4 +1,4 @@
-== Overview of Radix Float
+= Radix Float
 
 Radix provides a Float class for working with floating point numbers in
 any base.
