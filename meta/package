@@ -1,6 +1,6 @@
 name    : radix
-version : 1.1.0
-date    : 2010-09-03
+version : 2.0.0
+date    : 2010-10-31
 
 requires:
   - syckle (build)

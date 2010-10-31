@@ -1,5 +1,19 @@
 = Release History
 
+== 2.0.0 / 2010-10-31
+
+Radix::Number has been deprecate in favor of three separate classes,
+Radix::Integer, Radix::Float and Radix::Rational. In addition
+implementation of these classes has been reworked.
+
+Changes:
+
+* Deprecate Radix::Number
+* Add Radix::Integer
+* Add Radix::Float
+* Add Radix::Rational
+
+
 == 1.1.0 / 2010-09-03
 
 Radix now provides an actual Numeric subclass, Radix::Number, that stores
