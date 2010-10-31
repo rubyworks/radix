@@ -64,6 +64,10 @@ module Radix
       from_radix = standard_radix(from_radix) if Integer === from_radix
       digits = number.to_s.split(//)
       digits = digits.map{ |digit| from_radix.values[digit] }
+
+      # THINK: Is best way to check for base out of bounds?
+      raise TypeError if digits.any?{ |digit| digit.nil? }
+
       digits = convert_base(digits, from_radix.base, base)
       digits = digits.map{ |digit| chars[digit] }
       digits.join
@@ -98,6 +102,7 @@ module Radix
         bignum, digit = bignum.divmod(to_base)
         converted.push(digit)
       end
+      converted << 0 if converted.empty?  # THINK: correct?
       converted.reverse
     end
 
