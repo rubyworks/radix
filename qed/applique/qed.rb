@@ -1,0 +1,1 @@
+require 'qed/extensions/check'

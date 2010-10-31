@@ -1,4 +1,4 @@
-= Overview of Radix::::Base
+= Overview of Radix::Base
 
 First require the library.
 
@@ -68,4 +68,5 @@ latin characters to represent them.
 
   Radix::Base.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
   Radix::Base.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
+  Radix::Base.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]
 
