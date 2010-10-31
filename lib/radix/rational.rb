@@ -1,27 +1,64 @@
+require 'rational'
+
 module Radix
 
   #
   class Rational
 
-    #
-    attr :numerator
+    # Alternative to #new.
+    def self.[](n,d=nil,b=10)
+      new(n,d,b)
+    end
 
     #
-    attr :denominator
+    #   Rational.new(<Intger>, <Integer>, <Integer>)
+    #   Rational.new(<Rational>, <Integer>)
+    #
+    def initialize(numerator, denominator=nil, base=10)
+      case numerator
+      when ::Rational, Rational
+        ratn = numerator
+        base = denominator
+        @value = ::Rational.new!(ratn.numerator, ratn.denominator)
+      else
+        @value = ::Rational.new!(numerator, denominator)
+      end
+      @base = base
+    end
 
     #
-    attr :base
+    def value
+      @value
+    end
 
     #
-    def initialize(numerator, denominator, base=10)
-      @numerator   = Integer.new(numerator, base)
-      @denominator = Integer.new(denominator, base)
-      @base        = base
+    def base
+      @base
+    end
+
+    #
+    def numerator
+      @value.numerator
+    end
+
+    #
+    def denominator
+      @value.denominator
+    end
+
+    #
+    def negative?
+      value < 0
     end
 
     #
     def convert(base)
       self.class.new(numerator, denominator, base)
+    end
+
+    #
+    def to_r
+      value
     end
 
     #
@@ -62,36 +99,55 @@ module Radix
 
     #
     def reduce
-      n = numerator.to_i
-      d = denominator.to_i
-      m = n % d
-      if m == 0
-        @numerator   = Radix::Integer.new((n / d), base)
-        @denominator = Radix::Integer.new(1, base)
-      end
-      self
+      self.class.new(Rational(numerator, denominator), base)
+    end
+
+    #
+    def digits
+      n = base_conversion(numerator, base)
+      d = base_conversion(denominator, base)
+      i = n + [':'] + d
+      i.unshift('-') if negative? 
+      i
     end
 
     #
     def inspect
-      numerator.inspect + ' : ' + denominator.inspect
+      "#{digits.join(' ')} (#{base})"
+    end
+
+    #
+    def to_s
+      "#{digits.join(' ')} (#{base})"
+    end
+
+    #
+    def coerce(value)
+      [Radix::Rational.new(value), self]  
     end
 
     private
 
     #
     def operation(op, other)
-      a = self.to_f
-      b = other.to_f
+      x = value.__send__(op, other.to_r)
+      self.class.new(x, base)
+    end
 
-      x = a.__send__(op, b)
+    #
+    def base_conversion(value, base)
+      #if value < 0
+      #  @negative, value = true, value.abs
+      #end
+      i = value.abs
 
-      n, f = x.to_s.split('.')
+      a = []
+      while i > 0
+        i, r = i.divmod(base)
+        a << r
+      end
 
-      d = (10 * f.size).to_i
-      n = (n.to_i * d) + f.to_i
-
-      self.class.new(n, d, base)
+      a.reverse
     end
 
   end
@@ -100,12 +156,22 @@ end
 
 
 class Array
-
+  # Convenience method for creating a Radix::Rational.
+  # TODO: Keep #br? Or find another way?
   def br(base=nil)
     args = dup
     args << base if base
     Radix::Rational.new(*args)
   end
-
 end
 
+
+class Float
+  #
+  def to_r
+    n, f = to_s.split('.')
+    d = (10 * f.size).to_i
+    n = (n.to_i * d) + f.to_i
+    Rational(n, d) 
+  end
+end

@@ -83,11 +83,8 @@ module Radix
     #
     def digits
       i = base_conversion(value, base)
-      if negative?
-        ['-'] + i
-      else
-        i
-      end
+      i.unshift('-') if negative?
+      i
     end
 
     # Returns true if the number is negative.
