@@ -1,7 +1,7 @@
 = Radix
 
-* http://rubyworks.github.com/radix
-* http://github.com/rubyworks/radix
+* home: http://rubyworks.github.com/radix
+* code: http://github.com/rubyworks/radix
 
 
 == DESCRIPTION
@@ -16,9 +16,9 @@ base 62.
 == FEATURES/ISSUES
 
 * Convert to and from any base.
-* User-definable character set upto base 62.
-* Defaults to standard base 62.
-* Can be used to encode strings.
+* Define custom character sets.
+* Can be used to encode/decode strings.
+* Very intuitive API.
 
 
 == RELEASE NOTES
@@ -37,44 +37,44 @@ But Ruby reaches it's limit at base 36.
 
   255.to_s(37)   #=> Error
 
-Radix provides the means of converting to and from any base. For example,
-a number in base 256, represented by the array [100, 10] (ie. 100 * 256 + 10 * 1),
-can be converted to base 10 as follows:
+Radix provides the means of converting to and from any base.
 
-  Radix.convert_base([100, 10], 256, 10)
-  #=> [2,5,6,1,0]
+For example, a number in base 256 can be represented by the array [100, 10]
+(ie. 100**256 + 10**1) and can be convert to base 10.
 
-And it can handle any string notation up to base 62.
+  [100,10].b(256).to_a(10)  #=> [2,5,6,1,0]
 
-  Radix.convert("10", 62, 10)  #=> "62"
+Or, to get a string representation for any base upto 62.
 
-The string notation need not be in ASCII order --odd notations
-can be used.
+  [100,10].b(256).to_s(10)  #=> "25610"
 
-  b10 = Radix.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
-  b10.convert("FF", 16) #=> "EYY"
+A string representation of anumber can be converted too, again,
+upto base 62.
+
+  "10".b(62).to_s(10)  #=> "62"
+
+To use a custom character set, use an array of characters as the base
+rather than an integer. For example we can convert a base 10 number
+to another base 10 number but useing a different encoding.
+
+  base = [:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U]
+
+  "10".b(10).to_a(base)  #=> [:W, :Q]
 
 
 == HOW TO INSTALL
 
 To install with RubyGems simply open a console and type:
 
-  gem install radix
+  $ gem install radix
 
-Site installation requires Setup.rb (gem install setup),
-then download the tarball package and type:
-
-  tar -xvzf radix-1.0.0.tgz
-  cd radix-1.0.0
-  sudo setup.rb all
-
-Windows users use 'ruby setup.rb all'.
+Radix follows [Ruby Setup]{http://rubyworks.github.com/setup} package standard.
 
 
-== LINCENSE/COPYRIGHT
+== LICENSE/COPYRIGHT
 
 Copyright (c) 2009 Thomas Sawyer
 
-This program is ditributed unser the terms of the LGPLv3 license.
+This program is ditributed unser the terms of the Apache 2.0 license.
 
 See LICENSE file for details.

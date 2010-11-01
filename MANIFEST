@@ -1,17 +1,30 @@
-#!mast -x Syckfile lib meta qed [A-Z]*
+#!mast -x Syckfile doc lib meta test [A-Z]*
+doc/01_synopsis.rdoc
+doc/02_integer.rdoc
+doc/03_float.rdoc
+doc/04_rational.rdoc
+doc/05_base.rdoc
+doc/applique/ae.rb
+doc/applique/qed.rb
 lib/radix/base.rb
+lib/radix/float.rb
+lib/radix/integer.rb
 lib/radix/meta/data.rb
 lib/radix/meta/package
 lib/radix/meta/profile
-lib/radix/number.rb
+lib/radix/numeric.rb
 lib/radix/operator.rb
+lib/radix/rational.rb
 lib/radix.rb
 meta/data.rb
 meta/package
 meta/profile
-qed/applique/ae.rb
-qed/radix_base.rdoc
-qed/radix_operator.rdoc
+test/02_integer.rdoc
+test/03_float.rdoc
+test/04_rational.rdoc
+test/05_base.rdoc
+test/applique/ae.rb
+test/applique/qed.rb
+HISTORY.rdoc
 LICENSE
 README.rdoc
-HISTORY
