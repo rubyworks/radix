@@ -9,3 +9,19 @@ Rational class.
   b = ["100","10"].br(2)
   b.assert = [2,1].br(10)
 
+When convert to Array or String Radix::Rational uses `/` to separate
+the numerator from the denominator.
+
+  b.to_a  #=> [1,0,0,'/',1,0]
+  b.to_s  #=> "100/10"
+
+To use a custom character set, use an array of characters as the base
+rather than an integer. For example we can convert a base 10 number
+to another base 10 number but useing a different encoding.
+
+  base = %w[Q W E R T Y U I O U]
+
+  ["10","1"].br(10).to_a(base)  #=> ["W", "Q", '/', 'W']
+
+  ["10","1"].br(10).to_s(base)  #=> "WQ/W"
+
