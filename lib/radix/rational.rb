@@ -93,6 +93,33 @@ module Radix
     end
 
     #
+    def to_a(base=nil)
+      if base
+        convert(base).digits_encoded
+      else
+        digits_encoded
+      end     
+    end
+
+    #
+    def to_s(base=nil, divider=nil)
+      divider = divider.to_s if divider
+      if base
+        convert(base).to_s(nil, divider)
+      else
+        if code
+          digits_encoded.join(divider)
+        else
+          if @base > 10
+            digits.join(divider || DIVIDER)
+          else
+            digits.join(divider)
+          end
+        end
+      end
+    end
+
+    #
     def ==(other)
       a, b = self.to_f, other.to_f
       a == b
@@ -107,18 +134,18 @@ module Radix
     def digits
       n = base_conversion(numerator, base)
       d = base_conversion(denominator, base)
-      i = n + [':'] + d
+      i = n + ['/'] + d
       i.unshift('-') if negative? 
       i
     end
 
     #
-    def inspect
-      "#{digits.join(' ')} (#{base})"
+    def digits_encoded
+      base_encode(digits)
     end
 
     #
-    def to_s
+    def inspect
       "#{digits.join(' ')} (#{base})"
     end
 

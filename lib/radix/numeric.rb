@@ -119,15 +119,16 @@ module Radix
       v
     end
 
-    # Map array of values of a different base to specified encoding.
+    # Map array of values to base encoding. If no encoding is defined
+    # this simply returns the +digits+ unchanged.
     def base_encode(digits)
       return digits unless @code
       digits.map do |i|
         case i
-        when '-', DOT
+        when '-', DOT, '/' #, ':'
           i
         else
-          @code[i]
+          code[i]
         end
       end
     end
