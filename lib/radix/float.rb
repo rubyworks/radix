@@ -63,13 +63,6 @@ module Radix
       end
     end
 
-    ##
-    ##def to_s
-    ##  "#{digits.join(' ')} (#{base})"
-    ##  #i, f = base_conversion(value, base)
-    ##  #(negative? ? '-' : '') + i.join(' ') + '.' + f.join(' ') + "(#{base})"
-    ##end
-
     #
     def to_s(base=nil, divider=nil)
       divider = divider.to_s if divider

@@ -48,45 +48,7 @@ module Radix
       super(value, base)
     end
 
-=begin
-      if value.first == '-'
-        neg = true
-        value.shift
-      else
-        neg = false
-      end
-      #i, f = split_array(value)
-      e = value.size - 1
-      v = 0
-      value.each do |n|
-        v += n.to_i * base**e
-        e -= 1
-      end
-      @value = neg ? -v : v
-    end
-=end
-
-=begin
-    # If a float style string is passed in for +value+, e.g. "9.5", the
-    # decimal will simply be truncated. So "9.x" would become "9".
-    def initialize_string(value, base)
-      #if value.start_with?('-')
-      #  @negative, value = true, value[1..-1]
-      #end
-      digits = []
-      value.split(//).each do |d|
-        case d
-        when DOT
-          break
-        when '-'
-          digits << d
-        else
-          digits << Radix.convert(d, base, 10).to_i
-        end
-      end
-      initialize_array(digits, base)
-    end
-=end
+    ## digits << #Radix.convert(d, base, 10).to_i
 
     public
 
