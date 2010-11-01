@@ -3,7 +3,7 @@ title  : Radix
 suite  : rubyworks
 summary: Convert to and from any base.
 contact: trans <transfire@gmail.com>
-license: LGPL
+license: Apache 2.0
 authors: Thomas Sawyer
 created: 2009-07-01
 
@@ -11,10 +11,10 @@ description:
   Convert to and from any base.
 
 resources:
-  hompage    : http://rubyworks.github.com/radix
-  development: http://github.com/rubyworks/radix
-  mailinglist: http://groups.google.com/group/rubyworks-mailinglist
-  repository : git://github.com/rubyworks/radix.git
+  home: http://rubyworks.github.com/radix
+  code: http://github.com/rubyworks/radix
+  mail: http://groups.google.com/group/rubyworks-mailinglist
+  repo: git://github.com/rubyworks/radix.git
 
 copyright: 
   Copyright (c) 2009 Thomas Sawyer
