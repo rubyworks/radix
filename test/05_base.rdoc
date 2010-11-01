@@ -56,10 +56,10 @@ standard notations upto 62 without creating an instance of Radix::Base.
 Let's try that again with the maximum base supported.
 
   Radix::Base.convert(     "62", 10, 62).should == "10"
-  Radix::Base.convert("8814542", 10, 62).should == "AZ42"
+  Radix::Base.convert("8814542", 10, 62).should == "az42"
 
   Radix::Base.convert(     "10", 62, 10).should == "62"
-  Radix::Base.convert(   "AZ42", 62, 10).should == "8814542"
+  Radix::Base.convert(   "az42", 62, 10).should == "8814542"
 
 Finally, we will demonstrate how to convert bases larger than 62.
 These can only be represented as arrays since there are not enough

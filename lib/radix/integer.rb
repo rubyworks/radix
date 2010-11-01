@@ -5,42 +5,50 @@ module Radix
   #
   class Integer < Numeric
 
-    DOT = '.'
-
-    #
+    # Stores the numerc value as normal number.
     attr :value
 
     # Base of the number.
     attr :base
 
-    ; ; ; private ; ; ;
+    # Base encoding table.
+    attr :code
+
+    private
 
     #
     def initialize(value, base=10)
-      case value
-      when Integer, Float # Radix
-        initialize_numeric(value.to_i, base)
-      when ::Array
-        initialize_array(value, base)
-      when ::String
-        initialize_string(value, base)
-      when ::Numeric
-        initialize_numeric(value, base)
-      end
+      @value = parse_value(value, base)
+      @base, @code = parse_base(base)
     end
 
     #
-    def initialize_numeric(value, base)
-      @value = value
-      @base  = base
+    def parse_value(value, base)
+      case value
+      when Integer, Float # Radix
+        parse_numeric(value.to_i, base)
+      when ::Array
+        parse_array(value, base)
+      when ::String
+        parse_string(value, base)
+      when ::Numeric
+        parse_numeric(value, base)
+      end
     end
 
-    # Take an Array in the form of [..., d2, d1, d0]
-    # and convert it to base ten, and store in @value.
+    # Take an Array in the form of [..., d2, d1, d0] and convert it to
+    # base ten, and store in @value.
+    #
+    # If a float style array is passed in for +value+, e.g. [9, '.', 5],
+    # the fractional part will simply be truncated.
     def initialize_array(value, base)
       if i = value.index(DOT)
         value = [0...i]
       end
+      super(value, base)
+    end
+
+=begin
       if value.first == '-'
         neg = true
         value.shift
@@ -55,9 +63,10 @@ module Radix
         e -= 1
       end
       @value = neg ? -v : v
-      @base  = base
     end
+=end
 
+=begin
     # If a float style string is passed in for +value+, e.g. "9.5", the
     # decimal will simply be truncated. So "9.x" would become "9".
     def initialize_string(value, base)
@@ -77,8 +86,54 @@ module Radix
       end
       initialize_array(digits, base)
     end
+=end
 
-    ; ; ; public ; ; ;
+    public
+
+    #
+    def to_i
+      value.to_i #(sign + convert(10).digits.join('')).to_i
+    end
+
+    #
+    alias_method :to_int, :to_i
+
+    #
+    def to_f
+      value.to_f #(sign + convert(10).digits.join('')).to_f
+    end
+
+    #
+    def to_a(base=nil)
+      if base
+        convert(base).digits_encoded
+      else
+        digits_encoded
+      end
+    end
+
+    #
+    def to_s(base=nil, divider=nil)
+      divider = divider.to_s if divider
+      if base
+        convert(base).to_s(nil, divider)
+      else
+        if code
+          digits_encoded.join(divider)
+        else
+          if @base > 10
+            digits.join(divider || DIVIDER)
+          else
+            digits.join(divider)
+          end
+        end
+      end
+    end
+
+    #
+    def inspect
+      "#{digits.join(' ')} (#{base})"
+    end
 
     #
     def digits
@@ -87,14 +142,19 @@ module Radix
       i
     end
 
+    #
+    def digits_encoded
+      base_encode(digits)
+    end
+
     # Returns true if the number is negative.
     def negative?
       value < 0
     end
 
     #
-    def convert(new_base)
-      self.class.new(value, new_base)
+    def convert(base)
+      self.class.new(value, base)
       #new_digits = Radix::Base.convert_base(digits, base, new_base)
       #self.class.new(new_digits, new_base)
     end
@@ -166,41 +226,18 @@ module Radix
     end
 
     #
-    def to_i
-      value.to_i #(sign + convert(10).digits.join('')).to_i
-    end
-
-    #
-    def to_f
-      value.to_f #(sign + convert(10).digits.join('')).to_f
-    end
-
-    #
-    alias_method :to_int, :to_i
-
-    #
-    def inspect
-      "#{digits.join(' ')} (#{base})"
-    end
-
-    #
-    def to_s
-      "#{digits.join(' ')} (#{base})"
-    end
-
-    #
     def coerce(value)
       [Radix::Integer.new(value), self]  
     end
 
-    ; ; ; private ; ; ;
+    private
 
     # Perform arthmetic operation.
     def operation(op, other)
       a = self.to_i
       b = other.to_i
       x = a.__send__(op, b)
-      Radix::Integer.new(x, base)
+      self.class.new(x, base)
     end
 
     #

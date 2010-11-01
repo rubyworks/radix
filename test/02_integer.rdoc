@@ -139,7 +139,8 @@ Radix::Integer supports all the usual mathematical operators.
 A more complex example.
 
   x = "AZ42".b(62) + "54".b(10)
-  x.assert == "8814596".b(10)
+  x.assert == "2518124".b(10)
+  x.assert == 2518124
 
 Adding negative integers will, of course, be akin to subtraction.
 
@@ -169,7 +170,8 @@ Adding negative integers will, of course, be akin to subtraction.
 A more complex example.
 
   x = "AZ42".b(62) - "54".b(10)
-  x.assert == "8814488".b(10)
+  x.assert == "2518016".b(10)
+  x.assert == 2518016
 
 === Multiplication
 
@@ -185,7 +187,8 @@ A more complex example.
 A more complex example.
 
   x = "Z42".b(62) * "4".b(10)
-  x.assert == "938936".b(10)
+  x.assert == "539160".b(10)
+  x.assert == 539160
 
 === Division
 
@@ -201,7 +204,8 @@ A more complex example.
 A more complex example.
 
   x = "AZ42".b(62) / "54".b(10)
-  x.assert == "163232".b(10)
+  x.assert == "46630".b(10)
+  x.assert == 46630
 
 === Power
 

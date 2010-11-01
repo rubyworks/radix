@@ -6,7 +6,7 @@ Actually Radix's implementation of Float is a <i>fixed point</i>, not a
 
   require 'radix'
 
-  D = Radix::Float::DOT
+  D = Radix::DOT
 
 == Initialization
 
@@ -196,7 +196,8 @@ Radix::Float supports all the usual mathematical operators.
 A more complex example.
 
   x = "AZ42.0".b(62) + "54.0".b(10)
-  x.assert == "8814596.0".b(10)
+  x.assert == "2518124.0".b(10)
+  x.assert == 2518124.0
 
 Adding negative integers will, of course, be akin to subtraction.
 
@@ -226,7 +227,8 @@ Adding negative integers will, of course, be akin to subtraction.
 A more complex example.
 
   x = "AZ42.0".b(62) - "54".b(10)
-  x.assert == "8814488".b(10)
+  x.assert == "2518016.0".b(10)
+  x.assert == 2518016.0
 
 === Multiplication
 
@@ -242,7 +244,8 @@ A more complex example.
 A more complex example.
 
   x = "Z42.0".b(62) * "4.0".b(10)
-  x.assert == "938936.0".b(10)
+  x.assert == "539160.0".b(10)
+  x.assert == 539160.0
 
 === Division
 
@@ -257,8 +260,9 @@ A more complex example.
 
 A more complex example.
 
-  x = "AZ42.0".b(62) / "54.0".b(10)
-  x.assert == "163232.0".b(10)
+  x = "AZ40.0".b(62) / "62.0".b(10)
+  x.assert == "40614.0".b(10)
+  x.assert == 40614.0
 
 === Power
 

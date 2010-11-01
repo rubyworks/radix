@@ -1,17 +1,30 @@
 require 'rational'
+require 'radix/numeric'
 
 module Radix
 
   #
-  class Rational
+  class Rational < Numeric
 
     # Alternative to #new.
     def self.[](n,d=nil,b=10)
       new(n,d,b)
     end
 
+    # Stores the Rational value.
+    attr :value
+
+    # Base of the number.
+    attr :base
+
+    # Base encoding table.
+    attr :code
+
+    private
+
+    # Create a new Radix::Rational instance.
     #
-    #   Rational.new(<Intger>, <Integer>, <Integer>)
+    #   Rational.new(<Integer>, <Integer>, <Integer>)
     #   Rational.new(<Rational>, <Integer>)
     #
     def initialize(numerator, denominator=nil, base=10)
@@ -21,20 +34,28 @@ module Radix
         base = denominator
         @value = ::Rational.new!(ratn.numerator, ratn.denominator)
       else
-        @value = ::Rational.new!(numerator, denominator)
+        n = parse_value(numerator, base)
+        d = parse_value(denominator, base)
+        @value = ::Rational.new!(n, d)
       end
-      @base = base
+      @base, @code = parse_base(base)
     end
 
     #
-    def value
-      @value
+    def parse_value(value, base)
+      case value
+      when Float, Integer # Radix
+        parse_numeric(value.to_i, base)
+      when ::Array
+        parse_array(value, base)
+      when ::String
+        parse_string(value, base)
+      when ::Numeric
+        parse_numeric(value.to_i, base)
+      end
     end
 
-    #
-    def base
-      @base
-    end
+    public
 
     #
     def numerator
@@ -69,26 +90,6 @@ module Radix
     #
     def to_i
       to_f.to_i
-    end
-
-    #
-    def +(other)
-      operation(:+, other)
-    end
-
-    #
-    def -(other)
-      operation(:-, other)
-    end
-
-    #
-    def *(other)
-      operation(:*, other)
-    end
-
-    #
-    def /(other)
-      operation(:/, other)
     end
 
     #
@@ -154,8 +155,7 @@ module Radix
 
 end
 
-
-class Array
+class ::Array
   # Convenience method for creating a Radix::Rational.
   # TODO: Keep #br? Or find another way?
   def br(base=nil)
@@ -165,8 +165,7 @@ class Array
   end
 end
 
-
-class Float
+class ::Float
   #
   def to_r
     n, f = to_s.split('.')

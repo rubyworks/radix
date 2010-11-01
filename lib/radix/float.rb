@@ -8,76 +8,90 @@ module Radix
   # the library should be a good bit faster.
   class Float < Numeric
 
-    # Redix separator used in string and array representations.
-    DOT = '.'
-
     # Internal floating point value.
     attr :value
 
     # Base of the number.
     attr :base
 
+    # Base encoding table.
+    attr :code
+
     private
 
     #
     def initialize(value, base=10)
+      @value = parse_value(value, base)
+      @base, @code = parse_base(base)
+    end
+
+    #
+    def parse_value(value, base)
       case value
       when Float, Integer # Radix
-        initialize_numeric(value.to_f, base)
+        parse_numeric(value.to_f, base)
       when ::Array
-        initialize_array(value, base)
+        parse_array(value, base)
       when ::String
-        initialize_string(value, base)
+        parse_string(value, base)
       when ::Numeric
-        initialize_numeric(value, base)
+        parse_numeric(value.to_f, base)
       end
-    end
-
-    #
-    def initialize_numeric(value, base)
-      @value = value
-      @base  = base
-    end
-
-    # Take an Array in the form of [d1, d2, ..., DOT, d-1, d-2, ...]
-    # and convert it to base ten, and store in @value.
-    def initialize_array(value, base)
-      if value.first == '-'
-        neg = true
-        value.shift
-      else
-        neg = false
-      end
-      ## raise an error is any digit is not less than base
-      #raise ArgumentError if digits.any?{ |e| base < e }
-      i, f = split_array(value)
-      e = i.size - 1
-      v = 0
-      (i + f).each do |n|
-        v += n * base**e
-        e -= 1
-      end
-      @value = neg ? -v : v
-      @base  = base
-    end
-
-    #
-    def initialize_string(value, base)
-      #if value.start_with?('-')
-      #  @negative, value = true, value[1..-1]
-      #end
-      digits = value.split(//).map do |d|
-        case d
-        when '-', '.', DOT
-          d
-        else
-          Radix.convert(d, base, 10).to_i
-        end
-      end
-      initialize_array(digits, base)
     end
 
     public
+
+    #
+    def to_i
+      to_f.to_i
+    end
+
+    #
+    alias_method :to_int, :to_i
+
+    #
+    def to_f
+      value.to_f
+    end
+
+    #
+    def to_a(base=nil)
+      if base
+        convert(base).digits_encoded
+      else
+        digits_encoded
+      end
+    end
+
+    ##
+    ##def to_s
+    ##  "#{digits.join(' ')} (#{base})"
+    ##  #i, f = base_conversion(value, base)
+    ##  #(negative? ? '-' : '') + i.join(' ') + '.' + f.join(' ') + "(#{base})"
+    ##end
+
+    #
+    def to_s(base=nil, divider=nil)
+      divider = divider.to_s if divider
+      if base
+        convert(base).to_s(nil, divider)
+      else
+        if code
+          digits_encoded.join(divider)
+        else
+          if @base > 10
+            digits.join(divider || DIVIDER)
+          else
+            digits.join(divider)
+          end
+        end
+      end
+    end
+
+    #
+    def inspect
+      "#{digits.join(' ')} (#{base})"
+    end
 
     #
     def digits
@@ -89,6 +103,11 @@ module Radix
       end
     end
 
+    #
+    def digits_encoded
+      base_encode(digits)
+    end
+
     # Returns true if the number negative?
     def negative?
       value < 0
@@ -97,26 +116,6 @@ module Radix
     #
     def convert(new_base)
       self.class.new(value, new_base)
-    end
-
-    # Addition
-    def +(other)
-      operation(:+, other)
-    end
-
-    # Subtraction
-    def -(other)
-      operation(:-, other)
-    end
-
-    # Multiplication
-    def *(other)
-      operation(:*, other)
-    end
-
-    # Division
-    def /(other)
-      operation(:/, other)
     end
 
     # Power
@@ -190,44 +189,11 @@ module Radix
     #end
 
     #
-    def to_i
-      to_f.to_i
-    end
-
-    #
-    alias_method :to_int, :to_i
-
-    #
-    def to_f
-      value.to_f
-      #i, f = split_array(digits)
-      #e = i.size - 1
-      #v = 0
-      #(i + f).each do |n|
-      #  v += n * base**e
-      #  e -= 1
-      #end
-      #negative ? -v : v
-    end
-
-    #
-    def inspect
-      "#{digits.join(' ')} (#{base})"
-    end
-
-    #
-    def to_s
-      "#{digits.join(' ')} (#{base})"
-      #i, f = base_conversion(value, base)
-      #(negative? ? '-' : '') + i.join(' ') + '.' + f.join(' ') + "(#{base})"
-    end
-
-    #
     def coerce(o)
       [Radix::Float.new(o), self]  
     end
 
-  private
+    private
 
     # Perform arthmetic operation.
     def operation(op, other)
@@ -238,7 +204,7 @@ module Radix
     end
 
     #
-    def base_conversion(value, base)
+    def base_conversion(value, base, prec=10)
       #if value < 0
       #  @negative, value = true, value.abs
       #end
@@ -253,7 +219,7 @@ module Radix
       end
 
       #c = [] # f-cache 
-      p = 20
+      p = prec
       b = []
       while !f.zero?
         k = (f * base)
@@ -269,7 +235,19 @@ module Radix
     end
 
     #
-    def split_array(value)
+    def decimal(digits, base)
+      i, f = split_digits(digits)
+      e = i.size - 1
+      v = 0
+      (i + f).each do |n|
+        v += n * base**e
+        e -= 1
+      end
+      v
+    end
+
+    #
+    def split_digits(value)
       if d = value.index(DOT) || value.index('.')
         i, f = value[0...d], value[d+1..-1]
       else

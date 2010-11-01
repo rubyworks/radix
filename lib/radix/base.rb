@@ -1,39 +1,39 @@
-# Radix coverts to and from any base.
-#
-# Base conversions with ASCII ordered notations are easy in Ruby.
-#
-#   255.to_s(16)   #=> "FF"
-#   "FF".to_i(16)  #=> 255
-#
-# But Ruby reaches it's limit at base 36.
-#
-#   255.to_s(37)   #=> Error
-#
-# Radix provides the means of converting to and from any base.
-#
-#   Radix::Base.convert_base([100, 10], 256, 10)
-#   #=> [2,5,6,1,0]
-#
-# And it can handle any notation upto base 62.
-#
-#   Radix::Base.convert("10", 62, 10)  #=> "62"
-#
-# And the notations need not be in ASCII order --odd notations
-# can be used.
-#
-#   b10 = Radix::Base.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
-#   b10.convert("FF", 16) #=> "EYY"
-#
 module Radix
 
+  # Radix coverts to and from any base.
+  #
+  # Base conversions with ASCII ordered notations are easy in Ruby.
+  #
+  #   255.to_s(16)   #=> "FF"
+  #   "FF".to_i(16)  #=> 255
+  #
+  # But Ruby reaches it's limit at base 36.
+  #
+  #   255.to_s(37)   #=> Error
+  #
+  # Radix provides the means of converting to and from any base.
+  #
+  #   Radix::Base.convert_base([100, 10], 256, 10)
+  #   #=> [2,5,6,1,0]
+  #
+  # And it can handle any notation upto base 62.
+  #
+  #   Radix::Base.convert("10", 62, 10)  #=> "62"
+  #
+  # And the notations need not be in ASCII order --odd notations
+  # can be used.
+  #
+  #   b10 = Radix::Base.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
+  #   b10.convert("FF", 16) #=> "EYY"
+  #
   class Base
 
     BASE10 = ["0".."9"].map { |r| r.to_a }.flatten
     BASE12 = ["0".."9", ["X", "E"]].map { |r| r.to_a }.flatten
     BASE16 = ["0".."9", "A".."F"].map { |r| r.to_a }.flatten
     BASE36 = ["0".."9", "A".."Z"].map { |r| r.to_a }.flatten
-    BASE60 = ["0".."9", "a".."z", "A".."X"].map { |r| r.to_a }.flatten
-    BASE62 = ["0".."9", "a".."z", "A".."Z"].map { |r| r.to_a }.flatten
+    BASE60 = ["0".."9", "A".."Z", "a".."x"].map { |r| r.to_a }.flatten
+    BASE62 = ["0".."9", "A".."Z", "a".."z"].map { |r| r.to_a }.flatten
 
     attr :chars
     attr :base
@@ -61,7 +61,7 @@ module Radix
 
     # Convert a representational +number+ of +from_radix+ to the radix.
     def convert(number, from_radix)
-      from_radix = standard_radix(from_radix) if Integer === from_radix
+      from_radix = standard_radix(from_radix) if ::Integer === from_radix
       digits = number.to_s.split(//)
       digits = digits.map{ |digit| from_radix.values[digit] }
 

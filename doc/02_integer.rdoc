@@ -38,7 +38,8 @@ Radix::Integer supports all the usual mathematical operators.
 A more complex example with a much higher base.
 
   r = "AZ42".b(62) + "54".b(10)
-  r.assert == "8814596".b(10)
+  r.assert == "2518124".b(10)
+  r.assert == 2518124
 
 Work with arrays for bases greater than 62.
 

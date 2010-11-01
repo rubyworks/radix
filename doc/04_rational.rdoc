@@ -4,4 +4,8 @@ Radix also provides a Rational class. Like the Integer and Float classes
 Radix::Rational delegates to an underlying instance of Ruby standard
 Rational class.
 
+  require 'radix'
+
+  b = ["100","10"].br(2)
+  b.assert = [2,1].br(10)
 
