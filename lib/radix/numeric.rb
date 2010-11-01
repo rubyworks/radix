@@ -73,14 +73,16 @@ module Radix
       #if value.start_with?('-')
       #  @negative, value = true, value[1..-1]
       #end
-      digits = value.split(//).map do |d|
-        case d
-        when '-', '.', DOT
-          d
-        else
-          Radix.convert(d, base, 10).to_i  # TODO: Do this without Base class.
-        end
-      end
+      digits = value.split(//)
+      digits = base_decode(digits)
+      #digits = value.split(//).map do |d|
+      #  case d
+      #  when '-', '.', DOT
+      #    d
+      #  else
+      #    Radix.convert(d, base, 10).to_i  # TODO: Do this without Base class.
+      #  end
+      #end
       parse_array(digits, base)
     end
 
@@ -129,6 +131,20 @@ module Radix
           i
         else
           code[i]
+        end
+      end
+    end
+
+    # Decode an encoded array.
+    def base_decode(digits)
+      #return digits unless code
+      code = self.code || BASE::B62
+      digits.map do |c|
+        case c
+        when '/', '.', '-'
+          c
+        else
+          code.index(c)
         end
       end
     end
