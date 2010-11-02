@@ -44,7 +44,7 @@ module Radix
 
     # New Radix using +chars+ representation.
     def initialize(chars=BASE::B62)
-      if Integer === chars
+      if ::Numeric === chars
         chars = BASE::B62[0...chars]
       end
       @chars  = chars.map{ |c| c.to_s }

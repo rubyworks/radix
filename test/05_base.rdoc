@@ -10,8 +10,8 @@ an instance of Base one can convert numbers to and from other bases.
 First let's try something we all know, converting decimal to hexideciaml.
 To do this we setup the radix base objects for each base.
 
-  b10 = Radix::Base.new(Radix::Base::BASE10)
-  b16 = Radix::Base.new(Radix::Base::BASE16)
+  b10 = Radix::Base.new(Radix::BASE::B10)
+  b16 = Radix::Base.new(Radix::BASE::B16)
 
 Now we can covert from one base to the other.
 
@@ -44,35 +44,35 @@ can be used as well.
   b10 = Radix::Base.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
   b10.convert("FF", 16) #=> "EYY"
 
-== Module Methods
-
-For further convenience, Radix::base provides functions to convert to and from
-standard notations upto 62 without creating an instance of Radix::Base.
-
-  Radix::Base.convert("10", 16, 10).should == "16"
-  Radix::Base.convert("A0", 16, 10).should == "160"
-  Radix::Base.convert("FF", 16, 10).should == "255"
-
-Let's try that again with the maximum base supported.
-
-  Radix::Base.convert(     "62", 10, 62).should == "10"
-  Radix::Base.convert("8814542", 10, 62).should == "az42"
-
-  Radix::Base.convert(     "10", 62, 10).should == "62"
-  Radix::Base.convert(   "az42", 62, 10).should == "8814542"
-
-Finally, we will demonstrate how to convert bases larger than 62.
-These can only be represented as arrays since there are not enough
-latin characters to represent them.
-
-  Radix::Base.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
-  Radix::Base.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
-  Radix::Base.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]
-
 == Encoding and Decoding
 
 Radix::Base instances can also be used to encode and decode strings.
 
   b16.encode("CHARLIE").should == "434841524C4945"
   b16.decode("434841524C4945").should == "CHARLIE"
+
+== Module Methods
+
+For further convenience, Radix::base provides functions to convert to and from
+standard notations upto 62 without creating an instance of Radix::Base.
+
+  Radix.convert("10", 16, 10).should == "16"
+  Radix.convert("A0", 16, 10).should == "160"
+  Radix.convert("FF", 16, 10).should == "255"
+
+Let's try that again with the maximum base supported.
+
+  Radix.convert(     "62", 10, 62).should == "10"
+  Radix.convert("8814542", 10, 62).should == "az42"
+
+  Radix.convert(     "10", 62, 10).should == "62"
+  Radix.convert(   "az42", 62, 10).should == "8814542"
+
+Finally, we will demonstrate how to convert bases larger than 62.
+These can only be represented as arrays since there are not enough
+latin characters to represent them.
+
+  Radix.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
+  Radix.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
+  Radix.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]
 
