@@ -1,100 +1,81 @@
 module Radix
 
-  # Radix coverts to and from any base.
+  # Collection of base encodings.
+  module BASE
+    B10 = ('0'..'9').to_a
+    B12 = B10 + ['X', 'E']
+    B16 = B10 + ('A'..'F').to_a
+    B36 = B10 + ('A'..'Z').to_a
+    B60 = B36 + ('a'..'x').to_a
+    B62 = B36 + ('a'..'z').to_a
+
+    # Like BASE16 but encodes with lowercase letters.
+    HEX = B10 + ('a'..'f').to_a
+  end
+
+  # Radix::Base provides the means of converting to and from any base.
   #
-  # Base conversions with ASCII ordered notations are easy in Ruby.
-  #
-  #   255.to_s(16)   #=> "FF"
-  #   "FF".to_i(16)  #=> 255
-  #
-  # But Ruby reaches it's limit at base 36.
-  #
-  #   255.to_s(37)   #=> Error
-  #
-  # Radix provides the means of converting to and from any base.
-  #
-  #   Radix::Base.convert_base([100, 10], 256, 10)
+  #   b10 = Radix::Base.new(10)
+  #   b10.convert_base([100, 10], 256)
   #   #=> [2,5,6,1,0]
   #
   # And it can handle any notation upto base 62.
   #
-  #   Radix::Base.convert("10", 62, 10)  #=> "62"
+  #   b10.convert("10", 62)  #=> "62"
   #
   # And the notations need not be in ASCII order --odd notations
   # can be used.
   #
-  #   b10 = Radix::Base.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
+  #   b10 = Radix::Base.new(%w{Q W E R T Y U I O U})
   #   b10.convert("FF", 16) #=> "EYY"
+  #
+  # NOTE: Radix::Base is the original Radix API. But with the advent of v2.0
+  # and the new Integer and Float classes, it is outmoded. For now it is here
+  # for backward compatibility. In a future version it may be deprecated, or
+  # reworked to serve as the backbone of the other classes.
   #
   class Base
 
-    BASE10 = ["0".."9"].map { |r| r.to_a }.flatten
-    BASE12 = ["0".."9", ["X", "E"]].map { |r| r.to_a }.flatten
-    BASE16 = ["0".."9", "A".."F"].map { |r| r.to_a }.flatten
-    BASE36 = ["0".."9", "A".."Z"].map { |r| r.to_a }.flatten
-    BASE60 = ["0".."9", "A".."Z", "a".."x"].map { |r| r.to_a }.flatten
-    BASE62 = ["0".."9", "A".."Z", "a".."z"].map { |r| r.to_a }.flatten
-
     attr :chars
+
     attr :base
+
     attr :values
 
     # New Radix using +chars+ representation.
-    def initialize(chars=BASE62)
+    def initialize(chars=BASE::B62)
+      if Integer === chars
+        chars = BASE::B62[0...chars]
+      end
       @chars  = chars.map{ |c| c.to_s }
       @base   = @chars.size
       @values = Hash[*(0...@base).map { |i| [ @chars[i], i ] }.flatten]
     end
 
-    # Encode a string in the radix.
-    def encode(byte_string)
-      digits = byte_string.unpack("C*")
-      digits = convert_base(digits, 256, base)
-      digits.map{ |d| @chars[d] }.join
-    end
+    # Convert an *encoded* +number+ of given +base+ to the Base's radix.
+    def convert(number, radix_base)
+      radix_base = Radix::Base.new(radix_base) unless Radix::Base === radix_base
 
-    # Decode a string that was previously encoded in the radix.
-    def decode(encoded)
-      digits = encoded.split(//).map{ |c| @values[c] }
-      convert_base(digits, base, 256).pack("C*")
-    end
+      case number
+      when ::String, ::Numeric
+        digits = number.to_s.split(//)
+      else
+        digits = number
+      end
 
-    # Convert a representational +number+ of +from_radix+ to the radix.
-    def convert(number, from_radix)
-      from_radix = standard_radix(from_radix) if ::Integer === from_radix
-      digits = number.to_s.split(//)
-      digits = digits.map{ |digit| from_radix.values[digit] }
+      # decode the digits
+      digits = digits.map{ |digit| radix_base.values[digit] }
 
       # THINK: Is best way to check for base out of bounds?
       raise TypeError if digits.any?{ |digit| digit.nil? }
 
-      digits = convert_base(digits, from_radix.base, base)
+      digits = Radix.convert_base(digits, radix_base.base, base)
       digits = digits.map{ |digit| chars[digit] }
       digits.join
     end
 
     # Convert any base to any other base, using array of +digits+.
     def convert_base(digits, from_base, to_base)
-      self.class.convert_base(digits, from_base, to_base)
-    end
-
-    private
-
-    def standard_radix(integer_base)
-      self.class.standard_radix(integer_base)
-    end
-
-    public
-
-    # Do a standard conversion upto base 62.
-    def self.convert(number, from_base, to_base)
-      r1 = standard_radix(from_base)
-      r2 = standard_radix(to_base)
-      r2.convert(number, r1)
-    end
-
-    # Convert any base to any other base, using array of +digits+.
-    def self.convert_base(digits, from_base, to_base)
       bignum = 0
       digits.each { |digit| bignum = bignum * from_base + digit }
       converted = []
@@ -106,30 +87,40 @@ module Radix
       converted.reverse
     end
 
-    # Provide a standard representation of a base upto 62.
-    def self.standard_radix(integer_base)
-      if integer_base > 36
-        new(BASE62[0..integer_base-1])
-      else
-        new(BASE36[0..integer_base-1])
-      end
+    # Encode a string in the radix.
+    def encode(byte_string)
+      digits = byte_string.unpack("C*")
+      digits = Radix.convert_base(digits, 256, base)
+      digits.map{ |d| @chars[d] }.join
+    end
+
+    # Decode a string that was previously encoded in the radix.
+    def decode(encoded)
+      digits = encoded.split(//).map{ |c| @values[c] }
+      Radix.convert_base(digits, base, 256).pack("C*")
     end
 
   end
 
+  # Convert number from it's given base to antoher base.
   # Do a standard conversion upto base 62.
   def self.convert(number, from_base, to_base)
-    Radix::Base.convert(number, from_base, to_base)
+    from_base = Radix::Base.new(from_base) unless Radix::Base === from_base
+    to_base   = Radix::Base.new(to_base)   unless Radix::Base === to_base
+    to_base.convert(number, from_base)
   end
 
   # Convert any base to any other base, using array of +digits+.
   def self.convert_base(digits, from_base, to_base)
-    Radix::Base.convert_base(digits, from_base, to_base)
-  end
-
-  # Provide a standard representation of a base upto 62.
-  def self.standard_radix(integer_base)
-    Radix::Base.standard_radix(integer_base)
+    bignum = 0
+    digits.each { |digit| bignum = bignum * from_base + digit }
+    converted = []
+    until bignum.zero?
+      bignum, digit = bignum.divmod(to_base)
+      converted.push(digit)
+    end
+    converted << 0 if converted.empty?  # THINK: correct?
+    converted.reverse
   end
 
 end

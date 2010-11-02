@@ -1,15 +1,20 @@
 = Radix Base
 
-Radix::Base is the original implementation of Radix using purely
-a module function API.
+Radix::Base encapsulates a base which can then be used to perform conversions
+to and form that base.
+
+NOTE: Radix::Base is the original Radix API. But with the advent of v2.0
+and the new Integer and Float classes, it is outmoded. For now it is here
+for backward compatibility. In a future version it may be deprecated, or
+reworked to serve as the backbone of the other classes.
 
   require 'radix/base'
 
 First let's try something we all know, hexideciaml.
 First we setup the radix for each.
 
-  b10 = Radix::Base.new(Radix::Base::BASE10)
-  b16 = Radix::Base.new(Radix::Base::BASE16)
+  b10 = Radix::Base.new(Radix::BASE::B10)
+  b16 = Radix::Base.new(Radix::BASE::B16)
 
 Now we can covert from one base to the other.
 
@@ -34,17 +39,17 @@ a Radix object.
 We can also use the module function to convert to and from standard
 notations upto 62 without creating an instance of Radix::Base.
 
-  Radix::Base.convert("10", 16, 10).should == "16"
-  Radix::Base.convert("A0", 16, 10).should == "160"
-  Radix::Base.convert("FF", 16, 10).should == "255"
+  Radix.convert("10", 16, 10).should == "16"
+  Radix.convert("A0", 16, 10).should == "160"
+  Radix.convert("FF", 16, 10).should == "255"
 
 Let's try that again with the maximum base supported.
 
-  Radix::Base.convert(     "62", 10, 62).should == "10"
-  Radix::Base.convert("8814542", 10, 62).should == "az42"
+  Radix.convert(     "62", 10, 62).should == "10"
+  Radix.convert("8814542", 10, 62).should == "az42"
 
-  Radix::Base.convert(     "10", 62, 10).should == "62"
-  Radix::Base.convert(   "az42", 62, 10).should == "8814542"
+  Radix.convert(     "10", 62, 10).should == "62"
+  Radix.convert(   "az42", 62, 10).should == "8814542"
 
 Radix can also be used to encode and decode strings.
 
@@ -67,7 +72,7 @@ Finally, we will demonstrate how to convert bases larger than 62.
 These can only be represented as arrays since there are not enough
 latin characters to represent them.
 
-  Radix::Base.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
-  Radix::Base.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
-  Radix::Base.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]
+  Radix.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
+  Radix.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
+  Radix.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]
 
