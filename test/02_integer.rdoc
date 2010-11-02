@@ -57,10 +57,10 @@ just prepend the value with a minus sign.
   ok        "-1000", 2, ['-',1,0,0,0]
   ok  %w[- 1 0 0 0], 2, ['-',1,0,0,0]
 
-If a value has a digit outside of the range of the base an TypeError
+If a value has a digit outside of the range of the base an ArgumentError
 will be raised.
 
-  expect TypeError do
+  expect ArgumentError do
     Radix::Integer.new('9', 2)
   end
 

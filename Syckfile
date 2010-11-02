@@ -19,6 +19,12 @@ box:
   types  : [gem]
   active : true
 
+test:
+  service: Custom
+  cycle: main
+  test: |
+    system 'qed -Ilib test/'
+
 ridoc:
   service: RIDoc
   include: ~
