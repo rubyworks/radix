@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: Radix::Rational</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">Radix</a>&nbsp;
+      <a href="/">Radix::Rational</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/radix/rational_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/radix/rational.rb">lib/radix/rational.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <!-- why was this class="link" ? -->
+          <li class="class"><a href="Numeric.html">Radix::Numeric</a></li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-%5B%5D">::[]</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-%3D%3D">#==</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-base_conversion">#base_conversion</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-coerce">#coerce</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-denominator">#denominator</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-digits">#digits</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-digits_encoded">#digits_encoded</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-negative%3F">#negative?</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-numerator">#numerator</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-operation">#operation</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-parse_value">#parse_value</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-reduce">#reduce</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_a">#to_a</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_f">#to_f</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_i">#to_i</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_r">#to_r</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-to_s">#to_s</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../Radix.html">Radix</a></li>
+        
+          <li class="module"><a href="../Radix/BASE.html">Radix::BASE</a></li>
+        
+          <li class="class"><a href="../Radix/Base.html">Radix::Base</a></li>
+        
+          <li class="class"><a href="../Radix/Float.html">Radix::Float</a></li>
+        
+          <li class="class"><a href="../Radix/Integer.html">Radix::Integer</a></li>
+        
+          <li class="class"><a href="../Radix/Numeric.html">Radix::Numeric</a></li>
+        
+          <li class="class"><a href="../Radix/Rational.html">Radix::Rational</a></li>
+        
+          <li class="class"><a href="../Array.html">Array</a></li>
+        
+          <li class="class"><a href="../Float.html">Float</a></li>
+        
+          <li class="class"><a href="../Integer.html">Integer</a></li>
+        
+          <li class="class"><a href="../String.html">String</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+        <h1>Rational</h1>
+      
+
+      
+    </div>
+
+    <!-- Constants -->
+    
+
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="value-attribute-method" class="method-detail">
+        <a name="value"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">value</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+Stores the <a href="Rational.html">Rational</a> value.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="base-attribute-method" class="method-detail">
+        <a name="base"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">base</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+<a href="Base.html">Base</a> of the number.
+</p>
+        
+        </div>
+      </div>
+      
+      <div id="code-attribute-method" class="method-detail">
+        <a name="code"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">code</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>
+<a href="Base.html">Base</a> encoding table.
+</p>
+        
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-c-%5B%5D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">[]</span><span
+            class="method-args">(n,d=nil,b=10)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Alternative to new.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 10</span>
+10:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">n</span>,<span class="ruby-identifier">d</span>=<span class="ruby-keyword kw">nil</span>,<span class="ruby-identifier">b</span>=<span class="ruby-value">10</span>)
+11:       <span class="ruby-identifier">new</span>(<span class="ruby-identifier">n</span>,<span class="ruby-identifier">d</span>,<span class="ruby-identifier">b</span>)
+12:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(numerator, denominator=nil, base=10)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Create a new <a href="Rational.html">Radix::Rational</a> instance.
+</p>
+<pre>
+  Rational.new(&lt;Integer&gt;, &lt;Integer&gt;, &lt;Integer&gt;)
+  Rational.new(&lt;Rational&gt;, &lt;Integer&gt;)</pre>
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 30</span>
+30:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">numerator</span>, <span class="ruby-identifier">denominator</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">base</span>=<span class="ruby-value">10</span>)
+31:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">numerator</span>
+32:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Rational</span>, <span class="ruby-constant">Rational</span>
+33:         <span class="ruby-identifier">ratn</span> = <span class="ruby-identifier">numerator</span>
+34:         <span class="ruby-identifier">base</span> = <span class="ruby-identifier">denominator</span>
+35:         <span class="ruby-ivar">@value</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rational</span>.<span class="ruby-identifier">new!</span>(<span class="ruby-identifier">ratn</span>.<span class="ruby-identifier">numerator</span>, <span class="ruby-identifier">ratn</span>.<span class="ruby-identifier">denominator</span>)
+36:       <span class="ruby-keyword kw">else</span>
+37:         <span class="ruby-identifier">n</span> = <span class="ruby-identifier">parse_value</span>(<span class="ruby-identifier">numerator</span>, <span class="ruby-identifier">base</span>)
+38:         <span class="ruby-identifier">d</span> = <span class="ruby-identifier">parse_value</span>(<span class="ruby-identifier">denominator</span>, <span class="ruby-identifier">base</span>)
+39:         <span class="ruby-ivar">@value</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rational</span>.<span class="ruby-identifier">new!</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">d</span>)
+40:       <span class="ruby-keyword kw">end</span>
+41:       <span class="ruby-ivar">@base</span>, <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">parse_base</span>(<span class="ruby-identifier">base</span>)
+42:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="--method" class="method-detail ">
+        <a name="method-i-%3D%3D"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="--source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 123</span>
+123:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+124:       <span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_f</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_f</span>
+125:       <span class="ruby-identifier">a</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">b</span>
+126:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="coerce-method" class="method-detail ">
+        <a name="method-i-coerce"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">coerce</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="coerce-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 153</span>
+153:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">coerce</span>(<span class="ruby-identifier">value</span>)
+154:       [<span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Rational</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>), <span class="ruby-keyword kw">self</span>]  
+155:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="convert-method" class="method-detail ">
+        <a name="method-i-convert"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">convert</span><span
+            class="method-args">(base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="convert-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>)
+77:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">numerator</span>, <span class="ruby-identifier">denominator</span>, <span class="ruby-identifier">base</span>)
+78:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="denominator-method" class="method-detail ">
+        <a name="method-i-denominator"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">denominator</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="denominator-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 66</span>
+66:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">denominator</span>
+67:       <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">denominator</span>
+68:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="digits-method" class="method-detail ">
+        <a name="method-i-digits"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">digits</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="digits-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 134</span>
+134:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">digits</span>
+135:       <span class="ruby-identifier">n</span> = <span class="ruby-identifier">base_conversion</span>(<span class="ruby-identifier">numerator</span>, <span class="ruby-identifier">base</span>)
+136:       <span class="ruby-identifier">d</span> = <span class="ruby-identifier">base_conversion</span>(<span class="ruby-identifier">denominator</span>, <span class="ruby-identifier">base</span>)
+137:       <span class="ruby-identifier">i</span> = <span class="ruby-identifier">n</span> <span class="ruby-operator">+</span> [<span class="ruby-value str">'/'</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">d</span>
+138:       <span class="ruby-identifier">i</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-value str">'-'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">negative?</span> 
+139:       <span class="ruby-identifier">i</span>
+140:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="digits-encoded-method" class="method-detail ">
+        <a name="method-i-digits_encoded"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">digits_encoded</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="digits-encoded-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 143</span>
+143:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">digits_encoded</span>
+144:       <span class="ruby-identifier">base_encode</span>(<span class="ruby-identifier">digits</span>)
+145:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="inspect-method" class="method-detail ">
+        <a name="method-i-inspect"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="inspect-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 148</span>
+148:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
+149:       <span class="ruby-node">&quot;#{digits.join(' ')} (#{base})&quot;</span>
+150:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="negative--method" class="method-detail ">
+        <a name="method-i-negative%3F"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">negative?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="negative--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 71</span>
+71:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">negative?</span>
+72:       <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+73:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="numerator-method" class="method-detail ">
+        <a name="method-i-numerator"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">numerator</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="numerator-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 61</span>
+61:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">numerator</span>
+62:       <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">numerator</span>
+63:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="reduce-method" class="method-detail ">
+        <a name="method-i-reduce"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">reduce</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="reduce-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 129</span>
+129:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reduce</span>
+130:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-identifier">numerator</span>, <span class="ruby-identifier">denominator</span>), <span class="ruby-identifier">base</span>)
+131:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-a-method" class="method-detail ">
+        <a name="method-i-to_a"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_a</span><span
+            class="method-args">(base=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-a-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 96</span>
+ 96:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_a</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword kw">nil</span>)
+ 97:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">base</span>
+ 98:         <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>).<span class="ruby-identifier">digits_encoded</span>
+ 99:       <span class="ruby-keyword kw">else</span>
+100:         <span class="ruby-identifier">digits_encoded</span>
+101:       <span class="ruby-keyword kw">end</span>     
+102:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-f-method" class="method-detail ">
+        <a name="method-i-to_f"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_f</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-f-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 86</span>
+86:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_f</span>
+87:       <span class="ruby-identifier">numerator</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">denominator</span>.<span class="ruby-identifier">to_f</span>
+88:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-i-method" class="method-detail ">
+        <a name="method-i-to_i"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_i</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-i-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 91</span>
+91:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_i</span>
+92:       <span class="ruby-identifier">to_f</span>.<span class="ruby-identifier">to_i</span>
+93:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-r-method" class="method-detail ">
+        <a name="method-i-to_r"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_r</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-r-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 81</span>
+81:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_r</span>
+82:       <span class="ruby-identifier">value</span>
+83:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="to-s-method" class="method-detail ">
+        <a name="method-i-to_s"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">to_s</span><span
+            class="method-args">(base=nil, divider=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="to-s-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 105</span>
+105:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">divider</span>=<span class="ruby-keyword kw">nil</span>)
+106:       <span class="ruby-identifier">divider</span> = <span class="ruby-identifier">divider</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">divider</span>
+107:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">base</span>
+108:         <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>).<span class="ruby-identifier">to_s</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">divider</span>)
+109:       <span class="ruby-keyword kw">else</span>
+110:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>
+111:           <span class="ruby-identifier">digits_encoded</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span>)
+112:         <span class="ruby-keyword kw">else</span>
+113:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@base</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+114:             <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span> <span class="ruby-operator">||</span> <span class="ruby-constant">DIVIDER</span>)
+115:           <span class="ruby-keyword kw">else</span>
+116:             <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span>)
+117:           <span class="ruby-keyword kw">end</span>
+118:         <span class="ruby-keyword kw">end</span>
+119:       <span class="ruby-keyword kw">end</span>
+120:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="private-instance-method-details" class="method-section section">
+      <h3 class="section-header">Private Instance Methods</h3>
+
+    
+      <div id="base-conversion-method" class="method-detail ">
+        <a name="method-i-base_conversion"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">base_conversion</span><span
+            class="method-args">(value, base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="base-conversion-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 166</span>
+166:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">base_conversion</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+167:       <span class="ruby-comment cmt">#if value &lt; 0</span>
+168:       <span class="ruby-comment cmt">#  @negative, value = true, value.abs</span>
+169:       <span class="ruby-comment cmt">#end</span>
+170:       <span class="ruby-identifier">i</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">abs</span>
+171: 
+172:       <span class="ruby-identifier">a</span> = []
+173:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+174:         <span class="ruby-identifier">i</span>, <span class="ruby-identifier">r</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">base</span>)
+175:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">r</span>
+176:       <span class="ruby-keyword kw">end</span>
+177: 
+178:       <span class="ruby-identifier">a</span>.<span class="ruby-identifier">reverse</span>
+179:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="operation-method" class="method-detail ">
+        <a name="method-i-operation"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">operation</span><span
+            class="method-args">(op, other)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="operation-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 160</span>
+160:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">operation</span>(<span class="ruby-identifier">op</span>, <span class="ruby-identifier">other</span>)
+161:       <span class="ruby-identifier">x</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">op</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_r</span>)
+162:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">base</span>)
+163:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="parse-value-method" class="method-detail ">
+        <a name="method-i-parse_value"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">parse_value</span><span
+            class="method-args">(value, base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="parse-value-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 45</span>
+45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_value</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+46:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">value</span>
+47:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Float</span>, <span class="ruby-constant">Integer</span> <span class="ruby-comment cmt"># Radix</span>
+48:         <span class="ruby-identifier">parse_numeric</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">base</span>)
+49:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>
+50:         <span class="ruby-identifier">parse_array</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+51:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">String</span>
+52:         <span class="ruby-identifier">parse_string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+53:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>
+54:         <span class="ruby-identifier">parse_numeric</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">base</span>)
+55:       <span class="ruby-keyword kw">end</span>
+56:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+

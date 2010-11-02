@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Class: Radix::Base</title>
+
+  
+    <link rel="SHORTCUT ICON" href="../assets/icon/class.png">
+  
+
+  <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    });
+  </script>
+</head>
+<body class="class">
+<div id="main">
+
+  <div class="head">
+    <h1>
+      
+        <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
+      
+      <a href="../index.html">Radix</a>&nbsp;
+      <a href="/">Radix::Base</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="project-metadata">
+
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li class="file"><a href="../lib/radix/base_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/radix/base.rb">lib/radix/base.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      <!-- What about Git info, or Hg info? This seems almost silly, albeit kind of cool. -->
+      <!-- TODO: generalize this for all SCMs -->
+
+      
+    </div>
+
+    <div id="class-metadata">
+
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        <ul>
+          
+          <li class="class">Object</li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Namespace Contents -->
+      
+
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+            
+            <li class="singleton">
+              <a href="#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-convert_base">#convert_base</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-decode">#decode</a>
+            </li>
+          
+            
+            <li class="method">
+              <a href="#method-i-encode">#encode</a>
+            </li>
+          
+        </ul>
+      </div>
+      
+
+      <!-- Included Modules -->
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <!-- classpage.html : classes -->
+        <ul class="link-list">
+        
+          <li class="module"><a href="../Radix.html">Radix</a></li>
+        
+          <li class="module"><a href="../Radix/BASE.html">Radix::BASE</a></li>
+        
+          <li class="class"><a href="../Radix/Base.html">Radix::Base</a></li>
+        
+          <li class="class"><a href="../Radix/Float.html">Radix::Float</a></li>
+        
+          <li class="class"><a href="../Radix/Integer.html">Radix::Integer</a></li>
+        
+          <li class="class"><a href="../Radix/Numeric.html">Radix::Numeric</a></li>
+        
+          <li class="class"><a href="../Radix/Rational.html">Radix::Rational</a></li>
+        
+          <li class="class"><a href="../Array.html">Array</a></li>
+        
+          <li class="class"><a href="../Float.html">Float</a></li>
+        
+          <li class="class"><a href="../Integer.html">Integer</a></li>
+        
+          <li class="class"><a href="../String.html">String</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      <br/><br/>
+    </div>
+  </div>
+
+  <div id="documentation">
+
+    <div id="description">
+      
+        <h1>Base</h1>
+      
+
+      <p>
+<a href="Base.html">Radix::Base</a> provides the means of converting to and
+from any base.
+</p>
+<pre>
+  b10 = Radix::Base.new(10)
+  b10.convert_base([100, 10], 256)
+  #=&gt; [2,5,6,1,0]
+</pre>
+<p>
+And it can handle any notation upto base 62.
+</p>
+<pre>
+  b10.convert(&quot;10&quot;, 62)  #=&gt; &quot;62&quot;
+</pre>
+<p>
+And the notations need not be in ASCII order &#8212;odd notations can be
+used.
+</p>
+<pre>
+  b10 = Radix::Base.new(%w{Q W E R T Y U I O U})
+  b10.convert(&quot;FF&quot;, 16) #=&gt; &quot;EYY&quot;
+</pre>
+<p>
+NOTE: <a href="Base.html">Radix::Base</a> is the original <a
+href="../Radix.html">Radix</a> API. But with the advent of v2.0 and the new
+<a href="Integer.html">Integer</a> and <a href="Float.html">Float</a>
+classes, it is outmoded. For now it is here for backward compatibility. In
+a future version it may be deprecated, or reworked to serve as the backbone
+of the other classes.
+</p>
+
+    </div>
+
+    <!-- Constants -->
+    
+
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="chars-attribute-method" class="method-detail">
+        <a name="chars"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">chars</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="base-attribute-method" class="method-detail">
+        <a name="base"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">base</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="values-attribute-method" class="method-detail">
+        <a name="values"></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">values</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">new</span><span
+            class="method-args">(chars=BASE::B62)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+New <a href="../Radix.html">Radix</a> using <tt>chars</tt> representation.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/base.rb, line 46</span>
+46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">chars</span>=<span class="ruby-constant">BASE</span><span class="ruby-operator">::</span><span class="ruby-constant">B62</span>)
+47:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Integer</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">chars</span>
+48:         <span class="ruby-identifier">chars</span> = <span class="ruby-constant">BASE</span><span class="ruby-operator">::</span><span class="ruby-constant">B62</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">chars</span>]
+49:       <span class="ruby-keyword kw">end</span>
+50:       <span class="ruby-ivar">@chars</span>  = <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span> }
+51:       <span class="ruby-ivar">@base</span>   = <span class="ruby-ivar">@chars</span>.<span class="ruby-identifier">size</span>
+52:       <span class="ruby-ivar">@values</span> = <span class="ruby-constant">Hash</span>[*(<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@base</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> [ <span class="ruby-ivar">@chars</span>[<span class="ruby-identifier">i</span>], <span class="ruby-identifier">i</span> ] }.<span class="ruby-identifier">flatten</span>]
+53:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="convert-method" class="method-detail ">
+        <a name="method-i-convert"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">convert</span><span
+            class="method-args">(number, radix_base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Convert an <b>encoded</b> <tt>number</tt> of given <tt>base</tt> to the
+Base&#8217;s radix.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="convert-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/base.rb, line 56</span>
+56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">radix_base</span>)
+57:       <span class="ruby-identifier">radix_base</span> = <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">radix_base</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">radix_base</span>
+58: 
+59:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">number</span>
+60:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">String</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>
+61:         <span class="ruby-identifier">digits</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>)
+62:       <span class="ruby-keyword kw">else</span>
+63:         <span class="ruby-identifier">digits</span> = <span class="ruby-identifier">number</span>
+64:       <span class="ruby-keyword kw">end</span>
+65: 
+66:       <span class="ruby-comment cmt"># decode the digits</span>
+67:       <span class="ruby-identifier">digits</span> = <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">digit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">radix_base</span>.<span class="ruby-identifier">values</span>[<span class="ruby-identifier">digit</span>] }
+68: 
+69:       <span class="ruby-comment cmt"># THINK: Is best way to check for base out of bounds?</span>
+70:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">any?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">digit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">digit</span>.<span class="ruby-identifier">nil?</span> }
+71: 
+72:       <span class="ruby-identifier">digits</span> = <span class="ruby-constant">Radix</span>.<span class="ruby-identifier">convert_base</span>(<span class="ruby-identifier">digits</span>, <span class="ruby-identifier">radix_base</span>.<span class="ruby-identifier">base</span>, <span class="ruby-identifier">base</span>)
+73:       <span class="ruby-identifier">digits</span> = <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">digit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">chars</span>[<span class="ruby-identifier">digit</span>] }
+74:       <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>
+75:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="convert-base-method" class="method-detail ">
+        <a name="method-i-convert_base"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">convert_base</span><span
+            class="method-args">(digits, from_base, to_base)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Convert any base to any other base, using array of <tt>digits</tt>.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="convert-base-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/base.rb, line 78</span>
+78:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">convert_base</span>(<span class="ruby-identifier">digits</span>, <span class="ruby-identifier">from_base</span>, <span class="ruby-identifier">to_base</span>)
+79:       <span class="ruby-identifier">bignum</span> = <span class="ruby-value">0</span>
+80:       <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">digit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bignum</span> = <span class="ruby-identifier">bignum</span> * <span class="ruby-identifier">from_base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">digit</span> }
+81:       <span class="ruby-identifier">converted</span> = []
+82:       <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">bignum</span>.<span class="ruby-identifier">zero?</span>
+83:         <span class="ruby-identifier">bignum</span>, <span class="ruby-identifier">digit</span> = <span class="ruby-identifier">bignum</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">to_base</span>)
+84:         <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">digit</span>)
+85:       <span class="ruby-keyword kw">end</span>
+86:       <span class="ruby-identifier">converted</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">empty?</span>  <span class="ruby-comment cmt"># THINK: correct?</span>
+87:       <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">reverse</span>
+88:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="decode-method" class="method-detail ">
+        <a name="method-i-decode"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">decode</span><span
+            class="method-args">(encoded)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Decode a string that was previously encoded in the radix.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="decode-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/radix/base.rb, line 98</span>
+ 98:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">decode</span>(<span class="ruby-identifier">encoded</span>)
+ 99:       <span class="ruby-identifier">digits</span> = <span class="ruby-identifier">encoded</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@values</span>[<span class="ruby-identifier">c</span>] }
+100:       <span class="ruby-constant">Radix</span>.<span class="ruby-identifier">convert_base</span>(<span class="ruby-identifier">digits</span>, <span class="ruby-identifier">base</span>, <span class="ruby-value">256</span>).<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;C*&quot;</span>)
+101:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="encode-method" class="method-detail ">
+        <a name="method-i-encode"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">encode</span><span
+            class="method-args">(byte_string)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          <p>
+Encode a string in the radix.
+</p>
+          
+
+          
+          <div class="method-source-code"
+            id="encode-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/radix/base.rb, line 91</span>
+91:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encode</span>(<span class="ruby-identifier">byte_string</span>)
+92:       <span class="ruby-identifier">digits</span> = <span class="ruby-identifier">byte_string</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;C*&quot;</span>)
+93:       <span class="ruby-identifier">digits</span> = <span class="ruby-constant">Radix</span>.<span class="ruby-identifier">convert_base</span>(<span class="ruby-identifier">digits</span>, <span class="ruby-value">256</span>, <span class="ruby-identifier">base</span>)
+94:       <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@chars</span>[<span class="ruby-identifier">d</span>] }.<span class="ruby-identifier">join</span>
+95:     <span class="ruby-keyword kw">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+    </div>
+  
+
+  </div>
+
+
+  <div id="rdoc-debugging-section-dump" class="debugging-section">
+  
+    <p>Disabled; run with --debug to generate this.</p>
+  
+  </div>
+
+</main>
+</body>
+</html>
+

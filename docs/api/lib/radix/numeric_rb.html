@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <title>File: numeric.rb [Radix]</title>
+
+  <link rel="SHORTCUT ICON" href="../../assets/icon/file.png">
+
+  <link type="text/css" rel="stylesheet" href="../../assets/rdoc.css" media="screen" />
+  <link type="text/css" rel="stylesheet" href="../../assets/highlight/styles/github.css" title="GitHub" />
+
+  <script type="text/javascript" charset="utf-8" src="../../assets/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/highlight/highlight.pack.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/quicksearch.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../../assets/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function() {
+      $('#documentation pre').wrapInner('<code></code>');
+      hljs.tabReplace = '    ';
+      hljs.initHighlightingOnLoad('ruby');
+
+	    hookSourceViews();
+	    hookDebuggingToggle();
+	    hookQuickSearch();
+	    highlightLocationTarget();
+
+	    $('ul.link-list a').bind( "click", highlightClickTarget );
+    });
+  </script>
+</head>
+
+<body class="file"> <!-- .file-popup is no more -->
+<div id="main">
+
+  <div class="head">
+    <h1>
+      <img src="../../assets/icon/file.png" align="absmiddle">&nbsp;
+      <a href="../../index.html">Radix</a>&nbsp;
+      <a href="/">numeric.rb</a>
+    </h1>
+  </div>
+
+  <div id="metadata">
+    <div id="file-stats-section" class="section">
+      <h3 class="section-header">File Stats</h3>
+      <dl>
+        <dt class="modified-date">Last Modified</dt>
+        <dd class="modified-date">Tue Nov 02 10:21:28 -0400 2010</dd>
+
+        
+        <dt class="requires">Requires</dt>
+        <dd class="requires">
+          <ul>
+          
+            <li>radix/base</li>
+          
+          </ul>
+        </dd>
+        
+
+        
+      </dl>
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Information</h3>
+        <ul>
+        
+          <li class="file"><a href="../../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../../LICENSE.html">LICENSE</a></li>
+        
+          <li class="file"><a href="../../README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class Index
+          <span class="search-toggle"><img src="../../assets/icon/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li class="module"><a href="../../Radix.html">Radix</a></li>
+        
+          <li class="module"><a href="../../Radix/BASE.html">Radix::BASE</a></li>
+        
+          <li class="class"><a href="../../Radix/Base.html">Radix::Base</a></li>
+        
+          <li class="class"><a href="../../Radix/Float.html">Radix::Float</a></li>
+        
+          <li class="class"><a href="../../Radix/Integer.html">Radix::Integer</a></li>
+        
+          <li class="class"><a href="../../Radix/Numeric.html">Radix::Numeric</a></li>
+        
+          <li class="class"><a href="../../Radix/Rational.html">Radix::Rational</a></li>
+        
+          <li class="class"><a href="../../Array.html">Array</a></li>
+        
+          <li class="class"><a href="../../Float.html">Float</a></li>
+        
+          <li class="class"><a href="../../Integer.html">Integer</a></li>
+        
+          <li class="class"><a href="../../String.html">String</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      <!-- METHODS -->
+      <div id="methodindex-section" class="section project-section">
+        <h3 class="section-header">Method Index</h3>
+        <ul>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-c-%5B%5D">::[]</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix</span>
+              <a href="Radix.html#method-c-convert">::convert</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix</span>
+              <a href="Radix.html#method-c-convert_base">::convert_base</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="singleton" style="clear: both;">
+              <span class="method-parent-aside">Radix::Base</span>
+              <a href="Radix/Base.html#method-c-new">::new</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-%25">#%</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%25">#%</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%26">#&</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%2A">#*</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-%2A">#*</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%2A%2A">#**</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-%2A%2A">#**</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%2B">#+</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-%2B">#+</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i--">#-</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i--">#-</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%2F">#/</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-%2F">#/</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%3C%3C">#<<</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%3C%3D%3E">#<=></a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-%3C%3D%3E">#<=></a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-%3D%3D">#==</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-%3D%3D">#==</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-%3D%3D">#==</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-abs">#abs</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-abs">#abs</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Integer</span>
+              <a href="Integer.html#method-i-b">#b</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Float</span>
+              <a href="Float.html#method-i-b">#b</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Array</span>
+              <a href="Array.html#method-i-b">#b</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">String</span>
+              <a href="String.html#method-i-b">#b</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-base_conversion">#base_conversion</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-base_conversion">#base_conversion</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-base_conversion">#base_conversion</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-base_decode">#base_decode</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-base_encode">#base_encode</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Array</span>
+              <a href="Array.html#method-i-br">#br</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-ceil">#ceil</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-coerce">#coerce</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-coerce">#coerce</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-coerce">#coerce</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Base</span>
+              <a href="Radix/Base.html#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-convert">#convert</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Base</span>
+              <a href="Radix/Base.html#method-i-convert_base">#convert_base</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-decimal">#decimal</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-decimal">#decimal</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Base</span>
+              <a href="Radix/Base.html#method-i-decode">#decode</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-denominator">#denominator</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-digits">#digits</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-digits">#digits</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-digits">#digits</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-digits_encoded">#digits_encoded</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-digits_encoded">#digits_encoded</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-digits_encoded">#digits_encoded</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Base</span>
+              <a href="Radix/Base.html#method-i-encode">#encode</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-eql%3F">#eql?</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-eql%3F">#eql?</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-floor">#floor</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-inspect">#inspect</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-modulo">#modulo</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-negative%3F">#negative?</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-negative%3F">#negative?</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-negative%3F">#negative?</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-numerator">#numerator</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-operation">#operation</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-operation">#operation</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-operation">#operation</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-parse_array">#parse_array</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-parse_array">#parse_array</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-parse_base">#parse_base</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-parse_numeric">#parse_numeric</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Numeric</span>
+              <a href="Radix/Numeric.html#method-i-parse_string">#parse_string</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-parse_value">#parse_value</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-parse_value">#parse_value</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-parse_value">#parse_value</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-reduce">#reduce</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-round">#round</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-split_digits">#split_digits</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-split_float">#split_float</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-to_a">#to_a</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-to_a">#to_a</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-to_a">#to_a</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-to_f">#to_f</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-to_f">#to_f</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-to_f">#to_f</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-to_i">#to_i</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-to_i">#to_i</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-to_i">#to_i</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-to_int">#to_int</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-to_int">#to_int</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Float</span>
+              <a href="Float.html#method-i-to_r">#to_r</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-to_r">#to_r</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Rational</span>
+              <a href="Radix/Rational.html#method-i-to_s">#to_s</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Float</span>
+              <a href="Radix/Float.html#method-i-to_s">#to_s</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Radix::Integer</span>
+              <a href="Radix/Integer.html#method-i-to_s">#to_s</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <div id="validator-badges">
+      
+      <div style="float: right; margin-right: 5px;">
+        <a href="http://validator.w3.org/check/referer"><img src="../../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
+      </div>
+      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      <br/><br/>
+    </div>
+  </div>
+
+  <!-- .file-popup was wrapped:
+    <div id="documentation">
+      
+      <div class="description">
+          ... file.description ...
+      </div>
+      
+    </div>
+   So maybe that css is no longer needed.
+   -->
+
+  <div id="documentation">
+    
+  </div>
+
+</div>
+</body>
+</html>
+
