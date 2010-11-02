@@ -41,7 +41,7 @@ module Radix
     #
     # If a float style array is passed in for +value+, e.g. [9, '.', 5],
     # the fractional part will simply be truncated.
-    def initialize_array(value, base)
+    def parse_array(value, base)
       if i = value.index(DOT)
         value = [0...i]
       end

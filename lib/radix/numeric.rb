@@ -6,26 +6,26 @@ module Radix
   DOT = '.'
 
   #
+  DIV = '/'
+
+  #
   DIVIDER = " "
-
-  # Collection of base encodings.
-  module BASE
-    #
-    B12 = ('0'..'9').to_a + ['X', 'E']
-
-    #
-    B16 = ('0'..'9').to_a + ('A'..'F').to_a
-
-    #
-    B62 = ('0'..'9').to_a + ('A'..'Z').to_a + ('a'..'z').to_a
-
-    # Like BASE16 but encodes with lowercase letters.
-    HEX = ('0'..'9').to_a + ('a'..'f').to_a
-  end
 
   # Radix Numeric base class is subclassed by Radix::Integer and Radix::Float,
   # and is a subclass of Ruby's built-in Numeric class.
   class Numeric < ::Numeric
+
+    # TODO: Make immutable, but best way to do it?
+
+    #class << self
+    #  alias_method :_new, :new
+    #  private :_new
+    #end
+    #
+    #def self.new(value, base=10)
+    #  @cache ||= {}
+    #  @cache[[value, base]] ||= _new(value, base)
+    #end
 
     # Addition
     def +(other)
@@ -77,6 +77,8 @@ module Radix
     # Take an Array in the form of [d1, d2, ..., DOT, d-1, d-2, ...]
     # and convert it to base ten, and store in @value.
     def parse_array(value, base)
+      value = value.dup
+
       if value.first == '-'
         neg = true
         value.shift
@@ -113,7 +115,7 @@ module Radix
       return digits unless @code
       digits.map do |i|
         case i
-        when '-', DOT, '/' #, ':'
+        when '-', DOT, DIV
           i
         else
           code[i]
@@ -127,12 +129,12 @@ module Radix
       code = self.code || BASE::B62
       digits.map do |c|
         case c
-        when '/', '.', '-'
+        when '-', DOT, DIV
           c
         when ::Numeric
           c
         else
-          code.index(c)
+          code.index(c)  # TODO: Could speed up with an reverse index.
         end
       end
     end
