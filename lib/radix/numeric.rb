@@ -70,19 +70,7 @@ module Radix
     # If a float style string is passed in for +value+, e.g. "9.5", the
     # decimal will simply be truncated. So "9.x" would become "9".
     def parse_string(value, base)
-      #if value.start_with?('-')
-      #  @negative, value = true, value[1..-1]
-      #end
       digits = value.split(//)
-      digits = base_decode(digits)
-      #digits = value.split(//).map do |d|
-      #  case d
-      #  when '-', '.', DOT
-      #    d
-      #  else
-      #    Radix.convert(d, base, 10).to_i  # TODO: Do this without Base class.
-      #  end
-      #end
       parse_array(digits, base)
     end
 
@@ -95,16 +83,14 @@ module Radix
       else
         neg = false
       end
-      ## raise an error is any digit is not less than base
-      #raise ArgumentError if digits.any?{ |e| base < e }
+
+      value = base_decode(value)
+
+      ## raise an error if any digit is not less than base
+      raise ArgumentError if value.any?{ |e| ::Numeric === e && base < e }
+
       v = decimal(value, base)
-      #i, f = split_array(value)
-      #e = i.size - 1
-      #v = 0
-      #(i + f).each do |n|
-      #  v += n * base**e
-      #  e -= 1
-      #end
+
       neg ? -v : v
     end
 
@@ -142,6 +128,8 @@ module Radix
       digits.map do |c|
         case c
         when '/', '.', '-'
+          c
+        when ::Numeric
           c
         else
           code.index(c)
