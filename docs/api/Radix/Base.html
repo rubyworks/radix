@@ -322,7 +322,7 @@ New <a href="../Radix.html">Radix</a> using <tt>chars</tt> representation.
 <pre>
     <span class="ruby-comment cmt"># File lib/radix/base.rb, line 46</span>
 46:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">chars</span>=<span class="ruby-constant">BASE</span><span class="ruby-operator">::</span><span class="ruby-constant">B62</span>)
-47:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Integer</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">chars</span>
+47:       <span class="ruby-keyword kw">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">chars</span>
 48:         <span class="ruby-identifier">chars</span> = <span class="ruby-constant">BASE</span><span class="ruby-operator">::</span><span class="ruby-constant">B62</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">chars</span>]
 49:       <span class="ruby-keyword kw">end</span>
 50:       <span class="ruby-ivar">@chars</span>  = <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span> }
