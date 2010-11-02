@@ -1,6 +1,7 @@
 = Radix Base
 
-First require the library.
+Radix::Base is the original implementation of Radix using purely
+a module function API.
 
   require 'radix/base'
 

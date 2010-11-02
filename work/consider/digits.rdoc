@@ -1,0 +1,35 @@
+Digits
+
+  require 'radix/digits'
+
+== #digits
+
+Integer
+
+  8.digits(8) #=> [1,0]
+
+Float
+
+  8.0.digits(8) #=> [1,0,'.',0]
+
+Negative integer
+
+  -8.digits(8) #=> ['-',1,0]
+
+Negative float
+
+  -8.0.digits(8) #=> ['-',1,0,'.',0]
+
+
+Conversion fun!
+
+  40.digits(6).join #=> "104"
+
+Using Arrays
+
+  37.digits(%w{O L T W F S}).join #=> "LOL"
+
+Using BASE proc
+
+  254.digits(BASE[16]).join #=> "FE"
+

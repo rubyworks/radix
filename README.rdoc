@@ -23,7 +23,7 @@ base 62.
 
 == RELEASE NOTES
 
-Please see HISTORY file.
+Please see the HISTORY.rdoc file.
 
 
 == SYNOPSIS
@@ -55,12 +55,13 @@ upto base 62.
 
 To use a custom character set, use an array of characters as the base
 rather than an integer. For example we can convert a base 10 number
-to another base 10 number but useing a different encoding.
+to another base 10 number using a different encoding.
 
   base = [:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U]
 
   "10".b(10).to_a(base)  #=> [:W, :Q]
 
+To learn more have a look at the {QED}[http://rubyworks.github.com/radix/docs/qed].
 
 == HOW TO INSTALL
 
@@ -68,7 +69,7 @@ To install with RubyGems simply open a console and type:
 
   $ gem install radix
 
-Radix follows [Ruby Setup]{http://rubyworks.github.com/setup} package standard.
+Radix follows {Ruby Setup}[http://rubyworks.github.com/setup] package standard.
 
 
 == LICENSE/COPYRIGHT
