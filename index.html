@@ -91,7 +91,7 @@ Please see the HISTORY.rdoc file.
 </p>
 <h2>SYNOPSIS</h2>
 <p>
-Base conversions with ASCII ordered notations are easy in Ruby.
+Basic base conversions in Ruby are easy.
 </p>
 <pre>
   255.to_s(16)   #=&gt; &quot;FF&quot;
@@ -104,11 +104,8 @@ But Ruby reaches it&#8217;s limit at base 36.
   255.to_s(37)   #=&gt; Error
 </pre>
 <p>
-Radix provides the means of converting to and from any base.
-</p>
-<p>
-For example, a number in base 256 can be represented by the array [100, 10]
-(ie. 100**256 + 10**1) and can be convert to base 10.
+Radix can handle any base. For example, a number in base 256 can be represented
+by the array [100, 10] (ie. 100**256 + 10**1) and can be convert to base 10.
 </p>
 <pre>
   [100,10].b(256).to_a(10)  #=&gt; [2,5,6,1,0]
@@ -120,8 +117,7 @@ Or, to get a string representation for any base upto 62.
   [100,10].b(256).to_s(10)  #=&gt; &quot;25610&quot;
 </pre>
 <p>
-A string representation of anumber can be converted too, again, upto base
-62.
+A string representation of a number, up to base 62, can be converted as well.
 </p>
 <pre>
   &quot;10&quot;.b(62).to_s(10)  #=&gt; &quot;62&quot;
