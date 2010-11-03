@@ -1,20 +1,6 @@
 = Synopsis
 
-Base conversions with ASCII ordered notations are easy in Ruby.
-
-  255.to_s(16)   #=> "ff"
-  "ff".to_i(16)  #=> 255
-
-But Ruby reaches it's limit at base 36.
-
-  expect ArgumentError do
-    255.to_s(37)
-  end
-
 Radix provides the means of converting to and from any base.
-
-  require 'radix'
-
 For example, a number in base 256 can be represented by the array [100, 10]
 (ie. 100**256 + 10**1) and easily converted to base 10.
 

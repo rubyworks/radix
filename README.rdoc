@@ -16,8 +16,9 @@ base 62.
 == FEATURES/ISSUES
 
 * Convert to and from any base.
-* Define custom character sets.
-* Can be used to encode/decode strings.
+* Convert Integers, Floats and Rational numbers.
+* Define custom encodings and character sets.
+* Can be used to encode/decode bytecode strings.
 * Very intuitive API.
 
 
