@@ -1,8 +1,22 @@
-require 'radix/meta/data'
 require 'radix/base'
 require 'radix/integer'
 require 'radix/float'
 require 'radix/rational'  # load ?
+
+module Radix
+  #
+  def self.metadata
+    @metadata ||= (
+      require 'yaml'
+      YAML.load(File.new(File.dirname(__FILE__) + '/radix.yml'))
+    )
+  end
+  #
+  def self.const_missing(name)
+    key = name.to_s.downcase
+    package[key] || profile[key] || super(name)
+  end
+end
 
 class ::Float
   #

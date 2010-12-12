@@ -1,0 +1,29 @@
+--- 
+name: radix
+title: Radix
+contact: trans <transfire@gmail.com>
+requires: 
+- group: 
+  - build
+  name: syckle
+  version: 0+
+- group: 
+  - test
+  name: qed
+  version: 0+
+resources: 
+  repo: git://github.com/rubyworks/radix.git
+  code: http://github.com/rubyworks/radix
+  mail: http://groups.google.com/group/rubyworks-mailinglist
+  home: http://rubyworks.github.com/radix
+pom_verison: 1.0.0
+version: 2.0.0
+licenses: 
+- Apache 2.0
+copyright: Copyright (c) 2009 Thomas Sawyer
+description: Convert to and from any base.
+organization: RubyWorks
+summary: Convert to and from any base.
+authors: 
+- Thomas Sawyer
+created: 2009-07-01

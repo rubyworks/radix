@@ -1,6 +1,12 @@
---- 
+---
+name    : radix
+version : 2.0.0
+
+requires:
+  - syckle (build)
+  - qed (test)
+
 title  : Radix
-suite  : rubyworks
 summary: Convert to and from any base.
 contact: trans <transfire@gmail.com>
 license: Apache 2.0
@@ -15,6 +21,8 @@ resources:
   code: http://github.com/rubyworks/radix
   mail: http://groups.google.com/group/rubyworks-mailinglist
   repo: git://github.com/rubyworks/radix.git
+
+organization: RubyWorks
 
 copyright: 
   Copyright (c) 2009 Thomas Sawyer

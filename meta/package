@@ -1,8 +1,0 @@
-name    : radix
-version : 2.0.0
-date    : 2010-10-31
-
-requires:
-  - syckle (build)
-  - qed (test)
-
