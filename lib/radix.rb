@@ -14,8 +14,11 @@ module Radix
   #
   def self.const_missing(name)
     key = name.to_s.downcase
-    package[key] || profile[key] || super(name)
+    metadata[key] || super(name)
   end
+
+  # TODO: Here only for buggy RUby 1.8.x.
+  VERSION = metadata['version']
 end
 
 class ::Float
