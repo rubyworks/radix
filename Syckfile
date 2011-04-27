@@ -34,11 +34,17 @@ ridoc:
 
 rdoc:
   service : RDoc
-  template: newfish
+  format  : newfish
   include : ~
-  exclude : [ Syckfile ]
+  exclude : [ Syckfile, Profile, Manifest.txt ]
   output  : site/docs/api
   active  : true
+
+qedoc:
+  service : Custom
+  cycle   : site
+  document: |
+    system 'qedoc -t Radix -o site/docs/qed doc/'
 
 syntax:
   service  : Syntax

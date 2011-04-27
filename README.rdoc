@@ -1,30 +1,25 @@
 = Radix
 
-* home: http://rubyworks.github.com/radix
-* code: http://github.com/rubyworks/radix
-
-
 == DESCRIPTION
 
-Radix provides the means of converting to and from any base.
-
-In addition, representational notations need not be in
-ASCII order --any user-defined notation can be used up to
-base 62.
+Radix is a very easy to use Ruby library for converting numbers to and from
+any base. It supports both Integer, Float and Rational numbers, as well as 
+representational string-notations that need not be in ASCII order.
 
 
-== FEATURES/ISSUES
+== FEATURES
 
 * Convert to and from any base.
 * Convert Integers, Floats and Rational numbers.
-* Define custom encodings and character sets.
+* Define custom encoding and character sets.
 * Can be used to encode/decode bytecode strings.
 * Very intuitive API.
 
 
-== RELEASE NOTES
+== RESOURCES
 
-Please see the HISTORY.rdoc file.
+* home: http://rubyworks.github.com/radix
+* code: http://github.com/rubyworks/radix
 
 
 == SYNOPSIS
@@ -45,12 +40,12 @@ For example, a number in base 256 can be represented by the array [100, 10]
 
   [100,10].b(256).to_a(10)  #=> [2,5,6,1,0]
 
-Or, to get a string representation for any base upto 62.
+Or, to get a string representation for any base up to 62.
 
   [100,10].b(256).to_s(10)  #=> "25610"
 
-A string representation of anumber can be converted too, again,
-upto base 62.
+A string representation of a number can be converted too, again,
+up to base 62.
 
   "10".b(62).to_s(10)  #=> "62"
 
@@ -73,10 +68,11 @@ To install with RubyGems simply open a console and type:
 Radix follows {Ruby Setup}[http://rubyworks.github.com/setup] package standard.
 
 
-== LICENSE/COPYRIGHT
+== COPYING
 
 Copyright (c) 2009 Thomas Sawyer
 
-This program is ditributed unser the terms of the Apache 2.0 license.
+This program is distributed under the terms of the Apache 2.0 license.
 
 See LICENSE file for details.
+
