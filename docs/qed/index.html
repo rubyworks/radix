@@ -140,324 +140,251 @@
     </div>
 
     <div id="content">
-      <h1>Synopsis</h1>
-<p>
-Base conversions with ASCII ordered notations are easy in Ruby.
-</p>
-<pre>
-  255.to_s(16)   #=&gt; &quot;ff&quot;
-  &quot;ff&quot;.to_i(16)  #=&gt; 255
-</pre>
-<p>
-But Ruby reaches it&#8217;s limit at base 36.
-</p>
-<pre>
-  expect ArgumentError do
-    255.to_s(37)
-  end
-</pre>
-<p>
-Radix provides the means of converting to and from any base.
-</p>
-<pre>
-  require 'radix'
-</pre>
-<p>
-For example, a number in base 256 can be represented by the array [100, 10]
-(ie. 100**256 + 10**1) and easily converted to base 10.
-</p>
-<pre>
-  [100,10].b(256).to_i  #=&gt; 25610
-</pre>
-<p>
-We can get an Array representation as well.
-</p>
-<pre>
-  [100,10].b(256).to_a(10)  #=&gt; [2,5,6,1,0]
-  [100,10].b(256).to_a(62)  #=&gt; [6,41,4]
-  [100,10].b(256).to_a(64)  #=&gt; [6,16,10]
-</pre>
-<p>
-To get a String representation for any base use #to_s.
-</p>
-<pre>
-  [100,10].b(256).to_s(10)  #=&gt; &quot;25610&quot;
-  [100,10].b(256).to_s(62)  #=&gt; &quot;6 41 4&quot;
-  [100,10].b(256).to_s(64)  #=&gt; &quot;6 16 10&quot;
-</pre>
-<p>
-Notice that anything above base 10 is seperated by a space divider. The
-divider can be changed by providing a second argument.
-</p>
-<pre>
-  [100,10].b(256).to_s(64, ':')  #=&gt; &quot;6:16:10&quot;
-</pre>
-<p>
-A string representation of a number can be converted upto base 62 (B62).
-</p>
-<pre>
-  &quot;10&quot;.b(62).to_s(10)  #=&gt; &quot;62&quot;
-  &quot;zz&quot;.b(62).to_s(10)  #=&gt; &quot;3843&quot;
-</pre>
-<p>
-To encode a number with a base greater than 10, use an Array base. Radix
-provides a built-in set of these, such as `BASE::B62`.
-</p>
-<pre>
-  [100,10].b(256).to_s(Radix::BASE::B62)  #=&gt; &quot;6f4&quot;
-</pre>
-<p>
-To use a custom character set, use an array of characters as the base
+      
+<h1>Synopsis</h1>
+
+<p>Radix provides the means of converting to and from any base. For example, a
+number in base 256 can be represented by the array [100, 10] (ie. 100**256
++ 10**1) and easily converted to base 10.</p>
+
+<pre>[100,10].b(256).to_i  #=&gt; 25610</pre>
+
+<p>We can get an Array representation as well.</p>
+
+<pre>[100,10].b(256).to_a(10)  #=&gt; [2,5,6,1,0]
+[100,10].b(256).to_a(62)  #=&gt; [6,41,4]
+[100,10].b(256).to_a(64)  #=&gt; [6,16,10]</pre>
+
+<p>To get a String representation for any base use #to_s.</p>
+
+<pre>[100,10].b(256).to_s(10)  #=&gt; &quot;25610&quot;
+[100,10].b(256).to_s(62)  #=&gt; &quot;6 41 4&quot;
+[100,10].b(256).to_s(64)  #=&gt; &quot;6 16 10&quot;</pre>
+
+<p>Notice that anything above base 10 is seperated by a space divider. The
+divider can be changed by providing a second argument.</p>
+
+<pre>[100,10].b(256).to_s(64, ':')  #=&gt; &quot;6:16:10&quot;</pre>
+
+<p>A string representation of a number can be converted upto base 62 (B62).</p>
+
+<pre>&quot;10&quot;.b(62).to_s(10)  #=&gt; &quot;62&quot;
+&quot;zz&quot;.b(62).to_s(10)  #=&gt; &quot;3843&quot;</pre>
+
+<p>To encode a number with a base greater than 10, use an Array base. Radix
+provides a built-in set of these, such as `BASE::B62`.</p>
+
+<pre>[100,10].b(256).to_s(Radix::BASE::B62)  #=&gt; &quot;6f4&quot;</pre>
+
+<p>To use a custom character set, use an array of characters as the base
 rather than an integer. For example we can convert a base 10 number to
-another base 10 number but useing a different encoding.
-</p>
-<pre>
-  base = %w[Q W E R T Y U I O U]
+another base 10 number but useing a different encoding.</p>
 
-  &quot;10&quot;.b(10).to_a(base)  #=&gt; [&quot;W&quot;, &quot;Q&quot;]
+<pre>base = %w[Q W E R T Y U I O U]
 
-  &quot;10&quot;.b(10).to_s(base)  #=&gt; &quot;WQ&quot;
-</pre>
-<p>
-All of the above holds equally for floating point numbers.
-</p>
+&quot;10&quot;.b(10).to_a(base)  #=&gt; [&quot;W&quot;, &quot;Q&quot;]
+
+&quot;10&quot;.b(10).to_s(base)  #=&gt; &quot;WQ&quot;</pre>
+
+<p>All of the above holds equally for floating point numbers.</p>
+
 
 <h1>Radix Integer</h1>
-<p>
-Radix provides an Integer class for working with integers in various bases.
-</p>
-<pre>
-  require 'radix'
-</pre>
-<p>
-Radix extend the Integer, String and Array classes with the #b method which
+
+<p>Radix provides an Integer class for working with integers in various bases.</p>
+
+<pre>require 'radix'</pre>
+
+<p>Radix extend the Integer, String and Array classes with the #b method which
 simplifies the creation of Radix::Integer instances. The following return
-the equivalent instance of Radix::Integer.
-</p>
-<pre>
-  a = 8.b(2)
+the equivalent instance of Radix::Integer.</p>
 
-  b = &quot;1000&quot;.b(2)
+<pre>a = 8.b(2)
 
-  c = [1, 0, 0, 0].b(2)
+b = &quot;1000&quot;.b(2)
 
-  a.assert == b
-  b.assert == c
-  c.assert == a
+c = [1, 0, 0, 0].b(2)
 
-  a.assert == 8
-  b.assert == 8
-  c.assert == 8
-</pre>
-<p>
-Radix integers can ve converted to other bases with the #convert method.
-</p>
-<pre>
-  b = &quot;1000&quot;.b(2)
-  d = b.convert(10)
-  d.digits.assert == [8]
-</pre>
-<p>
-Radix::Integer supports all the usual mathematical operators.
-</p>
-<pre>
-  r = &quot;1000&quot;.b(2) + &quot;2&quot;.b(8)
-  r.assert == &quot;1010&quot;.b(2)
-  r.assert == &quot;12&quot;.b(8)
-  r.assert == &quot;10&quot;.b(10)
-</pre>
-<p>
-A more complex example with a much higher base.
-</p>
-<pre>
-  r = &quot;AZ42&quot;.b(62) + &quot;54&quot;.b(10)
-  r.assert == &quot;2518124&quot;.b(10)
-  r.assert == 2518124
-</pre>
-<p>
-Work with arrays for bases greater than 62.
-</p>
-<pre>
-  r = [100,10].b(256) + &quot;54&quot;.b(10)
-  r.assert == &quot;25664&quot;.b(10)
-</pre>
+a.assert == b
+b.assert == c
+c.assert == a
+
+a.assert == 8
+b.assert == 8
+c.assert == 8</pre>
+
+<p>Radix integers can ve converted to other bases with the #convert method.</p>
+
+<pre>b = &quot;1000&quot;.b(2)
+d = b.convert(10)
+d.digits.assert == [8]</pre>
+
+<p>Radix::Integer supports all the usual mathematical operators.</p>
+
+<pre>r = &quot;1000&quot;.b(2) + &quot;2&quot;.b(8)
+r.assert == &quot;1010&quot;.b(2)
+r.assert == &quot;12&quot;.b(8)
+r.assert == &quot;10&quot;.b(10)</pre>
+
+<p>A more complex example with a much higher base.</p>
+
+<pre>r = &quot;AZ42&quot;.b(62) + &quot;54&quot;.b(10)
+r.assert == &quot;2518124&quot;.b(10)
+r.assert == 2518124</pre>
+
+<p>Work with arrays for bases greater than 62.</p>
+
+<pre>r = [100,10].b(256) + &quot;54&quot;.b(10)
+r.assert == &quot;25664&quot;.b(10)</pre>
+
 
 <h1>Radix Float</h1>
-<p>
-Radix provides a Float class for working with floating point numbers in any
-base.
-</p>
-<pre>
-  require 'radix'
-</pre>
-<p>
-With it, the #b method extends String and Array classes to simplify all
-mulit-base operations.
-</p>
-<pre>
-  b = &quot;100.01&quot;.b(2)
-  b.to_a.assert == [1,0,0,'.',0,1]
-</pre>
-<p>
-Convert to base 10.
-</p>
-<pre>
-  t = b.convert(10)
-  t.to_a.assert == [4,'.',2,5]
-</pre>
-<p>
-Like a Numeric class, Radix::Float&#8217;s can be added, subtracted,
-multipled, etc.
-</p>
-<pre>
-  r = &quot;1000.01&quot;.b(2) + &quot;2&quot;.b(8)
-  r.assert == &quot;1010.01&quot;.b(2)
-  r.assert == &quot;12.2&quot;.b(8)
-  r.assert == &quot;10.25&quot;.b(10)
-</pre>
-<p>
-Even complex conversions are supported.
-</p>
-<pre>
-  r = &quot;AZ42&quot;.b(62) + &quot;54&quot;.b(10)
-  r.assert == &quot;2518124&quot;.b(10)
-</pre>
-<p>
-To work with bases greater than 62, use arrays. A &#8217;.&#8217; entry in
-the array can be used to separate the whole from the fractional part of the
-number.
-</p>
-<pre>
-  r = [100,10,'.',64].b(256) + &quot;54&quot;.b(10)
-  r.assert == &quot;25664.25&quot;.b(10)
-</pre>
+
+<p>Radix provides a Float class for working with floating point numbers in any
+base.</p>
+
+<pre>require 'radix'</pre>
+
+<p>With it, the #b method extends String and Array classes to simplify all
+mulit-base operations.</p>
+
+<pre>b = &quot;100.01&quot;.b(2)
+b.to_a.assert == [1,0,0,'.',0,1]</pre>
+
+<p>Convert to base 10.</p>
+
+<pre>t = b.convert(10)
+t.to_a.assert == [4,'.',2,5]</pre>
+
+<p>Like a Numeric class, Radix::Float’s can be added, subtracted, multipled,
+etc.</p>
+
+<pre>r = &quot;1000.01&quot;.b(2) + &quot;2&quot;.b(8)
+r.assert == &quot;1010.01&quot;.b(2)
+r.assert == &quot;12.2&quot;.b(8)
+r.assert == &quot;10.25&quot;.b(10)</pre>
+
+<p>Even complex conversions are supported.</p>
+
+<pre>r = &quot;AZ42&quot;.b(62) + &quot;54&quot;.b(10)
+r.assert == &quot;2518124&quot;.b(10)</pre>
+
+<p>To work with bases greater than 62, use arrays. A ‘.’ entry in the
+array can be used to separate the whole from the fractional part of the
+number.</p>
+
+<pre>r = [100,10,'.',64].b(256) + &quot;54&quot;.b(10)
+r.assert == &quot;25664.25&quot;.b(10)</pre>
+
 
 <h1>Radix Rational</h1>
-<p>
-Radix also provides a Rational class. Like the Integer and Float classes
+
+<p>Radix also provides a Rational class. Like the Integer and Float classes
 Radix::Rational delegates to an underlying instance of Ruby standard
-Rational class.
-</p>
-<pre>
-  require 'radix'
+Rational class.</p>
 
-  b = [&quot;100&quot;,&quot;10&quot;].br(2)
-  b.assert = [2,1].br(10)
-</pre>
-<p>
-When convert to Array or String Radix::Rational uses `/` to separate the
-numerator from the denominator.
-</p>
-<pre>
-  b.to_a  #=&gt; [1,0,0,'/',1,0]
-  b.to_s  #=&gt; &quot;100/10&quot;
-</pre>
-<p>
-To use a custom character set, use an array of characters as the base
+<pre>require 'radix'
+
+b = [&quot;100&quot;,&quot;10&quot;].br(2)
+b.assert = [2,1].br(10)</pre>
+
+<p>When convert to Array or String Radix::Rational uses `/` to separate the
+numerator from the denominator.</p>
+
+<pre>b.to_a  #=&gt; [1,0,0,'/',1,0]
+b.to_s  #=&gt; &quot;100/10&quot;</pre>
+
+<p>To use a custom character set, use an array of characters as the base
 rather than an integer. For example we can convert a base 10 number to
-another base 10 number but useing a different encoding.
-</p>
-<pre>
-  base = %w[Q W E R T Y U I O U]
+another base 10 number but useing a different encoding.</p>
 
-  [&quot;10&quot;,&quot;1&quot;].br(10).to_a(base)  #=&gt; [&quot;W&quot;, &quot;Q&quot;, '/', 'W']
+<pre>base = %w[Q W E R T Y U I O U]
 
-  [&quot;10&quot;,&quot;1&quot;].br(10).to_s(base)  #=&gt; &quot;WQ/W&quot;
-</pre>
+[&quot;10&quot;,&quot;1&quot;].br(10).to_a(base)  #=&gt; [&quot;W&quot;, &quot;Q&quot;, '/', 'W']
+
+[&quot;10&quot;,&quot;1&quot;].br(10).to_s(base)  #=&gt; &quot;WQ/W&quot;</pre>
+
 
 <h1>Radix Base</h1>
-<p>
-Radix::Base is the original implementation of Radix using purely a module
-function API.
-</p>
-<pre>
-  require 'radix/base'
-</pre>
-<p>
-First let&#8217;s try something we all know, hexideciaml. First we setup
-the radix for each.
-</p>
-<pre>
-  b10 = Radix::Base.new(Radix::Base::BASE10)
-  b16 = Radix::Base.new(Radix::Base::BASE16)
-</pre>
-<p>
-Now we can covert from one base to the other.
-</p>
-<pre>
-  b16.convert(&quot;16&quot; , b10).should == &quot;10&quot;
-  b16.convert(&quot;160&quot;, b10).should == &quot;A0&quot;
-  b16.convert(&quot;255&quot;, b10).should == &quot;FF&quot;
-</pre>
-<p>
-To confirm, lets convert from deciaml to hexidecimal.
-</p>
-<pre>
-  b10.convert(&quot;10&quot;, b16).should == &quot;16&quot;
-  b10.convert(&quot;A0&quot;, b16).should == &quot;160&quot;
-  b10.convert(&quot;FF&quot;, b16).should == &quot;255&quot;
-</pre>
-<p>
-If we we want to use standard encodings then we can simply provide an
-integer base, rather than a Radix object.
-</p>
-<pre>
-  b10.convert(&quot;10&quot;, 16).should == &quot;16&quot;
-  b10.convert(&quot;A0&quot;, 16).should == &quot;160&quot;
-  b10.convert(&quot;FF&quot;, 16).should == &quot;255&quot;
-</pre>
-<p>
-We can also use the module function to convert to and from standard
-notations upto 62 without creating an instance of Radix::Base.
-</p>
-<pre>
-  Radix::Base.convert(&quot;10&quot;, 16, 10).should == &quot;16&quot;
-  Radix::Base.convert(&quot;A0&quot;, 16, 10).should == &quot;160&quot;
-  Radix::Base.convert(&quot;FF&quot;, 16, 10).should == &quot;255&quot;
-</pre>
-<p>
-Let&#8217;s try that again with the maximum base supported.
-</p>
-<pre>
-  Radix::Base.convert(     &quot;62&quot;, 10, 62).should == &quot;10&quot;
-  Radix::Base.convert(&quot;8814542&quot;, 10, 62).should == &quot;az42&quot;
 
-  Radix::Base.convert(     &quot;10&quot;, 62, 10).should == &quot;62&quot;
-  Radix::Base.convert(   &quot;az42&quot;, 62, 10).should == &quot;8814542&quot;
-</pre>
-<p>
-Radix can also be used to encode and decode strings.
-</p>
-<pre>
-  b16.encode(&quot;CHARLIE&quot;).should == &quot;434841524C4945&quot;
-  b16.decode(&quot;434841524C4945&quot;).should == &quot;CHARLIE&quot;
-</pre>
-<p>
-Now let&#8217;s try a more down to earth base, my favorite, senary, or base
-six.
-</p>
-<pre>
-  b6  = Radix::Base.new(0..5)
-  b6.convert(&quot;39&quot;, 10).should == &quot;103&quot;
-</pre>
-<p>
-And the notations need not be in ASCII order. Odd alternate notations can
-be used as well.
-</p>
-<pre>
-  b10 = Radix::Base.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
-  b10.convert(&quot;FF&quot;, 16) #=&gt; &quot;EYY&quot;
-</pre>
-<p>
-Finally, we will demonstrate how to convert bases larger than 62. These can
+<p>Radix::Base encapsulates a base which can then be used to perform
+conversions to and form that base.</p>
+
+<p>NOTE: Radix::Base is the original Radix API. But with the advent of v2.0
+and the new Integer and Float classes, it is outmoded. For now it is here
+for backward compatibility. In a future version it may be deprecated, or
+reworked to serve as the backbone of the other classes.</p>
+
+<pre>require 'radix/base'</pre>
+
+<p>First let’s try something we all know, hexideciaml. First we setup the
+radix for each.</p>
+
+<pre>b10 = Radix::Base.new(Radix::BASE::B10)
+b16 = Radix::Base.new(Radix::BASE::B16)</pre>
+
+<p>Now we can covert from one base to the other.</p>
+
+<pre>b16.convert(&quot;16&quot; , b10).should == &quot;10&quot;
+b16.convert(&quot;160&quot;, b10).should == &quot;A0&quot;
+b16.convert(&quot;255&quot;, b10).should == &quot;FF&quot;</pre>
+
+<p>To confirm, lets convert from deciaml to hexidecimal.</p>
+
+<pre>b10.convert(&quot;10&quot;, b16).should == &quot;16&quot;
+b10.convert(&quot;A0&quot;, b16).should == &quot;160&quot;
+b10.convert(&quot;FF&quot;, b16).should == &quot;255&quot;</pre>
+
+<p>If we we want to use standard encodings then we can simply provide an
+integer base, rather than a Radix object.</p>
+
+<pre>b10.convert(&quot;10&quot;, 16).should == &quot;16&quot;
+b10.convert(&quot;A0&quot;, 16).should == &quot;160&quot;
+b10.convert(&quot;FF&quot;, 16).should == &quot;255&quot;</pre>
+
+<p>Now let’s try a more down to earth base, my favorite, senary, or base
+six.</p>
+
+<pre>b6  = Radix::Base.new(0..5)
+b6.convert(&quot;39&quot;, 10).should == &quot;103&quot;</pre>
+
+<p>And the notations need not be in ASCII order. Odd alternate notations can
+be used as well.</p>
+
+<pre>b10 = Radix::Base.new([:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U])
+b10.convert(&quot;FF&quot;, 16) #=&gt; &quot;EYY&quot;</pre>
+
+<h2>Encoding and Decoding</h2>
+
+<p>Radix can also be used to encode and decode strings.</p>
+
+<pre>b16.encode(&quot;CHARLIE&quot;).should == &quot;434841524C4945&quot;
+b16.decode(&quot;434841524C4945&quot;).should == &quot;CHARLIE&quot;</pre>
+
+<h2>Module Methods</h2>
+
+<p>We can also use the module function to convert to and from standard
+notations upto 62 without creating an instance of Radix::Base.</p>
+
+<pre>Radix.convert(&quot;10&quot;, 16, 10).should == &quot;16&quot;
+Radix.convert(&quot;A0&quot;, 16, 10).should == &quot;160&quot;
+Radix.convert(&quot;FF&quot;, 16, 10).should == &quot;255&quot;</pre>
+
+<p>Let’s try that again with the maximum base supported.</p>
+
+<pre>Radix.convert(     &quot;62&quot;, 10, 62).should == &quot;10&quot;
+Radix.convert(&quot;8814542&quot;, 10, 62).should == &quot;az42&quot;
+
+Radix.convert(     &quot;10&quot;, 62, 10).should == &quot;62&quot;
+Radix.convert(   &quot;az42&quot;, 62, 10).should == &quot;8814542&quot;</pre>
+
+<p>Finally, we will demonstrate how to convert bases larger than 62. These can
 only be represented as arrays since there are not enough latin characters
-to represent them.
-</p>
-<pre>
-  Radix::Base.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
-  Radix::Base.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
-  Radix::Base.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]
-</pre>
+to represent them.</p>
+
+<pre>Radix.convert_base([100, 10], 256, 10).should == [2, 5, 6, 1, 0]
+Radix.convert_base([2, 5, 6, 1, 0], 10, 256).should == [100, 10]
+Radix.convert_base([1, 0, 1, 0, 1], 2, 10).should == [2, 1]</pre>
 
 
     </div>
