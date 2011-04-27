@@ -14,19 +14,28 @@
 
   <SCRIPT type="text/javascript">
     $(document).ready(function() {
-      /* highlight code */
-      $('pre').wrapInner('<code></code>');
-      hljs.tabReplace = '    ';
-      hljs.initHighlightingOnLoad('ruby');
+      $("#readme").load("readme.html", function(){
+        $("#readme h1:first").hide();
+        /* highlight code */
+        $('pre').wrapInner('<code></code>');
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad('ruby');
+      });
       // $(".block").animate({"left": "+=50px"}, "slow");
-      $('.main').mouseover(function(){
-        $('.main').animate({backgroundPosition: '100px 0px'});
-        $('.main').animate({backgroundPosition: '0px 0px'});
+      $('.main').mouseout(function(){
+        var r = Math.floor(Math.random()*101);
+        var l = Math.floor(Math.random()*101);
+        $('.main').animate({backgroundPosition: '' + r + '% ' + l + '%'});
       });
     });
   </SCRIPT>
 
   <LINK type="text/css" rel="stylesheet" href="assets/highlight.css" />
+
+  <style>
+    #doc { text-shadow: #637474 2px 2px 2px; }
+    #doc a { text-shadow: #630000 2px 2px 2px; }
+  </style>
 </HEAD>
 <BODY>
 
@@ -57,31 +66,47 @@
 </div>
 
 <div id="readme" style="display: none;">
-<div class="centered">
+
+<!-- backup text -->
 <h2>DESCRIPTION</h2>
 <p>
-Radix provides the means of converting to and from any base.
+Radix is a very easy to use Ruby library for converting numbers to and from
+any base. It supports both integers and rational numbers, as well as 
+representational string-notations that need not be in ASCII order.
 </p>
-<p>
-In addition, string-based notations need not be in ASCII order
-&#8212;any user-defined notation can be used.
-</p>
-<h2>FEATURES/ISSUES</h2>
+<h2>FEATURES</h2>
 <ul>
 <li><p>
 Convert to and from any base.
 </p>
 </li>
 <li><p>
-Define custom character sets.
+Convert Integers, Floats and Rational numbers.
 </p>
 </li>
 <li><p>
-Can be used to encode/decode strings.
+Define custom encodings and character sets.
+</p>
+</li>
+<li><p>
+Can be used to encode/decode bytecode strings.
 </p>
 </li>
 <li><p>
 Very intuitive API.
+</p>
+</li>
+</ul>
+<h2>RESOURCES</h2>
+<ul>
+<li><p>
+home: <a
+href="http://rubyworks.github.com/radix">rubyworks.github.com/radix</a>
+</p>
+</li>
+<li><p>
+code: <a
+href="http://github.com/rubyworks/radix">github.com/rubyworks/radix</a>
 </p>
 </li>
 </ul>
@@ -91,7 +116,7 @@ Please see the HISTORY.rdoc file.
 </p>
 <h2>SYNOPSIS</h2>
 <p>
-Basic base conversions in Ruby are easy.
+Base conversions with ASCII ordered notations are easy in Ruby.
 </p>
 <pre>
   255.to_s(16)   #=&gt; &quot;FF&quot;
@@ -104,8 +129,11 @@ But Ruby reaches it&#8217;s limit at base 36.
   255.to_s(37)   #=&gt; Error
 </pre>
 <p>
-Radix can handle any base. For example, a number in base 256 can be represented
-by the array [100, 10] (ie. 100**256 + 10**1) and can be convert to base 10.
+Radix provides the means of converting to and from any base.
+</p>
+<p>
+For example, a number in base 256 can be represented by the array [100, 10]
+(ie. 100**256 + 10**1) and can be convert to base 10.
 </p>
 <pre>
   [100,10].b(256).to_a(10)  #=&gt; [2,5,6,1,0]
@@ -117,7 +145,8 @@ Or, to get a string representation for any base upto 62.
   [100,10].b(256).to_s(10)  #=&gt; &quot;25610&quot;
 </pre>
 <p>
-A string representation of a number, up to base 62, can be converted as well.
+A string representation of anumber can be converted too, again, upto base
+62.
 </p>
 <pre>
   &quot;10&quot;.b(62).to_s(10)  #=&gt; &quot;62&quot;
@@ -147,7 +176,7 @@ To install with RubyGems simply open a console and type:
 Radix follows <a href="http://rubyworks.github.com/setup">Ruby Setup</a>
 package standard.
 </p>
-<h2>LICENSE/COPYRIGHT</h2>
+<h2>COPYING</h2>
 <p>
 Copyright &#169; 2009 Thomas Sawyer
 </p>
@@ -159,12 +188,21 @@ See LICENSE file for details.
 </p>
 
 </div>
-</div>
 
 <div id="footer">
 <div class="centered">
   <div class="advert">
-    <!-- TODO: %= advert % -->
+    <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-1126154564663472";
+    /* RUBYWORKS 09-10-02 728x90 */
+    google_ad_slot = "0788888658";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
   </div>
   <div class="copyright">
     Copyright (c) 2009 Thomas Sawyer

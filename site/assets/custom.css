@@ -5,8 +5,8 @@ body { position: relative; color: #222233; background: #ffffff; }
 
   ul { padding: 0 0 10px 0; }
   li { padding: 0 0 3px 0; font-size: 0.9em; line-height: 130%; }
-pre { margin: 10px 0; font-family: monospace; color: white; }
-pre code { padding: 10px 10px; }
+pre { margin: 10px 0; font-family: courier, monospace; color: #ccc; }
+pre code { padding: 15px 15px; }
 
  img { border: none; }
   td { vertical-align: top; text-align: left; }
@@ -54,12 +54,12 @@ h4 { font-size: 100%; }
 
 /* #nav */
 
-#nav { margin: 0; padding: 0 10px 0 10px; text-align: left; }
+#nav { margin: 20px 0 0 0; padding: 0 10px 0 10px; text-align: left; }
 #nav ul { list-style-type: none; margin: 0px; padding: 0px; width: 100%; }
-#nav ul li { text-align: left; margin: 0; line-height: 20px; white-space:nowrap; float: left; width: 100px; }
-#nav ul li a { border-top: 0 solid; }
+#nav ul li { text-align: left; margin: 0; line-height: 20px; white-space:nowrap; float: left; width: 90px; }
+#nav ul li a { border-top: 0 solid; color: #ba0c47; }
 #nav { text-align: right; }
-#nav ul li a { font-weight: bold; text-decoration: none; font-size: 1.3em; line-height: 1.4em; }
+#nav ul li a { font-weight: bold; text-decoration: none; font-size: 1.0em; line-height: 1.4em; }
 #nav ul li a:hover { text-decoration: underline; }
 #nav ul li a:active { text-decoration: underline; }
 #nav ul { background: transparent; }
@@ -67,9 +67,9 @@ h4 { font-size: 100%; }
 
 /* #main */
 
-.main { padding: 30px 0 30px 0; background: url(logo.jpg) 0 0; }
+.main { padding: 30px 0 30px 0; background: url(logo.jpg) 0px 0px repeat; }
 .main { color: white; font-size: 1.5em; }
-.main a { font-size: 100%; }
+.main a { font-size: 0.9em; }
 .main a:hover { text-decoration: underline; }
 .main h2 { font-size: 2em; font-weight: bold; }
 .main h3 { font-style: italic; }
@@ -83,13 +83,16 @@ h4 { font-size: 100%; }
 #doc h2 { color: #aa1e50; border-color: #da2a69; }
 #doc h3 { border-color: #da2a69; }
 
-#readme { margin-top: 0; margin-bottom: 20px; padding-top: 20px; border-top: 1px solid #ccc;
-  background: white; }
+#readme { 
+  width: 760px; margin: 0 auto;
+  margin-top: 0; margin-bottom: 20px; padding: 20px 40px; border-top: 1px solid #ccc; background: white; 
+}
 #readme ol, ul { list-style: square; margin-left: 24px; }
+#readme pre code { font-family: courier; }
 
 /* #footer */
 
 #footer { margin-top: 0; padding-top: 30px; border-top: 1px solid #ccc; }
-#footer .advert { border: 1px solid :eee; }
+#footer .advert { border: 1px solid :eee; padding: 30px 0 10px 0; }
 #footer .copyright { margin-top: 20px; padding: 20px 0px 35px 0px; font-size: 0.8em; color: #aaa; }
 
