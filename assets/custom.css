@@ -5,8 +5,7 @@ body { position: relative; color: #222233; background: #ffffff; }
 
   ul { padding: 0 0 10px 0; }
   li { padding: 0 0 3px 0; font-size: 0.9em; line-height: 130%; }
-pre { margin: 10px 0; font-family: courier, monospace; color: #ccc; }
-pre code { padding: 15px 15px; }
+pre { margin: 15px 0; font-family: courier, monospace; color: #ccc; }
 
  img { border: none; }
   td { vertical-align: top; text-align: left; }
@@ -88,7 +87,7 @@ h4 { font-size: 100%; }
   margin-top: 0; margin-bottom: 20px; padding: 20px 40px; border-top: 1px solid #ccc; background: white; 
 }
 #readme ol, ul { list-style: square; margin-left: 24px; }
-#readme pre code { font-family: courier; }
+#readme pre code { font-family: courier; padding: 15px 25px; }
 
 /* #footer */
 

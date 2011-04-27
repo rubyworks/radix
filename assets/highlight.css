@@ -8,11 +8,11 @@
 
 pre code {
     display: block;
-    color: #000;
-    background: #f8f8ff;
-    background: #eee;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    color: #eee;
+    background: #222;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-family: courier;
 }
 
 code .comment, .template_comment, .diff .header, .javadoc {
@@ -66,7 +66,7 @@ code .class {
 }
 
 code .symbol, .lisp .keyword {
-    color: #990073
+    color: #CC0093
 }
 
 code .builtin, .built_in, .lisp .title {
