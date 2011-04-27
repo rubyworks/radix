@@ -27,6 +27,7 @@ representational string-notations that need not be in ASCII order.
 Base conversions with ASCII ordered notations are easy in Ruby.
 
   255.to_s(16)   #=> "FF"
+
   "FF".to_i(16)  #=> 255
 
 But Ruby reaches it's limit at base 36.
