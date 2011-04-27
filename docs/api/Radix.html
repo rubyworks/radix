@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Module: Radix</title>
 
@@ -42,7 +42,7 @@
       
         <img src="./assets/icon/module.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Radix</a>&nbsp;
+      <a href="./index.html">&quot;Radix&quot;</a>&nbsp;
       <a href="/">Radix</a>
     </h1>
   </div>
@@ -69,6 +69,9 @@
           
             <li class="file"><a href="./lib/radix/rational_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
               class="thickbox" title="lib/radix/rational.rb">lib/radix/rational.rb</a></li>
+          
+            <li class="file"><a href="./lib/radix_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/radix.rb">lib/radix.rb</a></li>
           
           </ul>
         </div>
@@ -115,12 +118,22 @@
           
             
             <li class="singleton">
+              <a href="#method-c-const_missing">::const_missing</a>
+            </li>
+          
+            
+            <li class="singleton">
               <a href="#method-c-convert">::convert</a>
             </li>
           
             
             <li class="singleton">
               <a href="#method-c-convert_base">::convert_base</a>
+            </li>
+          
+            
+            <li class="singleton">
+              <a href="#method-c-metadata">::metadata</a>
             </li>
           
         </ul>
@@ -138,9 +151,9 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+          <li class="file"><a href="./History_rdoc.html">History.rdoc</a></li>
         
-          <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
+          <li class="file"><a href="./License_txt.html">License.txt</a></li>
         
           <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
@@ -196,7 +209,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/newfish">Newfish</a> 0.2.0
       <br/><br/>
     </div>
   </div>
@@ -219,9 +232,7 @@
       
         <dt><a name="DOT">DOT</a></dt>
         
-        <dd class="description"><p>
-Redix separator used in string and array representations.
-</p></dd>
+        <dd class="description"><p>Redix separator used in string and array representations.</p></dd>
         
       
         <dt><a name="DIV">DIV</a></dt>
@@ -232,6 +243,11 @@ Redix separator used in string and array representations.
         <dt><a name="DIVIDER">DIVIDER</a></dt>
         
         <dd class="description"></dd>
+        
+      
+        <dt><a name="VERSION">VERSION</a></dt>
+        
+        <dd class="description"><p>TODO: Here only for buggy RUby 1.8.x.</p></dd>
         
       
       </dl>
@@ -247,6 +263,39 @@ Redix separator used in string and array representations.
       <h3 class="section-header">Public Class Methods</h3>
 
     
+      <div id="const_missing-method" class="method-detail ">
+        <a name="method-c-const_missing"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">const_missing</span><span
+            class="method-args">(name)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="const_missing-source">
+<pre>
+<span class="ruby-comment"># File lib/radix.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-identifier">metadata</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
       <div id="convert-method" class="method-detail ">
         <a name="method-c-convert"></a>
 
@@ -260,22 +309,20 @@ Redix separator used in string and array representations.
 
         <div class="method-description">
           
-          <p>
-Convert number from it&#8217;s given base to antoher base. Do a standard
-conversion upto base 62.
-</p>
+          <p>Convert number from it’s given base to antoher base. Do a standard
+conversion upto base 62.</p>
           
 
           
           <div class="method-source-code"
             id="convert-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/base.rb, line 107</span>
-107:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">convert</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">from_base</span>, <span class="ruby-identifier">to_base</span>)
-108:     <span class="ruby-identifier">from_base</span> = <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">from_base</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">from_base</span>
-109:     <span class="ruby-identifier">to_base</span>   = <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_base</span>)   <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">to_base</span>
-110:     <span class="ruby-identifier">to_base</span>.<span class="ruby-identifier">convert</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">from_base</span>)
-111:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/base.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">convert</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">from_base</span>, <span class="ruby-identifier">to_base</span>)
+  <span class="ruby-identifier">from_base</span> = <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">from_base</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">from_base</span>
+  <span class="ruby-identifier">to_base</span>   = <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_base</span>)   <span class="ruby-keyword">unless</span> <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">to_base</span>
+  <span class="ruby-identifier">to_base</span>.<span class="ruby-identifier">convert</span>(<span class="ruby-identifier">number</span>, <span class="ruby-identifier">from_base</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -284,7 +331,7 @@ conversion upto base 62.
       </div>
 
     
-      <div id="convert-base-method" class="method-detail ">
+      <div id="convert_base-method" class="method-detail ">
         <a name="method-c-convert_base"></a>
 
         <div class="method-heading">
@@ -297,27 +344,60 @@ conversion upto base 62.
 
         <div class="method-description">
           
-          <p>
-Convert any base to any other base, using array of <tt>digits</tt>.
-</p>
+          <p>Convert any base to any other base, using array of <tt>digits</tt>.</p>
           
 
           
           <div class="method-source-code"
-            id="convert-base-source">
+            id="convert_base-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/base.rb, line 114</span>
-114:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">convert_base</span>(<span class="ruby-identifier">digits</span>, <span class="ruby-identifier">from_base</span>, <span class="ruby-identifier">to_base</span>)
-115:     <span class="ruby-identifier">bignum</span> = <span class="ruby-value">0</span>
-116:     <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">digit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bignum</span> = <span class="ruby-identifier">bignum</span> * <span class="ruby-identifier">from_base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">digit</span> }
-117:     <span class="ruby-identifier">converted</span> = []
-118:     <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">bignum</span>.<span class="ruby-identifier">zero?</span>
-119:       <span class="ruby-identifier">bignum</span>, <span class="ruby-identifier">digit</span> = <span class="ruby-identifier">bignum</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">to_base</span>)
-120:       <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">digit</span>)
-121:     <span class="ruby-keyword kw">end</span>
-122:     <span class="ruby-identifier">converted</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">empty?</span>  <span class="ruby-comment cmt"># THINK: correct?</span>
-123:     <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">reverse</span>
-124:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/base.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">convert_base</span>(<span class="ruby-identifier">digits</span>, <span class="ruby-identifier">from_base</span>, <span class="ruby-identifier">to_base</span>)
+  <span class="ruby-identifier">bignum</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">digit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bignum</span> = <span class="ruby-identifier">bignum</span> * <span class="ruby-identifier">from_base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">digit</span> }
+  <span class="ruby-identifier">converted</span> = []
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">bignum</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-identifier">bignum</span>, <span class="ruby-identifier">digit</span> = <span class="ruby-identifier">bignum</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">to_base</span>)
+    <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">digit</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">converted</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">empty?</span>  <span class="ruby-comment"># THINK: correct?</span>
+  <span class="ruby-identifier">converted</span>.<span class="ruby-identifier">reverse</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+      </div>
+
+    
+      <div id="metadata-method" class="method-detail ">
+        <a name="method-c-metadata"></a>
+
+        <div class="method-heading">
+        
+          <span class="method-name">metadata</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        
+        </div>
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="metadata-source">
+<pre>
+<span class="ruby-comment"># File lib/radix.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">metadata</span>
+  <span class="ruby-ivar">@metadata</span> <span class="ruby-operator">||=</span> (
+    <span class="ruby-identifier">require</span> <span class="ruby-string">'yaml'</span>
+    <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>) <span class="ruby-operator">+</span> <span class="ruby-string">'/radix.yml'</span>))
+  )
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

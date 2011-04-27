@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Float</title>
 
@@ -42,7 +42,7 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Radix</a>&nbsp;
+      <a href="./index.html">&quot;Radix&quot;</a>&nbsp;
       <a href="/">Float</a>
     </h1>
   </div>
@@ -79,7 +79,9 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <li class="class">Object</li>
+            
+              <li class="class">Object</li>
+            
           
         </ul>
       </div>
@@ -119,9 +121,9 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+          <li class="file"><a href="./History_rdoc.html">History.rdoc</a></li>
         
-          <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
+          <li class="file"><a href="./License_txt.html">License.txt</a></li>
         
           <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
@@ -177,7 +179,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/newfish">Newfish</a> 0.2.0
       <br/><br/>
     </div>
   </div>
@@ -224,10 +226,10 @@
           <div class="method-source-code"
             id="b-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix.rb, line 9</span>
- 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">b</span>(<span class="ruby-identifier">base</span>)
-10:     <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Float</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">base</span>)
-11:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">b</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Float</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">base</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -236,7 +238,7 @@
       </div>
 
     
-      <div id="to-r-method" class="method-detail ">
+      <div id="to_r-method" class="method-detail ">
         <a name="method-i-to_r"></a>
 
         <div class="method-heading">
@@ -254,15 +256,15 @@
 
           
           <div class="method-source-code"
-            id="to-r-source">
+            id="to_r-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 197</span>
-197:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_r</span>
-198:     <span class="ruby-identifier">n</span>, <span class="ruby-identifier">f</span> = <span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'.'</span>)
-199:     <span class="ruby-identifier">d</span> = (<span class="ruby-value">10</span> * <span class="ruby-identifier">f</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">to_i</span>
-200:     <span class="ruby-identifier">n</span> = (<span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_i</span> * <span class="ruby-identifier">d</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_i</span>
-201:     <span class="ruby-constant">Rational</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">d</span>) 
-202:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/rational.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_r</span>
+  <span class="ruby-identifier">n</span>, <span class="ruby-identifier">f</span> = <span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">'.'</span>)
+  <span class="ruby-identifier">d</span> = (<span class="ruby-value">10</span> * <span class="ruby-identifier">f</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">n</span> = (<span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_i</span> * <span class="ruby-identifier">d</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-constant">Rational</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">d</span>) 
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

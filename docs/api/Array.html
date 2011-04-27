@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Array</title>
 
@@ -42,7 +42,7 @@
       
         <img src="./assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="./index.html">Radix</a>&nbsp;
+      <a href="./index.html">&quot;Radix&quot;</a>&nbsp;
       <a href="/">Array</a>
     </h1>
   </div>
@@ -79,7 +79,9 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <li class="class">Object</li>
+            
+              <li class="class">Object</li>
+            
           
         </ul>
       </div>
@@ -119,9 +121,9 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+          <li class="file"><a href="./History_rdoc.html">History.rdoc</a></li>
         
-          <li class="file"><a href="./LICENSE.html">LICENSE</a></li>
+          <li class="file"><a href="./License_txt.html">License.txt</a></li>
         
           <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
@@ -177,7 +179,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="./assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/newfish">Newfish</a> 0.2.0
       <br/><br/>
     </div>
   </div>
@@ -224,14 +226,14 @@
           <div class="method-source-code"
             id="b-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix.rb, line 34</span>
-34:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">b</span>(<span class="ruby-identifier">base</span>)
-35:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">index</span>(<span class="ruby-value str">'.'</span>)
-36:       <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Float</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">base</span>)
-37:     <span class="ruby-keyword kw">else</span>
-38:       <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">base</span>)
-39:     <span class="ruby-keyword kw">end</span>
-40:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">b</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span>(<span class="ruby-string">'.'</span>)
+    <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Float</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">base</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">base</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -253,23 +255,21 @@
 
         <div class="method-description">
           
-          <p>
-Convenience method for creating a <a
-href="Radix/Rational.html">Radix::Rational</a>. TODO: Keep br? Or find
-another way?
-</p>
+          <p>Convenience method for creating a <a
+href="Radix/Rational.html">Radix::Rational</a>. TODO: Keep #br? Or find
+another way?</p>
           
 
           
           <div class="method-source-code"
             id="br-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/rational.rb, line 188</span>
-188:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">br</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword kw">nil</span>)
-189:     <span class="ruby-identifier">args</span> = <span class="ruby-identifier">dup</span>
-190:     <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">base</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">base</span>
-191:     <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Rational</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>)
-192:   <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/rational.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">br</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">args</span> = <span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">base</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">base</span>
+  <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Rational</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

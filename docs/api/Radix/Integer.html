@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
   <title>Class: Radix::Integer</title>
 
@@ -42,7 +42,7 @@
       
         <img src="../assets/icon/class.png" align="absmiddle">&nbsp;
       
-      <a href="../index.html">Radix</a>&nbsp;
+      <a href="../index.html">&quot;Radix&quot;</a>&nbsp;
       <a href="/">Radix::Integer</a>
     </h1>
   </div>
@@ -76,8 +76,9 @@
         <h3 class="section-header">Parent</h3>
         <ul>
           
-          <!-- why was this class="link" ? -->
-          <li class="class"><a href="Numeric.html">Radix::Numeric</a></li>
+            
+              <li class="class">Numeric</li>
+            
           
         </ul>
       </div>
@@ -99,62 +100,57 @@
           
             
             <li class="method">
-              <a href="#method-i-%25">#%</a>
+              <a href="#method-i-25">#%</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%26">#&</a>
+              <a href="#method-i-26">#&</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%2A">#*</a>
+              <a href="#method-i-2A">#*</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%2A%2A">#**</a>
+              <a href="#method-i-2A-2A">#**</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%2B">#+</a>
+              <a href="#method-i-2B">#+</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i--">#-</a>
+              <a href="#method-i-2D">#-</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%2F">#/</a>
+              <a href="#method-i-2F">#/</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%3C%3C">#<<</a>
+              <a href="#method-i-3C-3C">#<<</a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%3C%3D%3E">#<=></a>
+              <a href="#method-i-3C-3D-3E">#<=></a>
             </li>
           
             
             <li class="method">
-              <a href="#method-i-%3D%3D">#==</a>
+              <a href="#method-i-3D-3D">#==</a>
             </li>
           
             
             <li class="method">
               <a href="#method-i-abs">#abs</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-base_conversion">#base_conversion</a>
             </li>
           
             
@@ -179,7 +175,7 @@
           
             
             <li class="method">
-              <a href="#method-i-eql%3F">#eql?</a>
+              <a href="#method-i-eql-3F">#eql?</a>
             </li>
           
             
@@ -189,22 +185,7 @@
           
             
             <li class="method">
-              <a href="#method-i-negative%3F">#negative?</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-operation">#operation</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-parse_array">#parse_array</a>
-            </li>
-          
-            
-            <li class="method">
-              <a href="#method-i-parse_value">#parse_value</a>
+              <a href="#method-i-negative-3F">#negative?</a>
             </li>
           
             
@@ -247,9 +228,9 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+          <li class="file"><a href="../History_rdoc.html">History.rdoc</a></li>
         
-          <li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+          <li class="file"><a href="../License_txt.html">License.txt</a></li>
         
           <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
         
@@ -305,7 +286,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://rubyworks.github.com/rdazzle">RDazzle Newfish</a> 1.4.0
+      Generated with <a href="http://rubyworks.github.com/newfish">Newfish</a> 0.2.0
       <br/><br/>
     </div>
   </div>
@@ -339,9 +320,7 @@
 
         <div class="method-description">
         
-        <p>
-Stores the numerc value as normal number.
-</p>
+        <p>Stores the numerc value as normal number.</p>
         
         </div>
       </div>
@@ -356,9 +335,7 @@ Stores the numerc value as normal number.
 
         <div class="method-description">
         
-        <p>
-<a href="Base.html">Base</a> of the number.
-</p>
+        <p><a href="Base.html">Base</a> of the number.</p>
         
         </div>
       </div>
@@ -373,9 +350,7 @@ Stores the numerc value as normal number.
 
         <div class="method-description">
         
-        <p>
-<a href="Base.html">Base</a> encoding table.
-</p>
+        <p><a href="Base.html">Base</a> encoding table.</p>
         
         </div>
       </div>
@@ -409,11 +384,11 @@ Stores the numerc value as normal number.
           <div class="method-source-code"
             id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 20</span>
-20:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>=<span class="ruby-value">10</span>)
-21:       <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">parse_value</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-22:       <span class="ruby-ivar">@base</span>, <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">parse_base</span>(<span class="ruby-identifier">base</span>)
-23:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>=<span class="ruby-value">10</span>)
+  <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">parse_value</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+  <span class="ruby-ivar">@base</span>, <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">parse_base</span>(<span class="ruby-identifier">base</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -428,8 +403,8 @@ Stores the numerc value as normal number.
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%25"></a>
+      <div id="25-method" class="method-detail ">
+        <a name="method-i-25"></a>
 
         <div class="method-heading">
         
@@ -441,19 +416,17 @@ Stores the numerc value as normal number.
 
         <div class="method-description">
           
-          <p>
-Modulo
-</p>
+          <p>Modulo</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="25-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 150</span>
-150:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">%</span>(<span class="ruby-identifier">other</span>)
-151:       <span class="ruby-identifier">operation</span>(<span class="ruby-value">:%</span>, <span class="ruby-identifier">other</span>)
-152:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">%</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">operation</span>(<span class="ruby-value">:%</span>, <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -462,8 +435,8 @@ Modulo
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%26"></a>
+      <div id="26-method" class="method-detail ">
+        <a name="method-i-26"></a>
 
         <div class="method-heading">
         
@@ -475,19 +448,17 @@ Modulo
 
         <div class="method-description">
           
-          <p>
-AND bit operator
-</p>
+          <p>AND bit operator</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="26-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 160</span>
-160:     <span class="ruby-keyword kw">def</span> &amp;(<span class="ruby-identifier">o</span>)
-161:       <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_int</span> &amp; <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_int</span>, <span class="ruby-identifier">base</span>)
-162:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 160</span>
+<span class="ruby-keyword">def</span> &amp;(<span class="ruby-identifier">o</span>)
+  <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_int</span> &amp; <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_int</span>, <span class="ruby-identifier">base</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -496,8 +467,8 @@ AND bit operator
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%2A"></a>
+      <div id="2A-method" class="method-detail ">
+        <a name="method-i-2A"></a>
 
         <div class="method-heading">
         
@@ -509,19 +480,17 @@ AND bit operator
 
         <div class="method-description">
           
-          <p>
-Multiplication
-</p>
+          <p>Multiplication</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="2A-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 135</span>
-135:     <span class="ruby-keyword kw">def</span> *(<span class="ruby-identifier">other</span>)
-136:       <span class="ruby-identifier">operation</span>(<span class="ruby-value">:*</span>, <span class="ruby-identifier">other</span>)
-137:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 135</span>
+<span class="ruby-keyword">def</span> *(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">operation</span>(<span class="ruby-value">:*</span>, <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -530,8 +499,8 @@ Multiplication
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%2A%2A"></a>
+      <div id="2A-2A-method" class="method-detail ">
+        <a name="method-i-2A-2A"></a>
 
         <div class="method-heading">
         
@@ -543,19 +512,17 @@ Multiplication
 
         <div class="method-description">
           
-          <p>
-Power
-</p>
+          <p>Power</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="2A-2A-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 145</span>
-145:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">**</span>(<span class="ruby-identifier">other</span>)
-146:       <span class="ruby-identifier">operation</span>(<span class="ruby-value">:**</span>, <span class="ruby-identifier">other</span>)
-147:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">**</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">operation</span>(<span class="ruby-value">:**</span>, <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -564,8 +531,8 @@ Power
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%2B"></a>
+      <div id="2B-method" class="method-detail ">
+        <a name="method-i-2B"></a>
 
         <div class="method-heading">
         
@@ -577,19 +544,17 @@ Power
 
         <div class="method-description">
           
-          <p>
-Addition
-</p>
+          <p>Addition</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="2B-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 125</span>
-125:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)
-126:       <span class="ruby-identifier">operation</span>(<span class="ruby-value">:+</span>, <span class="ruby-identifier">other</span>)
-127:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">operation</span>(<span class="ruby-value">:+</span>, <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -598,8 +563,8 @@ Addition
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i--"></a>
+      <div id="2D-method" class="method-detail ">
+        <a name="method-i-2D"></a>
 
         <div class="method-heading">
         
@@ -611,19 +576,17 @@ Addition
 
         <div class="method-description">
           
-          <p>
-Subtraction
-</p>
+          <p>Subtraction</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="2D-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 130</span>
-130:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">other</span>)
-131:       <span class="ruby-identifier">operation</span>(<span class="ruby-value">:-</span>, <span class="ruby-identifier">other</span>)
-132:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">operation</span>(<span class="ruby-value">:-</span>, <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -632,8 +595,8 @@ Subtraction
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%2F"></a>
+      <div id="2F-method" class="method-detail ">
+        <a name="method-i-2F"></a>
 
         <div class="method-heading">
         
@@ -645,19 +608,17 @@ Subtraction
 
         <div class="method-description">
           
-          <p>
-Division
-</p>
+          <p>Division</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="2F-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 140</span>
-140:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">/</span>(<span class="ruby-identifier">other</span>)
-141:       <span class="ruby-identifier">operation</span>(<span class="ruby-value">:/</span>, <span class="ruby-identifier">other</span>)
-142:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">/</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">operation</span>(<span class="ruby-value">:/</span>, <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -666,8 +627,8 @@ Division
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3C%3C"></a>
+      <div id="3C-3C-method" class="method-detail ">
+        <a name="method-i-3C-3C"></a>
 
         <div class="method-heading">
         
@@ -679,19 +640,17 @@ Division
 
         <div class="method-description">
           
-          <p>
-Asymmetric binary shift operator.
-</p>
+          <p>Asymmetric binary shift operator.</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="3C-3C-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 155</span>
-155:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">o</span>)
-156:       <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_int</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_int</span>, <span class="ruby-identifier">base</span>)
-157:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_int</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_int</span>, <span class="ruby-identifier">base</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -700,8 +659,8 @@ Asymmetric binary shift operator.
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3C%3D%3E"></a>
+      <div id="3C-3D-3E-method" class="method-detail ">
+        <a name="method-i-3C-3D-3E"></a>
 
         <div class="method-heading">
         
@@ -718,12 +677,12 @@ Asymmetric binary shift operator.
 
           
           <div class="method-source-code"
-            id="--source">
+            id="3C-3D-3E-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 186</span>
-186:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
-187:       <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_f</span>  <span class="ruby-comment cmt"># to_num</span>
-188:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_f</span>  <span class="ruby-comment"># to_num</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -732,8 +691,8 @@ Asymmetric binary shift operator.
       </div>
 
     
-      <div id="--method" class="method-detail ">
-        <a name="method-i-%3D%3D"></a>
+      <div id="3D-3D-method" class="method-detail ">
+        <a name="method-i-3D-3D"></a>
 
         <div class="method-heading">
         
@@ -745,25 +704,23 @@ Asymmetric binary shift operator.
 
         <div class="method-description">
           
-          <p>
-Simple equality requires equal values only. TODO: Handle <a
-href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
-</p>
+          <p>Simple equality requires equal values only. TODO: Handle <a
+href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.</p>
           
 
           
           <div class="method-source-code"
-            id="--source">
+            id="3D-3D-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 176</span>
-176:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
-177:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">other</span>
-178:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Float</span>, <span class="ruby-constant">Integer</span>  <span class="ruby-comment cmt"># Radix</span>
-179:         <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">value</span>
-180:       <span class="ruby-keyword kw">else</span>
-181:         <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>
-182:       <span class="ruby-keyword kw">end</span>
-183:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Float</span>, <span class="ruby-constant">Integer</span>  <span class="ruby-comment"># Radix</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -792,10 +749,10 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
           <div class="method-source-code"
             id="abs-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 165</span>
-165:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">abs</span>
-166:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">abs</span>, <span class="ruby-identifier">base</span>)
-167:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">abs</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">abs</span>, <span class="ruby-identifier">base</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -824,10 +781,10 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
           <div class="method-source-code"
             id="coerce-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 191</span>
-191:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">coerce</span>(<span class="ruby-identifier">value</span>)
-192:       [<span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>), <span class="ruby-keyword kw">self</span>]  
-193:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">coerce</span>(<span class="ruby-identifier">value</span>)
+  [<span class="ruby-constant">Radix</span><span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>), <span class="ruby-keyword">self</span>]  
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -856,12 +813,12 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
           <div class="method-source-code"
             id="convert-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 118</span>
-118:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>)
-119:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-120:       <span class="ruby-comment cmt">#new_digits = Radix::Base.convert_base(digits, base, new_base)</span>
-121:       <span class="ruby-comment cmt">#self.class.new(new_digits, new_base)</span>
-122:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+  <span class="ruby-comment">#new_digits = Radix::Base.convert_base(digits, base, new_base)</span>
+  <span class="ruby-comment">#self.class.new(new_digits, new_base)</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -890,12 +847,12 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
           <div class="method-source-code"
             id="digits-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 101</span>
-101:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">digits</span>
-102:       <span class="ruby-identifier">i</span> = <span class="ruby-identifier">base_conversion</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-103:       <span class="ruby-identifier">i</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-value str">'-'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">negative?</span>
-104:       <span class="ruby-identifier">i</span>
-105:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">digits</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-identifier">base_conversion</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
+  <span class="ruby-identifier">i</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-string">'-'</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">negative?</span>
+  <span class="ruby-identifier">i</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -904,7 +861,7 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
       </div>
 
     
-      <div id="digits-encoded-method" class="method-detail ">
+      <div id="digits_encoded-method" class="method-detail ">
         <a name="method-i-digits_encoded"></a>
 
         <div class="method-heading">
@@ -922,12 +879,12 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
 
           
           <div class="method-source-code"
-            id="digits-encoded-source">
+            id="digits_encoded-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 108</span>
-108:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">digits_encoded</span>
-109:       <span class="ruby-identifier">base_encode</span>(<span class="ruby-identifier">digits</span>)
-110:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">digits_encoded</span>
+  <span class="ruby-identifier">base_encode</span>(<span class="ruby-identifier">digits</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -936,8 +893,8 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
       </div>
 
     
-      <div id="eql--method" class="method-detail ">
-        <a name="method-i-eql%3F"></a>
+      <div id="eql-3F-method" class="method-detail ">
+        <a name="method-i-eql-3F"></a>
 
         <div class="method-heading">
         
@@ -949,19 +906,17 @@ href="Float.html">Float</a> and <a href="Float.html">Radix::Float</a>.
 
         <div class="method-description">
           
-          <p>
-Strict equality requires same class as well as value.
-</p>
+          <p>Strict equality requires same class as well as value.</p>
           
 
           
           <div class="method-source-code"
-            id="eql--source">
+            id="eql-3F-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 170</span>
-170:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">num</span>)
-171:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">num</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword kw">self</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">num</span>
-172:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">num</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">num</span>.<span class="ruby-identifier">class</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">num</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -990,10 +945,10 @@ Strict equality requires same class as well as value.
           <div class="method-source-code"
             id="inspect-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 96</span>
-96:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>
-97:       <span class="ruby-node">&quot;#{digits.join(' ')} (#{base})&quot;</span>
-98:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-node">&quot;#{digits.join(' ')} (#{base})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -1002,8 +957,8 @@ Strict equality requires same class as well as value.
       </div>
 
     
-      <div id="negative--method" class="method-detail ">
-        <a name="method-i-negative%3F"></a>
+      <div id="negative-3F-method" class="method-detail ">
+        <a name="method-i-negative-3F"></a>
 
         <div class="method-heading">
         
@@ -1015,19 +970,17 @@ Strict equality requires same class as well as value.
 
         <div class="method-description">
           
-          <p>
-Returns true if the number is negative.
-</p>
+          <p>Returns true if the number is negative.</p>
           
 
           
           <div class="method-source-code"
-            id="negative--source">
+            id="negative-3F-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 113</span>
-113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">negative?</span>
-114:       <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
-115:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">negative?</span>
+  <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -1036,7 +989,7 @@ Returns true if the number is negative.
       </div>
 
     
-      <div id="to-a-method" class="method-detail ">
+      <div id="to_a-method" class="method-detail ">
         <a name="method-i-to_a"></a>
 
         <div class="method-heading">
@@ -1054,16 +1007,16 @@ Returns true if the number is negative.
 
           
           <div class="method-source-code"
-            id="to-a-source">
+            id="to_a-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 69</span>
-69:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_a</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword kw">nil</span>)
-70:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">base</span>
-71:         <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>).<span class="ruby-identifier">digits_encoded</span>
-72:       <span class="ruby-keyword kw">else</span>
-73:         <span class="ruby-identifier">digits_encoded</span>
-74:       <span class="ruby-keyword kw">end</span>
-75:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_a</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">base</span>
+    <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>).<span class="ruby-identifier">digits_encoded</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">digits_encoded</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -1072,7 +1025,7 @@ Returns true if the number is negative.
       </div>
 
     
-      <div id="to-f-method" class="method-detail ">
+      <div id="to_f-method" class="method-detail ">
         <a name="method-i-to_f"></a>
 
         <div class="method-heading">
@@ -1090,12 +1043,12 @@ Returns true if the number is negative.
 
           
           <div class="method-source-code"
-            id="to-f-source">
+            id="to_f-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 64</span>
-64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_f</span>
-65:       <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-comment cmt">#(sign + convert(10).digits.join('')).to_f</span>
-66:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-comment">#(sign + convert(10).digits.join('')).to_f</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -1104,7 +1057,7 @@ Returns true if the number is negative.
       </div>
 
     
-      <div id="to-i-method" class="method-detail ">
+      <div id="to_i-method" class="method-detail ">
         <a name="method-i-to_i"></a>
 
         <div class="method-heading">
@@ -1122,12 +1075,12 @@ Returns true if the number is negative.
 
           
           <div class="method-source-code"
-            id="to-i-source">
+            id="to_i-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 56</span>
-56:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_i</span>
-57:       <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-comment cmt">#(sign + convert(10).digits.join('')).to_i</span>
-58:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-comment">#(sign + convert(10).digits.join('')).to_i</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -1140,7 +1093,7 @@ Returns true if the number is negative.
       </div>
 
     
-      <div id="to-int-method" class="method-detail method-alias">
+      <div id="to_int-method" class="method-detail method-alias">
         <a name="method-i-to_int"></a>
 
         <div class="method-heading">
@@ -1163,7 +1116,7 @@ Returns true if the number is negative.
       </div>
 
     
-      <div id="to-s-method" class="method-detail ">
+      <div id="to_s-method" class="method-detail ">
         <a name="method-i-to_s"></a>
 
         <div class="method-heading">
@@ -1181,194 +1134,25 @@ Returns true if the number is negative.
 
           
           <div class="method-source-code"
-            id="to-s-source">
+            id="to_s-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 78</span>
-78:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">divider</span>=<span class="ruby-keyword kw">nil</span>)
-79:       <span class="ruby-identifier">divider</span> = <span class="ruby-identifier">divider</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">divider</span>
-80:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">base</span>
-81:         <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>).<span class="ruby-identifier">to_s</span>(<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">divider</span>)
-82:       <span class="ruby-keyword kw">else</span>
-83:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>
-84:           <span class="ruby-identifier">digits_encoded</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span>)
-85:         <span class="ruby-keyword kw">else</span>
-86:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@base</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
-87:             <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span> <span class="ruby-operator">||</span> <span class="ruby-constant">DIVIDER</span>)
-88:           <span class="ruby-keyword kw">else</span>
-89:             <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span>)
-90:           <span class="ruby-keyword kw">end</span>
-91:         <span class="ruby-keyword kw">end</span>
-92:       <span class="ruby-keyword kw">end</span>
-93:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-    </div>
-  
-    <div id="private-instance-method-details" class="method-section section">
-      <h3 class="section-header">Private Instance Methods</h3>
-
-    
-      <div id="base-conversion-method" class="method-detail ">
-        <a name="method-i-base_conversion"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">base_conversion</span><span
-            class="method-args">(value, base)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="base-conversion-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 206</span>
-206:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">base_conversion</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-207:       <span class="ruby-comment cmt">#if value &lt; 0</span>
-208:       <span class="ruby-comment cmt">#  @negative, value = true, value.abs</span>
-209:       <span class="ruby-comment cmt">#end</span>
-210:       <span class="ruby-identifier">i</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">abs</span>
-211: 
-212:       <span class="ruby-identifier">a</span> = []
-213:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-214:         <span class="ruby-identifier">i</span>, <span class="ruby-identifier">r</span> = <span class="ruby-identifier">i</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">base</span>)
-215:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">r</span>
-216:       <span class="ruby-keyword kw">end</span>
-217: 
-218:       <span class="ruby-identifier">a</span>.<span class="ruby-identifier">reverse</span>
-219:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="operation-method" class="method-detail ">
-        <a name="method-i-operation"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">operation</span><span
-            class="method-args">(op, other)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Perform arthmetic operation.
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="operation-source">
-<pre>
-     <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 198</span>
-198:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">operation</span>(<span class="ruby-identifier">op</span>, <span class="ruby-identifier">other</span>)
-199:       <span class="ruby-identifier">a</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_i</span>
-200:       <span class="ruby-identifier">b</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_i</span>
-201:       <span class="ruby-identifier">x</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">op</span>, <span class="ruby-identifier">b</span>)
-202:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">base</span>)
-203:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="parse-array-method" class="method-detail ">
-        <a name="method-i-parse_array"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">parse_array</span><span
-            class="method-args">(value, base)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>
-Take an <a href="../Array.html">Array</a> in the form of [&#8230;, d2, d1,
-d0] and convert it to base ten, and store in @value.
-</p>
-<p>
-If a float style array is passed in for <tt>value</tt>, e.g. [9,
-&#8217;.&#8217;, 5], the fractional part will simply be truncated.
-</p>
-          
-
-          
-          <div class="method-source-code"
-            id="parse-array-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 44</span>
-44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_array</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-45:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">i</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">index</span>(<span class="ruby-constant">DOT</span>)
-46:         <span class="ruby-identifier">value</span> = [<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">i</span>]
-47:       <span class="ruby-keyword kw">end</span>
-48:       <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-49:     <span class="ruby-keyword kw">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-      <div id="parse-value-method" class="method-detail ">
-        <a name="method-i-parse_value"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">parse_value</span><span
-            class="method-args">(value, base)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code"
-            id="parse-value-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/radix/integer.rb, line 26</span>
-26:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_value</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-27:       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">value</span>
-28:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Integer</span>, <span class="ruby-constant">Float</span> <span class="ruby-comment cmt"># Radix</span>
-29:         <span class="ruby-identifier">parse_numeric</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">base</span>)
-30:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>
-31:         <span class="ruby-identifier">parse_array</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-32:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">String</span>
-33:         <span class="ruby-identifier">parse_string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-34:       <span class="ruby-keyword kw">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>
-35:         <span class="ruby-identifier">parse_numeric</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">base</span>)
-36:       <span class="ruby-keyword kw">end</span>
-37:     <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/radix/integer.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">base</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">divider</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">divider</span> = <span class="ruby-identifier">divider</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">divider</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">base</span>
+    <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">base</span>).<span class="ruby-identifier">to_s</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">divider</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">code</span>
+      <span class="ruby-identifier">digits_encoded</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@base</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>
+        <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span> <span class="ruby-operator">||</span> <span class="ruby-constant">DIVIDER</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">digits</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">divider</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
