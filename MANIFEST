@@ -1,0 +1,14 @@
+#!mast .ruby .yardopts bin lib man spec test [A-Z]*.*
+.ruby
+.yardopts
+lib/radix/base.rb
+lib/radix/float.rb
+lib/radix/integer.rb
+lib/radix/numeric.rb
+lib/radix/operator.rb
+lib/radix/rational.rb
+lib/radix.rb
+lib/radix.yml
+HISTORY.rdoc
+README.rdoc
+NOTICE.rdoc

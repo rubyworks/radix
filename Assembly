@@ -1,0 +1,36 @@
+---
+github:
+  active: true
+
+gem:
+  active: true
+
+dnote:
+  labels: ~
+  output: log/NOTES.rdoc
+
+qed:
+  files: qed/
+
+qedoc:
+  files; qed/
+  title: Radix Demonstrandum
+  output: QED.doc
+
+locat:
+  active: false
+
+email:
+  service : Email
+  file    : ~
+  subject : ~
+  mailto  :
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+
+vclog:
+  output:
+    - log/Changes.rdoc
+    - log/History.rdoc
+  active: false
+

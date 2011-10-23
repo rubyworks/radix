@@ -1,0 +1,5 @@
+--title Erbside
+--readme README.rdoc
+lib
+-
+[A-Z]*.*

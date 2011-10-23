@@ -20,6 +20,7 @@ representational string-notations that need not be in ASCII order.
 
 * home: http://rubyworks.github.com/radix
 * code: http://github.com/rubyworks/radix
+* mail: http://groups.google/group/rubyworks-mailinglist
 
 
 == SYNOPSIS
@@ -73,7 +74,6 @@ Radix follows {Ruby Setup}[http://rubyworks.github.com/setup] package standard.
 
 Copyright (c) 2009 Thomas Sawyer
 
-This program is distributed under the terms of the Apache 2.0 license.
+This program is distributable in accordance with the *FreeBSD* license.
 
-See LICENSE file for details.
-
+See COPYING.rdoc for details.
