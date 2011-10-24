@@ -1,0 +1,3 @@
+Radix is a very easy to use Ruby library for converting numbers to and from
+any base. It supports both Integer, Float and Rational numbers, as well as 
+representational string-notations that need not be in ASCII order.

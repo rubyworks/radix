@@ -1,6 +1,6 @@
 ---
 source:
-- meta
+- meta/
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
@@ -39,5 +39,8 @@ summary: Convert to and from any base.
 title: Radix
 version: 2.0.1
 name: radix
+description: ! "Radix is a very easy to use Ruby library for converting numbers to
+  and from\nany base. It supports both Integer, Float and Rational numbers, as well
+  as \nrepresentational string-notations that need not be in ASCII order."
 organization: Rubyworks
 date: '2011-10-23'
