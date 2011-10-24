@@ -1,5 +1,8 @@
 = Radix
 
+Status:: {<img src="http://travis-ci.org/rubyworks/radix.png" />}[http://travis-ci.org/rubyworks/radix]
+
+
 == DESCRIPTION
 
 Radix is a very easy to use Ruby library for converting numbers to and from
@@ -18,9 +21,10 @@ representational string-notations that need not be in ASCII order.
 
 == RESOURCES
 
-* home: http://rubyworks.github.com/radix
-* code: http://github.com/rubyworks/radix
-* mail: http://groups.google/group/rubyworks-mailinglist
+* {Website}[http://rubyworks.github.com/radix]
+* {Source Code}[http://github.com/rubyworks/radix]
+* {Mailing List}[http://groups.google/group/rubyworks-mailinglist]
+* {Issue Tracker}[http://github.com/rubyworks/radix/issues]
 
 
 == SYNOPSIS
@@ -72,7 +76,7 @@ Radix follows {Ruby Setup}[http://rubyworks.github.com/setup] package standard.
 
 == COPYING
 
-Copyright (c) 2009 Thomas Sawyer
+Copyright (c) 2009 Thomas Sawyer, Rubyworks
 
 This program is distributable in accordance with the *FreeBSD* license.
 
