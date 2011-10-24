@@ -15,7 +15,9 @@ qed:
 qedoc:
   files: qed/
   title: Radix Demonstrandum
-  output: QED.doc
+  output:
+    - QED.doc
+    - site/qed.html
 
 locat:
   active: false

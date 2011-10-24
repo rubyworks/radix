@@ -10,5 +10,6 @@ lib/radix/rational.rb
 lib/radix.rb
 lib/radix.yml
 HISTORY.rdoc
+QED.doc
 README.rdoc
 NOTICE.rdoc
