@@ -32,11 +32,11 @@ module Radix
       when ::Rational, Rational
         ratn = numerator
         base = denominator
-        @value = ::Rational.new!(ratn.numerator, ratn.denominator)
+        @value = Rational(ratn.numerator, ratn.denominator)
       else
         n = parse_value(numerator, base)
         d = parse_value(denominator, base)
-        @value = ::Rational.new!(n, d)
+        @value = Rational(n, d)
       end
       @base, @code = parse_base(base)
     end
