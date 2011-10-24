@@ -16,6 +16,7 @@
     $(document).ready(function() {
       $("#readme").load("readme.html", function(){
         $("#readme h1:first").hide();
+        $("#readme table:first").hide();
         /* highlight code */
         $('pre').wrapInner('<code></code>');
         hljs.tabReplace = '    ';

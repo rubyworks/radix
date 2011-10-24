@@ -1,9 +1,8 @@
 = Radix
 
-{<img src="http://travis-ci.org/rubyworks/radix.png" />}[http://travis-ci.org/rubyworks/radix]
-
 License:: BSD-2-Clause
 Copyright:: 2009 Thomas Sawyer, Rubyworks
+Status:: {<img src="http://travis-ci.org/rubyworks/radix.png" />}[http://travis-ci.org/rubyworks/radix]
 
 
 == DESCRIPTION
