@@ -13,7 +13,7 @@ qed:
   files: qed/
 
 qedoc:
-  files; qed/
+  files: qed/
   title: Radix Demonstrandum
   output: QED.doc
 
