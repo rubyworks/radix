@@ -76,10 +76,10 @@ To install with RubyGems simply open a console and type:
 Radix follows {Ruby Setup}[http://rubyworks.github.com/setup] package standard.
 
 
-== COPYING
+== COPYRIGHTS
 
 Copyright (c) 2009 Thomas Sawyer, Rubyworks
 
 This program is distributable in accordance with the *FreeBSD* license.
 
-See COPYING.rdoc for details.
+See NOTICE.rdoc for details.
