@@ -2,7 +2,8 @@
 
 {<img src="http://travis-ci.org/rubyworks/radix.png" />}[http://travis-ci.org/rubyworks/radix]
 
-Copyright:: 2009 Thomas Sawyer, Rubyworks (BSD-2-Clause)
+License:: BSD-2-Clause
+Copyright:: 2009 Thomas Sawyer, Rubyworks
 
 
 == DESCRIPTION
