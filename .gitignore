@@ -1,7 +1,7 @@
 .reap/digest
 .yardoc
+doc
 log
 pkg
-site/docs
-site/readme.html
-QED.doc
+tmp
+web

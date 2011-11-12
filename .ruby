@@ -1,6 +1,6 @@
 ---
 source:
-- meta/
+- var
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
@@ -43,4 +43,4 @@ description: ! "Radix is a very easy to use Ruby library for converting numbers 
   and from\nany base. It supports both Integer, Float and Rational numbers, as well
   as \nrepresentational string-notations that need not be in ASCII order."
 organization: Rubyworks
-date: '2011-10-23'
+date: '2011-11-11'
