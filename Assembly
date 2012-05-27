@@ -11,14 +11,14 @@ dnote:
   output: log/NOTES.rdoc
 
 qed:
-  files: qed/
+  files: demo/
 
 qedoc:
-  files: qed/
-  title: Radix Demonstrandum
+  files: demo/
+  title: Radix Demonstrations
   output:
-    - QED.doc
-    - web/qed.html
+    - DEMO.doc
+    - web/demo.html
 
 locat:
   active: false
