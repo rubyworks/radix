@@ -222,6 +222,7 @@ module Radix
         b << r
       end
 
+      a << 0 if a.empty?
       b << 0 if b.empty?
 
       [a.reverse, b]

@@ -215,6 +215,9 @@ module Radix
         a << r
       end
 
+      # if nothing add zero
+      a << 0 if a.empty?
+
       a.reverse
     end
 
