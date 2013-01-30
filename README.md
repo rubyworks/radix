@@ -66,7 +66,7 @@ To install with RubyGems simply open a console and type:
     $ gem install radix
 
 Radix follows [Ruby Setup](http://rubyworks.github.com/setup) package standard
-so it can also be installed in an FHS compliant manner use setup.rb.
+so it can also be installed in an FHS compliant manner using setup.rb.
 
 
 ## Copyrights
