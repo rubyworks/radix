@@ -1,14 +1,20 @@
 # RELEASE HISTORY
 
-## 2.0.2 / 2013-01-31
+## 2.1.0 / 2013-01-31
 
-This release simple updates the build a bit, primarily converting RDoc
-documents to Markdown.
+This release fixes two bugs. The first caused base conversions of `0`
+to return an empty string. Second, the `Float#to_r` extension was
+ using multiplication when it should have been using power. 
+Ruby 1.9 includes `Float#to_r` though, so the use of Radix's *fixed*
+core extension is conditioned on Ruby 1.8 now. This release also 
+updates  the build a bit, primarily converting RDoc documents to 
+Markdown.
 
 Changes:
 
+* Fix issue #5, Float#to_r using times instead of power. (simonratner)
+* Fix issue #4, zero converts to empty string. (bbasata)
 * Convert RDoc documents to Markdown.
-* Various minor administrative chores.
 
 
 ## 2.0.1 / 2011-10-23
