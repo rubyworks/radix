@@ -1,6 +1,6 @@
-= RELEASE HISTORY
+# RELEASE HISTORY
 
-== 2.0.1 / 2011-10-23
+## 2.0.1 / 2011-10-23
 
 This release is simply an adminstrative release to update the project
 build configuration. The functionality of the library itself has not
@@ -13,7 +13,7 @@ Changes:
 * Switch to BSD-2-Clause license.
 
 
-== 2.0.0 / 2010-10-31
+## 2.0.0 / 2010-10-31
 
 Radix::Number has been deprecate in favor of three separate classes,
 Radix::Integer, Radix::Float and Radix::Rational. In addition
@@ -27,7 +27,7 @@ Changes:
 * Add Radix::Rational
 
 
-== 1.1.0 / 2010-09-03
+## 1.1.0 / 2010-09-03
 
 Radix now provides an actual Numeric subclass, Radix::Number, that stores
 the base and can be used like any other Numeric object. This makes it very
@@ -42,7 +42,7 @@ Changes:
 * Rename Radix class to Radix::Base.
 
 
-== 1.0.0 / 2009-07-01
+## 1.0.0 / 2009-07-01
 
 This is the initial stand-alone release of Radix,
 ported from the basex.rb library of Ruby Facets.

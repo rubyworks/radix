@@ -1,0 +1,55 @@
+---
+revision: 2013
+type: ruby
+sources:
+- var
+authors:
+- name: Thomas Sawyer
+  email: transfire@gmail.com
+organizations: []
+requirements:
+- groups:
+  - build
+  development: true
+  name: detroit
+- groups:
+  - test
+  development: true
+  name: qed
+conflicts: []
+alternatives: []
+resources:
+- type: home
+  uri: http://rubyworks.github.com/radix
+  label: Homepage
+- type: code
+  uri: http://github.com/rubyworks/radix
+  label: Source Code
+- type: mail
+  uri: http://groups.google.com/groups/rubyworks-mailinglist
+  label: Mailing List
+- type: bugs
+  uri: http://github.com/rubyworks/radix/issues
+  label: Issue Tracker
+repositories:
+- name: upstream
+  scm: git
+  uri: git://github.com/rubyworks/radix.git
+categories: []
+copyrights:
+- holder: ''
+  year: '2009'
+  license: BSD-2-Clause
+customs: []
+paths:
+  lib:
+  - lib
+created: '2009-07-01'
+summary: Convert to and from any base.
+title: Radix
+version: 2.0.1
+name: radix
+description: ! "Radix is a very easy to use Ruby library for converting numbers to
+  and from\nany base. It supports both Integer, Float and Rational numbers, as well
+  as \nrepresentational string-notations that need not be in ASCII order."
+date: '2013-01-30'

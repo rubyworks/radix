@@ -1,0 +1,84 @@
+# Radix Rational
+
+    require 'radix'
+
+## Initialization
+
+Radix::Rational's initializer takes a numerator and a denominator,
+either of which can be an Integer, Float, String or Array along witha
+an integer base.
+
+Give a integer value, it will automatically be converted to the base
+specified.
+
+    check do |num, dem, base, eqf|
+      r = Radix::Rational.new(num, dem, base)
+      r.assert == eqf
+    end
+
+    ok  1, 2,  2,  0.5
+    ok  1, 1,  2,  1.0
+
+    ok  8, 1, 10,  8.0
+    ok  8, 5, 10,  1.6
+    ok  8, 8, 10,  1.0
+
+    ok 10, 1, 10, 10.0
+    ok 10, 2, 10,  5.0
+    ok 10, 5, 10,  2.0
+
+    ok  8, 1, 16,  8.0
+    ok 16, 1, 16, 16.0
+
+## Reduction
+
+    check do |a, x|
+      r = a.reduce
+      r.assert == x
+    end
+
+    ok [10,5].br(10),  [2,1].br(10)
+    ok [30,3].br(10), [10,1].br(10)
+
+## Operations
+
+### Addition
+
+    check do |a, b, x|
+      r = a + b
+      r.assert == x
+    end
+
+    ok [8,5].br(10), [1,2].br(10), [21,10].br(10)
+
+    ok [8,5].br(10), 1, [13,5].br(10)
+
+    ok [8,5].br(10), 0.5, [21,10].br(10)
+
+### Subtraction
+
+    check do |a, b, x|
+      r = a - b
+      r.assert == x
+    end
+
+    ok [8,5].br(10), [1,2].br(10), [11,10].br(10)
+
+### Multiplication
+
+    check do |a, b, x|
+      r = a * b
+      r.assert == x
+    end
+
+    ok [8,5].br(10), [1,2].br(10), [8,10].br(10)
+
+### Division
+
+    check do |a, b, x|
+      r = a / b
+      r.assert == x
+    end
+
+    ok [8,5].br(10), [1,2].br(10), [16,5].br(10)
+
