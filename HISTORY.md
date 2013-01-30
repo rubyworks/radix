@@ -1,5 +1,16 @@
 # RELEASE HISTORY
 
+## 2.0.2 / 2013-01-31
+
+This release simple updates the build a bit, primarily converting RDoc
+documents to Markdown.
+
+Changes:
+
+* Convert RDoc documents to Markdown.
+* Various minor administrative chores.
+
+
 ## 2.0.1 / 2011-10-23
 
 This release is simply an adminstrative release to update the project
