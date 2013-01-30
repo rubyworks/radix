@@ -6,9 +6,8 @@ gem:
   active: true
 
 dnote:
-  title: Developer's Notes
-  labels: ~
-  output: log/NOTES.rdoc
+  title: Source Notes
+  output: log/notes.html
 
 qed:
   files: demo/
@@ -17,7 +16,7 @@ qedoc:
   files: demo/
   title: Radix Demonstrations
   output:
-    - DEMO.doc
+    - DEMO.md
     - web/demo.html
 
 locat:
@@ -32,8 +31,8 @@ email:
     - rubyworks-mailinglist@googlegroups.com
 
 vclog:
+  active: false
   output:
     - log/changes.html
     - log/history.html
-  active: false
 
