@@ -1,6 +1,14 @@
-#!mast .ruby .yardopts bin lib man spec test [A-Z]*.*
-.ruby
+#!mast .index .yardopts bin demo lib man spec test *.md *.txt
+.index
 .yardopts
+demo/01_synopsis.md
+demo/02_integer.md
+demo/03_float.md
+demo/04_rational.md
+demo/05_base.md
+demo/applique/ae.rb
+demo/applique/check.rb
+demo/applique/radix.rb
 lib/radix/base.rb
 lib/radix/float.rb
 lib/radix/integer.rb
@@ -9,7 +17,7 @@ lib/radix/operator.rb
 lib/radix/rational.rb
 lib/radix.rb
 lib/radix.yml
-HISTORY.rdoc
-QED.doc
-README.rdoc
-NOTICE.rdoc
+HISTORY.md
+README.md
+DEMO.md
+LICENSE.txt
