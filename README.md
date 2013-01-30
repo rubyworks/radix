@@ -1,12 +1,10 @@
-<span class="float-right">
-<a href="http://travis-ci.org/rubyworks/radix"><img src="http://travis-ci.org/rubyworks/radix.png" /></a>
-</span>
-
 # Radix
 
 [Website](http://rubyworks.github.com/radix) /
 [Report Issue](http://github.com/rubyworks/radix/issues) /
-[Source Code](http://github.com/rubyworks/radix)
+[Source Code](http://github.com/rubyworks/radix) /
+[![Build Status](https://secure.travis-ci.org/rubyworks/radix.png)](http://travis-ci.org/rubyworks/radix) /
+[![Gem Version](https://badge.fury.io/rb/radix.png)](http://badge.fury.io/rb/radix)
 
 Radix is a very easy to use Ruby library for converting numbers to and from
 any base. It supports both Integer, Float and Rational numbers, as well as 
@@ -58,7 +56,7 @@ to another base 10 number using a different encoding.
 
     "10".b(10).to_a(base)  #=> [:W, :Q]
 
-To learn more have a look at the [QED](http://rubyworks.github.com/radix/docs/qed).
+To learn more have a look at the [QED Demo](http://rubydoc.info/gems/radix/file/DEMO.md).
 
 
 ## Installing
