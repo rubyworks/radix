@@ -47,9 +47,9 @@ paths:
 created: '2009-07-01'
 summary: Convert to and from any base.
 title: Radix
-version: 2.1.0
+version: 2.1.1
 name: radix
 description: ! "Radix is a very easy to use Ruby library for converting numbers to
   and from\nany base. It supports both Integer, Float and Rational numbers, as well
   as \nrepresentational string-notations that need not be in ASCII order."
-date: '2013-01-30'
+date: '2013-02-06'
