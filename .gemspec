@@ -1,143 +1,307 @@
 # encoding: utf-8
 
 require 'yaml'
+require 'pathname'
 
-Gem::Specification.new do |gemspec|
+module Indexer
 
-  manifest = Dir.glob('manifest{,.txt}', File::FNM_CASEFOLD).first
+  # Convert index data into a gemspec.
+  #
+  # Notes:
+  #   * Assumes all executables are in bin/.
+  #   * Does not yet handle default_executable setting.
+  #   * Does not yet handle platform setting.
+  #   * Does not yet handle required_ruby_version.
+  #   * Support for rdoc entries is weak.
+  #
+  class GemspecExporter
 
-  scm = case
-        when File.directory?('.git')
-          :git
+    # File globs to include in package --unless a manifest file exists.
+    FILES = ".index .yardopts alt bin data demo ext features lib man spec test try* [A-Z]*.*" unless defined?(FILES)
+
+    # File globs to omit from FILES.
+    OMIT = "Config.rb" unless defined?(OMIT)
+
+    # Standard file patterns.
+    PATTERNS = {
+      :root => '{.index,Gemfile}',
+      :bin  => 'bin/*',
+      :lib  => 'lib/{**/}*', #.rb',
+      :ext  => 'ext/{**/}extconf.rb',
+      :doc  => '*.{txt,rdoc,md,markdown,tt,textile}',
+      :test => '{test,spec}/{**/}*.rb'
+    } unless defined?(PATTERNS)
+
+    # For which revision of indexer spec is this converter intended?
+    REVISION = 2013 unless defined?(REVISION)
+
+    #
+    def self.gemspec
+      new.to_gemspec
+    end
+
+    #
+    attr :metadata
+
+    #
+    def initialize(metadata=nil)
+      @root_check = false
+
+      if metadata
+        root_dir = metadata.delete(:root)
+        if root_dir
+          @root = root_dir
+          @root_check = true
         end
+        metadata = nil if metadata.empty?
+      end
 
-  files = case
-          when manifest
-           File.readlines(manifest).
-             map{ |line| line.strip }.
-             reject{ |line| line.empty? || line[0,1] == '#' }
-          when scm == :git
-           `git ls-files -z`.split("\0")
-          else
-            Dir.glob('{**/}{.*,*}')  # TODO: be more specific using standard locations ?
-          end.select{ |path| File.file?(path) }
+      @metadata = metadata || YAML.load_file(root + '.index')
 
-  patterns = {
-    :bin_files  => 'bin/*',
-    :lib_files  => 'lib/{**/}*.rb',
-    :ext_files  => 'ext/{**/}extconf.rb',
-    :doc_files  => '*.{txt,rdoc,md,markdown,tt,textile}',
-    :test_files => '{test/{**/}*_test.rb,spec/{**/}*_spec.rb}'
-  }
+      if @metadata['revision'].to_i != REVISION
+        warn "This gemspec exporter was not designed for this revision of index metadata."
+      end
+    end
 
-  glob_files = lambda { |pattern|
-    Dir.glob(pattern).select { |path|
-      File.file?(path) && files.include?(path)
-    }
-  }
+    #
+    def has_root?
+      root ? true : false
+    end
 
-  #files = glob_files[patterns[:files]]
+    #
+    def root
+      return @root if @root || @root_check
+      @root_check = true
+      @root = find_root
+    end
 
-  executables = glob_files[patterns[:bin_files]].map do |path|
-                  File.basename(path)
-                end
+    #
+    def manifest
+      return nil unless root
+      @manifest ||= Dir.glob(root + 'manifest{,.txt}', File::FNM_CASEFOLD).first
+    end
 
-  extensions = glob_files[patterns[:ext_files]].map do |path|
-                 File.basename(path)
-               end
+    #
+    def scm
+      return nil unless root
+      @scm ||= %w{git hg}.find{ |m| (root + ".#{m}").directory? }.to_sym
+    end
 
-  metadata = YAML.load_file('.ruby')
-
-  # build-out the gemspec
-
-  case metadata['revision']
-  when 0
-    gemspec.name        = metadata['name']
-    gemspec.version     = metadata['version']
-    gemspec.summary     = metadata['summary']
-    gemspec.description = metadata['description']
-
-    metadata['authors'].each do |author|
-      gemspec.authors << author['name']
-
-      if author.has_key?('email')
-        if gemspec.email
-          gemspec.email << author['email']
+    #
+    def files
+      return [] unless root
+      @files ||= \
+        if manifest
+          File.readlines(manifest).
+            map{ |line| line.strip }.
+            reject{ |line| line.empty? || line[0,1] == '#' }
         else
-          gemspec.email = [author['email']]
+          list = []
+          Dir.chdir(root) do
+            FILES.split(/\s+/).each do |pattern|
+              list.concat(glob(pattern))
+            end
+            OMIT.split(/\s+/).each do |pattern|
+              list = list - glob(pattern)
+            end
+          end
+          list
+        end.select{ |path| File.file?(path) }.uniq
+    end
+
+    #
+    def glob_files(pattern)
+      return [] unless root
+      Dir.chdir(root) do
+        Dir.glob(pattern).select do |path|
+          File.file?(path) && files.include?(path)
         end
       end
     end
 
-    gemspec.licenses = metadata['licenses']
+    def patterns
+      PATTERNS
+    end
 
-    metadata['requirements'].each do |req|
-      name    = req['name']
-      version = req['version']
-      groups  = req['groups'] || []
+    def executables
+      @executables ||= \
+        glob_files(patterns[:bin]).map do |path|
+          File.basename(path)
+        end
+    end
 
-      #development = req['development']
-      #if development
-      #  # populate development dependencies
-      #  if gemspec.respond_to?(:add_development_dependency)
-      #    gemspec.add_development_dependency(name,*version)
-      #  else
-      #    gemspec.add_dependency(name,*version)
-      #  end
-      #else
-      #  # populate runtime dependencies  
-      #  if gemspec.respond_to?(:add_runtime_dependency)
-      #    gemspec.add_runtime_dependency(name,*version)
-      #  else
-      #    gemspec.add_dependency(name,*version)
-      #  end
-      #end
+    def extensions
+      @extensions ||= \
+        glob_files(patterns[:ext]).map do |path|
+          File.basename(path)
+        end
+    end
 
-      if groups.empty? or groups.include?('runtime')
-        # populate runtime dependencies  
-        if gemspec.respond_to?(:add_runtime_dependency)
-          gemspec.add_runtime_dependency(name,*version)
-        else
-          gemspec.add_dependency(name,*version)
+    def name
+      metadata['name'] || metadata['title'].downcase.gsub(/\W+/,'_')
+    end
+
+    def homepage
+      page = (
+        metadata['resources'].find{ |r| r['type'] =~ /^home/i } ||
+        metadata['resources'].find{ |r| r['name'] =~ /^home/i } ||
+        metadata['resources'].find{ |r| r['name'] =~ /^web/i }
+      )
+      page ? page['uri'] : false
+    end
+
+    def licenses
+      metadata['copyrights'].map{ |c| c['license'] }.compact
+    end
+
+    def require_paths
+      paths = metadata['paths'] || {}
+      paths['load'] || ['lib']
+    end
+
+    #
+    # Convert to gemnspec.
+    #
+    def to_gemspec
+      if has_root?
+        Gem::Specification.new do |gemspec|
+          to_gemspec_data(gemspec)
+          to_gemspec_paths(gemspec)
         end
       else
-        # populate development dependencies
-        if gemspec.respond_to?(:add_development_dependency)
-          gemspec.add_development_dependency(name,*version)
-        else
-          gemspec.add_dependency(name,*version)
+        Gem::Specification.new do |gemspec|
+          to_gemspec_data(gemspec)
+          to_gemspec_paths(gemspec)
         end
       end
     end
 
-    # convert external dependencies into a requirements
-    if metadata['external_dependencies']
-      ##gemspec.requirements = [] unless metadata['external_dependencies'].empty?
-      metadata['external_dependencies'].each do |req|
-        gemspec.requirements << req.to_s
+    #
+    # Convert pure data settings.
+    #
+    def to_gemspec_data(gemspec)
+      gemspec.name        = name
+      gemspec.version     = metadata['version']
+      gemspec.summary     = metadata['summary']
+      gemspec.description = metadata['description']
+
+      metadata['authors'].each do |author|
+        gemspec.authors << author['name']
+
+        if author.has_key?('email')
+          if gemspec.email
+            gemspec.email << author['email']
+          else
+            gemspec.email = [author['email']]
+          end
+        end
+      end
+
+      gemspec.licenses = licenses
+
+      requirements = metadata['requirements'] || []
+      requirements.each do |req|
+        next if req['optional']
+        next if req['external']
+
+        name    = req['name']
+        groups  = req['groups'] || []
+
+        version = gemify_version(req['version'])
+
+        if groups.empty? or groups.include?('runtime')
+          # populate runtime dependencies  
+          if gemspec.respond_to?(:add_runtime_dependency)
+            gemspec.add_runtime_dependency(name,*version)
+          else
+            gemspec.add_dependency(name,*version)
+          end
+        else
+          # populate development dependencies
+          if gemspec.respond_to?(:add_development_dependency)
+            gemspec.add_development_dependency(name,*version)
+          else
+            gemspec.add_dependency(name,*version)
+          end
+        end
+      end
+
+      # convert external dependencies into gemspec requirements
+      requirements.each do |req|
+        next unless req['external']
+        gemspec.requirements << ("%s-%s" % req.values_at('name', 'version'))
+      end
+
+      gemspec.homepage = homepage
+      gemspec.require_paths = require_paths
+      gemspec.post_install_message = metadata['install_message']
+    end
+
+    #
+    # Set gemspec settings that require a root directory path.
+    #
+    def to_gemspec_paths(gemspec)
+      gemspec.files       = files
+      gemspec.extensions  = extensions
+      gemspec.executables = executables
+
+      if Gem::VERSION < '1.7.'
+        gemspec.default_executable = gemspec.executables.first
+      end
+
+      gemspec.test_files = glob_files(patterns[:test])
+
+      unless gemspec.files.include?('.document')
+        gemspec.extra_rdoc_files = glob_files(patterns[:doc])
       end
     end
 
-    # determine homepage from resources
-    homepage = metadata['resources'].find{ |key, url| key =~ /^home/ }
-    gemspec.homepage = homepage.last if homepage
-
-    gemspec.require_paths        = metadata['load_path'] || ['lib']
-    gemspec.post_install_message = metadata['install_message']
-
-    # RubyGems specific metadata
-    gemspec.files       = files
-    gemspec.extensions  = extensions
-    gemspec.executables = executables
-
-    if Gem::VERSION < '1.7.'
-      gemspec.default_executable = gemspec.executables.first
+    #
+    # Return a copy of this file. This is used to generate a local
+    # .gemspec file that can automatically read the index file.
+    #
+    def self.source_code
+      File.read(__FILE__)
     end
 
-    gemspec.test_files = glob_files[patterns[:test_files]]
+  private
 
-    unless gemspec.files.include?('.document')
-      gemspec.extra_rdoc_files = glob_files[patterns[:doc_files]]
+    def find_root
+      root_files = patterns[:root]
+      if Dir.glob(root_files).first
+        Pathname.new(Dir.pwd)
+      elsif Dir.glob("../#{root_files}").first
+        Pathname.new(Dir.pwd).parent
+      else
+        #raise "Can't find root of project containing `#{root_files}'."
+        warn "Can't find root of project containing `#{root_files}'."
+        nil
+      end
     end
+
+    def glob(pattern)
+      if File.directory?(pattern)
+        Dir.glob(File.join(pattern, '**', '*'))
+      else
+        Dir.glob(pattern)
+      end
+    end
+
+    def gemify_version(version)
+      case version
+      when /^(.*?)\+$/
+        ">= #{$1}"
+      when /^(.*?)\-$/
+        "< #{$1}"
+      when /^(.*?)\~$/
+        "~> #{$1}"
+      else
+        version
+      end
+    end
+
   end
+
 end
+
+Indexer::GemspecExporter.gemspec
