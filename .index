@@ -16,6 +16,10 @@ requirements:
   - test
   development: true
   name: qed
+- groups:
+  - test
+  development: true
+  name: ae
 conflicts: []
 alternatives: []
 resources:
