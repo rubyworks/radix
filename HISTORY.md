@@ -1,5 +1,14 @@
 # RELEASE HISTORY
 
+## 2.1.1 / 2013-02-06
+
+Minor release to fix gemspec. Which, alas, Bunder cannot do without.
+
+Changes:
+
+* Update .gemspec file for lastest indexer.
+
+
 ## 2.1.0 / 2013-01-31
 
 This release fixes two bugs. The first caused base conversions of `0`
