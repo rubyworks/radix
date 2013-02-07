@@ -34,8 +34,8 @@ But Ruby reaches it's limit at base 36.
 
 Radix provides the means of converting to and from any base.
 
-For example, a number in base 256 can be represented by the array [100, 10]
-(ie. 100**256 + 10**1) and can be convert to base 10.
+For example, a number in base 256 can be represented by the array `[100, 10]`,
+i.e. `100**256 + 10**1`, and can be convert to base 10.
 
     [100,10].b(256).to_a(10)  #=> [2,5,6,1,0]
 
