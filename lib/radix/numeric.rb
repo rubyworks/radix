@@ -56,7 +56,7 @@ module Radix
       operation(:/, other)
     end
 
-    # private
+    private
 
     ##
     # Parses the value of the base and character set to use.
