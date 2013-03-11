@@ -168,7 +168,14 @@ module Radix
   end
 
   ##
-  # @see #convert_base
+  # Convert any base to any other base, using array of Fixnum's. Indexes of
+  # the array correspond to values for each column of the number in from_base
+  #
+  # @param [Array<Fixnum>] digits Array of values for each digit of source
+  #   base.
+  # @param [Fixnum] from_base Source Base
+  # @param [Fixnum] to_base Destination Base
+  # @return [String] The value of digits in from_base converted as to_base.
   def self.convert_base(digits, from_base, to_base)
     bignum = 0
     digits.each { |digit| bignum = bignum * from_base + digit }
