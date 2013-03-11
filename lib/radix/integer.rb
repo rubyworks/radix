@@ -2,7 +2,7 @@ require 'radix/numeric'
 
 module Radix
 
-  #
+  #! attribute [Fixnum] 
   class Integer < Numeric
 
     # Stores the numerc value as normal number.
@@ -16,7 +16,7 @@ module Radix
 
     private
 
-    #
+    # 
     def initialize(value, base=10)
       @value = parse_value(value, base)
       @base, @code = parse_base(base)
@@ -51,6 +51,7 @@ module Radix
     ## digits << #Radix.convert(d, base, 10).to_i
 
     public
+
 
     #
     def to_i
@@ -194,7 +195,7 @@ module Radix
 
     private
 
-    # Perform arthmetic operation.
+    # Perform arithmetic operation.
     def operation(op, other)
       a = self.to_i
       b = other.to_i

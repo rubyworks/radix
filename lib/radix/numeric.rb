@@ -1,58 +1,76 @@
 require 'radix/base'
 
+# @author Thomas Sawyer
 module Radix
 
-  # Redix separator used in string and array representations.
+  # Radix separator used in string and array representations.
   DOT = '.'
 
-  #
+  # Division character for rational numbers
   DIV = '/'
 
-  #
+  # Default seperator character.
   DIVIDER = " "
 
-  # Radix Numeric base class is subclassed by Radix::Integer and Radix::Float,
-  # and is a subclass of Ruby's built-in Numeric class.
+  # Radix::Numeric class inherits from Ruby's Numeric class. It is then
+  # subclassed by Radix::Integer and Radix::Float.
+  #
+  # @todo Make immutable, but best way to do it?
+  # @example First suggestion
+  #   class << self
+  #     alias_method :_new, :new
+  #     private :_new
+  #   end
+  # @example Second suggestion
+  #   def self.new(value, base=10)
+  #     @cache ||= {}
+  #     @cache[[value, base]] ||= _new(value, base)
+  #   end
   class Numeric < ::Numeric
 
-    # TODO: Make immutable, but best way to do it?
-
-    #class << self
-    #  alias_method :_new, :new
-    #  private :_new
-    #end
-    #
-    #def self.new(value, base=10)
-    #  @cache ||= {}
-    #  @cache[[value, base]] ||= _new(value, base)
-    #end
-
-    # Addition
+    # Addition: binary operation
+    # @param [Radix::Numeric] other
+    # @return [Radix::Numeric] Result of arithmetic operation.
     def +(other)
       operation(:+, other)
     end
 
-    # Subtraction
+    # Subtraction: binary operation
+    # @param [Radix::Numeric] other
+    # @return [Radix::Numeric] Result of arithmetic operation.
     def -(other)
       operation(:-, other)
     end
 
-    # Multiplication
+    # Multiplication: binary operation
+    # @param [Radix::Numeric] other
+    # @return [Radix::Numeric] Result of arithmetic operation.
     def *(other)
       operation(:*, other)
     end
 
-    # Division
+    # Division: binary operation
+    # @param [Radix::Numeric] other
+    # @return [Radix::Numeric] Result of arithmetic operation.
     def /(other)
       operation(:/, other)
     end
 
-    private
+    # private
 
+    ##
+    # Parses the value of the base and character set to use.
     #
+    # @param [Array<String>, Fixnum] base The value of the base, or a set of
+    #   characters to use as representation of the base.
+    # @note If an array of String characters is passed, its length is the
+    #   value of the base level.
+    # @return [Array<(Fixnum, [Array<String>, nil])>] Two part array:
+    #   0 - Fixnum value of the base.
+    #   1 - Nil, or Array of characters representing the base values.
     def parse_base(base)
       case base
-      when Array
+       when Array
         code = base
         base = base.size
       else
@@ -62,7 +80,12 @@ module Radix
       return base, code
     end
 
-    #
+    ##
+    # Simply returns the passed value. Used for simplifying creation of Radix
+    # instances.
+    # 
+    # @param [Radix::Float, Radix::Integer] value Given value.
+    # @param [String, Array, Numeric] base Desired base.
     def parse_numeric(value, base)
       value
     end
@@ -76,6 +99,7 @@ module Radix
 
     # Take an Array in the form of [d1, d2, ..., DOT, d-1, d-2, ...]
     # and convert it to base ten, and store in @value.
+
     def parse_array(value, base)
       value = value.dup
 

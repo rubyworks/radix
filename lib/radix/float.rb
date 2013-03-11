@@ -194,6 +194,7 @@ module Radix
       b = other.to_f
       x = a.__send__(op, b)
       Radix::Float.new(x, base)
+
     end
 
     #
