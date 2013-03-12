@@ -81,17 +81,23 @@ module Radix
     end
 
     ##
-    # Simply returns the passed value. Used for simplifying creation of Radix
-    # instances.
+    # Simply returns the passed value. Used for simplifying creation of 
+    # Radix::Numeric instances.
     # 
     # @param [Radix::Float, Radix::Integer] value Given value.
     # @param [String, Array, Numeric] base Desired base.
+    # @return [Radix::Float, Radix::Integer] The passed value.
     def parse_numeric(value, base)
       value
     end
 
+    ##
     # If a float style string is passed in for +value+, e.g. "9.5", the
     # decimal will simply be truncated. So "9.x" would become "9".
+    # 
+    # @param [Radix::Float, Radix::Integer] value Given value.
+    # @param [String, Array, Numeric] base Desired base.
+    # @return [Radix::Float, Radix::Integer] The passed value.
     def parse_string(value, base)
       digits = value.split(//)
       parse_array(digits, base)
@@ -99,7 +105,6 @@ module Radix
 
     # Take an Array in the form of [d1, d2, ..., DOT, d-1, d-2, ...]
     # and convert it to base ten, and store in @value.
-
     def parse_array(value, base)
       value = value.dup
 
