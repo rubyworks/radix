@@ -2,10 +2,19 @@ require 'radix/numeric'
 
 module Radix
 
-  #! attribute [Fixnum] 
+  ##
+  # Advanced integer class for Radix conversions and mathematical operations
+  # with other bases. 
+  #
+  # @!attribute [r] value Decimal value of the Integer
+  #   @return [Fixnum] Integer's decimal value.
+  # @!attribute [r] base
+  #   @return [Fixnum] The base level in use.
+  # @!attribute [r] code Characters to use in place of default.
+  #   @return [Array<String>, nil] Substitution chars or nil if default.
   class Integer < Numeric
 
-    # Stores the numerc value as normal number.
+    # Stores the numeric value as normal number.
     attr :value
 
     # Base of the number.
@@ -16,13 +25,26 @@ module Radix
 
     private
 
-    # 
+    ##
+    # Starts a new instance of the Radix:Integer class
+    #
+    # @param [Radix:Integer, Radix::Float, Numeric, Array, String] value The
+    #   value of the new integer in context of base.
+    # @param [Fixnum, Array<String>] base The base context in which value is
+    #   determined. Can be an array of characters to use in plac
     def initialize(value, base=10)
       @value = parse_value(value, base)
       @base, @code = parse_base(base)
     end
 
+    ##
+    # Takes a Radix::Numeric, String or array and returns the decimal value for
+    # storage in @value.
     #
+    # @param [Radix::Integer, Radix::Float, Numeric, String, Array<Numeric,
+    #   String>] value The value of the integer in base context.
+    # @param [Fixnum, Array<String>] base The context base of value.
+    # @return [Fixnum] Decimal value of Integer.
     def parse_value(value, base)
       case value
       when Integer, Float # Radix
@@ -36,11 +58,15 @@ module Radix
       end
     end
 
+    ##
     # Take an Array in the form of [..., d2, d1, d0] and convert it to
     # base ten, and store in @value.
-    #
-    # If a float style array is passed in for +value+, e.g. [9, '.', 5],
+    # @note If a float style array is passed in for +value+, e.g. [9, '.', 5],
     # the fractional part will simply be truncated.
+    #
+    # @param [Array<String, Numeric>] value Given value.
+    # @param [Fixnum, Array<String>] base Desired base.
+    # @return [Fixnum] Decimal version of array value in base context.
     def parse_array(value, base)
       if i = value.index(DOT)
         value = [0...i]
@@ -53,7 +79,10 @@ module Radix
     public
 
 
-    #
+    ##
+    # Makes this Radix::Integer a decimal integer.
+    # 
+    # @return [Fixnum] Base(10) value.
     def to_i
       value.to_i #(sign + convert(10).digits.join('')).to_i
     end
@@ -61,12 +90,19 @@ module Radix
     #
     alias_method :to_int, :to_i
 
-    #
+    ##
+    # Makes this Radix::Integer a decimal float.
+    # 
+    # @return [Float] Base(10) value as float.
     def to_f
       value.to_f #(sign + convert(10).digits.join('')).to_f
     end
 
+    ##
+    # Makes this Radix::Integer an array using code if defined. Returns an
+    # array using default string chars otherwise.
     #
+    # @return [Array<String>] Current base encoded array.
     def to_a(base=nil)
       if base
         convert(base).digits_encoded
@@ -75,7 +111,13 @@ module Radix
       end
     end
 
+    ##
+    # Creates an encoded string in desired base, with desired digit divider.
     #
+    # @param [Fixnum, Array<String>] base Desired base.
+    # @param [String] divider Desired divider character(s).
+    # @return [String] Encoded string with specified divider.
+    # @note For base 10 or less does not use a divider unless specified.
     def to_s(base=nil, divider=nil)
       divider = divider.to_s if divider
       if base
@@ -93,7 +135,7 @@ module Radix
       end
     end
 
-    #
+    # @return [String] 
     def inspect
       "#{digits.join(' ')} (#{base})"
     end

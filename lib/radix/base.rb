@@ -52,8 +52,8 @@ module Radix
     ##
     # New Radix using +chars+ representation.
     #
-    # @param [String, Numeric] chars String to represent the number values of
-    #   the base or a Numeric of the Base level.
+    # @param [Array<String>, Numeric] chars Array of string representation of
+    #   number values of the base or a Numeric of the Base level.
     # @return [void]
     def initialize(chars=BASE::B62)
       if ::Numeric === chars
