@@ -38,7 +38,7 @@ class ::Float
   ##
   # Takes a Ruby Float and makes it into a Radix::Float as given base.
   # 
-  # @param [String, Array, Numeric] base The desired base.
+  # @param [Fixnum] base The desired base.
   # @return [Radix::Float]
   def b(base)
     Radix::Float.new(self, base)
@@ -53,7 +53,7 @@ class ::Integer
   ##
   # Takes a Ruby Integer and makes it into a Radix::Integer as given base.
   # 
-  # @param [String, Array, Numeric] base The desired base.
+  # @param [Fixnum] base The desired base.
   # @return [Radix::Integer]
   def b(base)
     Radix::Integer.new(self, base)
@@ -69,7 +69,7 @@ class ::String
   # Takes a String and makes it into a Radix::Integer or Radix::Float as given
   # base. Float is determined by a "." character in string instance
   # 
-  # @param [String, Array, Numeric] base The desired base.
+  # @param [Fixnum] base The desired base.
   # @return [Radix::Integer, Radix::Float]
   def b(base)
     if index('.')
@@ -89,7 +89,7 @@ class ::Array
   # Takes array and makes it into a Radix::Integer or Radix::Float as given
   # base. Float is determined by a "." character in array instance.
   # 
-  # @param [String, Array, Numeric] base The desired base.
+  # @param [Fixnum] base The desired base.
   # @return [Radix::Integer, Radix::Float]
   def b(base)
     if index('.')
