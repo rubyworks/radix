@@ -6,11 +6,11 @@ module Radix
   # Advanced integer class for Radix conversions and mathematical operations
   # with other bases. 
   #
-  # @!attribute [r] value Decimal value of the Integer
+  # @!attribute [r] value 
   #   @return [Fixnum] Integer's decimal value.
   # @!attribute [r] base
-  #   @return [Fixnum] The base level in use.
-  # @!attribute [r] code Characters to use in place of default.
+  #   @return [Fixnum] The base level of Integer instance.
+  # @!attribute [r] code 
   #   @return [Array<String>, nil] Substitution chars or nil if default.
   class Integer < Numeric
 
@@ -102,6 +102,7 @@ module Radix
     # Makes this Radix::Integer an array using code if defined. Returns an
     # array using default string chars otherwise.
     #
+    # @param [Fixnum] base Desired base.
     # @return [Array<String>] Current base encoded array.
     def to_a(base=nil)
       if base
@@ -135,24 +136,36 @@ module Radix
       end
     end
 
+    ##
+    # Prints the digits of Integer's values per column of it's current base.
+    #
     # @return [String] 
     def inspect
       "#{digits.join(' ')} (#{base})"
     end
 
+    ##
+    # 
     #
+    # @return []
     def digits
       i = base_conversion(value, base)
       i.unshift('-') if negative?
       i
     end
 
+    ##
+    # Returns the encoded version of digits. 
     #
+    # @return [Array<String>] The encoded digits. Or digits if @code exists.
     def digits_encoded
       base_encode(digits)
     end
 
+    ##
     # Returns true if the number is negative.
+    #
+    # @return [Boolean] True if negative.
     def negative?
       value < 0
     end
@@ -164,58 +177,111 @@ module Radix
       #self.class.new(new_digits, new_base)
     end
 
-    # Addition
+    ##
+    # Addition: binary operation
+    #
+    # @param [Radix::Numeric, Fixnum] other
+    # @return [Radix::Integer] Result of arithmetic operation.
+    # @example Which operand determines the base?
+    #   > i = Radix::Integer.new(123,16)
+    #   7 11 (16)
+    #   > i2 = Radix::Integer.new(456,10)
+    #   4 5 6 (10)
+    #   > i + i2          # i is base 16 and is first operand
+    #   2 4 3 (16)        # so base of return is 16
+    #   > i2 + i          # i2 is base 10 and is first operand
+    #   5 7 9 (10)        # so base of return is 10
     def +(other)
       operation(:+, other)
     end
 
-    # Subtraction
+    ##
+    # Subtraction: binary operation
+    #
+    # @param [Radix::Numeric, Fixnum] other
+    # @return [Radix::Integer] Result of arithmetic operation.
     def -(other)
       operation(:-, other)
     end
 
-    # Multiplication
+    ##
+    # Multiplication: binary operation
+    #
+    # @param [Radix::Numeric, Fixnum] other
+    # @return [Radix::Integer] Result of arithmetic operation.
     def *(other)
       operation(:*, other)
     end
 
-    # Division
+    ##
+    # Division: binary operation
+    #
+    # @param [Radix::Numeric, Fixnum] other
+    # @return [Radix::Integer] Result of arithmetic operation.
     def /(other)
       operation(:/, other)
     end
 
-    # Power
+    ##
+    # Power. Exponentional operation.
+    #
+    # @param [Radix::Numeric, Fixnum] other The exponent by which to raise
+    #   Integer.
+    # @return [Radix::Integer] Result of exponential operation.
     def **(other)
       operation(:**, other)
     end
 
-    # Modulo
+    ##
+    # Modulo: binary operation
+    #
+    # @param [Radix::Numeric, Fixnum] other
+    # @return [Radix::Integer] Modulo result of division operation.
     def %(other)
       operation(:%, other)
     end
 
+    ##
     # Asymmetric binary shift operator.
+    #
+    # @param [#to_int] o Anything which responds to to_int.
+    # @return [Radix::Integer]
     def <<(o)
       Radix::Integer.new(to_int << o.to_int, base)
     end
 
+    ##
     # AND bit operator
+    #
+    # @param [Radix:Numeric, Fixnum] o
+    # @return [Radix::Integer]
     def &(o)
       Radix::Integer.new(to_int & o.to_int, base)
     end
 
+    ##
+    # Returns the absolute value of self in @base.
     #
+    # @return [Radix::Integer]
     def abs
       self.class.new(value.abs, base)
     end
 
+    ##
     # Strict equality requires same class as well as value.
+    #
+    # @param [Object] num Test object
+    # @return [Boolean] True if class and value are equal.
     def eql?(num)
       self.class.equal?(num.class) && self == num
     end
 
+    ##
     # Simple equality requires equal values only.
-    # TODO: Handle Float and Radix::Float.
+    # @todo Handle Float and Radix::Float.
+    #
+    # @param [#value] other Any object that responds to value.
+    # @return [Boolean] True if values are equal.
     def ==(other)
       case other
       when Float, Integer  # Radix
@@ -225,19 +291,41 @@ module Radix
       end
     end
 
+    ##
+    # Comparison operation.
     #
+    # @param [#to_f] other Anything which responds to to_f.
+    # @return [Fixnum] -1 for less than. 0 for equal. 1 for more than.
     def <=>(other)
       value <=> other.to_f  # to_num
     end
 
+    ##
+    # Create a new Radix::Integer from value and return an array of
+    # [Radix::Integer.new(value), self]
     #
+    # @return [Array<Radix::Integer>] An array of the new Integer object and
+    #   self.
     def coerce(value)
       [Radix::Integer.new(value), self]  
     end
 
     private
 
-    # Perform arithmetic operation.
+    ##
+    # Perform passed arithmetic operation.
+    #
+    # @param [Numeric, String] other  
+    # @return [Radix::Integer] Result of binary operation in @base.
+    # @example Which operand determines the base?
+    #   > i = Radix::Integer.new(123,16)
+    #   7 11 (16)
+    #   > i2 = Radix::Integer.new(456,10)
+    #   4 5 6 (10)
+    #   > i + i2          # i is base 16 and is first operand
+    #   2 4 3 (16)        # so base of return is 16
+    #   > i2 + i          # i2 is base 10 and is first operand
+    #   5 7 9 (10)        # so base of return is 10
     def operation(op, other)
       a = self.to_i
       b = other.to_i
@@ -245,7 +333,11 @@ module Radix
       self.class.new(x, base)
     end
 
-    #
+    ##
+    # 
+    # @param (see #value)
+    # @param (see #base)
+    # @return [Array<Fixnum>]
     def base_conversion(value, base)
       #if value < 0
       #  @negative, value = true, value.abs
