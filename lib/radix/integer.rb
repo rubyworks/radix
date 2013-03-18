@@ -186,7 +186,7 @@ module Radix
     ##
     # Addition: binary operation
     #
-    # @param [Radix::Numeric, Fixnum] other
+    # @param [#to_i] other
     # @return [Radix::Integer] Result of arithmetic operation.
     # @example Which operand determines the base?
     #   > i = Radix::Integer.new(123,16)
@@ -204,7 +204,7 @@ module Radix
     ##
     # Subtraction: binary operation
     #
-    # @param [Radix::Numeric, Fixnum] other
+    # @param [#to_i] other
     # @return [Radix::Integer] Result of arithmetic operation.
     def -(other)
       operation(:-, other)
@@ -213,7 +213,7 @@ module Radix
     ##
     # Multiplication: binary operation
     #
-    # @param [Radix::Numeric, Fixnum] other
+    # @param [#to_i] other
     # @return [Radix::Integer] Result of arithmetic operation.
     def *(other)
       operation(:*, other)
@@ -222,7 +222,7 @@ module Radix
     ##
     # Division: binary operation
     #
-    # @param [Radix::Numeric, Fixnum] other
+    # @param [#to_i] other
     # @return [Radix::Integer] Result of arithmetic operation.
     def /(other)
       operation(:/, other)
@@ -231,7 +231,7 @@ module Radix
     ##
     # Power. Exponentional operation.
     #
-    # @param [Numeric, Fixnum] other The exponent by which to raise
+    # @param [#to_i] other The exponent by which to raise
     #   Integer.
     # @return [Radix::Integer] Result of exponential operation.
     def **(other)
@@ -241,7 +241,7 @@ module Radix
     ##
     # Modulo: binary operation
     #
-    # @param [Radix::Numeric, Fixnum] other
+    # @param [#to_i] other 
     # @return [Radix::Integer] Modulo result of division operation.
     def %(other)
       operation(:%, other)
@@ -261,7 +261,7 @@ module Radix
     ##
     # AND bitwise operator
     #
-    # @param [Radix:Numeric, Fixnum] o
+    # @param [#to_i] o 
     # @return [Radix::Integer] The logical AND.
     def &(o)
       Radix::Integer.new(to_int & o.to_int, base)
@@ -303,7 +303,7 @@ module Radix
     # Comparitive binary operation. Very useful for sorting methods.
     # 
     # @param [#to_f] other The object to compare value against.
-    # @return [Fixnum] -1 for less than. 0 for equal. 1 for more than.
+    # @return [Fixnum] Returns-1 for less than. 0 for equal. 1 for more than.
     # @example Comparison testing
     #   > lower = Radix::Integer.new(123,10)
     #   1 2 3 (10)
@@ -333,7 +333,7 @@ module Radix
     ##
     # Perform passed arithmetic operation.
     #
-    # @param [Numeric, String] other  
+    # @param [#to_i] other  
     # @return [Radix::Integer] Result of binary operation in @base.
     # @example Which operand determines the base?
     #   > i = Radix::Integer.new(123,16)
