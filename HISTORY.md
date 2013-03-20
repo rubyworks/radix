@@ -1,8 +1,24 @@
 # RELEASE HISTORY
 
+## 2.2.0 / 2013-03-20
+
+Good documentation is so under-addressed by most developers that we really
+have to roll out the bright lights when someone comes along and takes 
+up the time consuming mantle of documenting an API in complete detail.
+This is exactly what happenned with Radix this last month. A coder going
+by the unassuming handle, **douglascodes**, announced his desire to 
+document Radix and proceeded to do so until YARD pronounced 100%
+completeness. Hey, we think that is worth of a whole version bump and 
+a big shout-out for Douglas!
+
+Changes:
+
+* 100% API documetnation coverage. (douglascodes)
+
+
 ## 2.1.1 / 2013-02-06
 
-Minor release to fix gemspec. Which, alas, Bunder cannot do without.
+Minor release to fix gemspec. Which, alas, Bundler cannot do without.
 
 Changes:
 

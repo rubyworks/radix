@@ -9,6 +9,7 @@ demo/05_base.md
 demo/applique/ae.rb
 demo/applique/check.rb
 demo/applique/radix.rb
+demo/issues/004_zero_empty_string.md
 lib/radix/base.rb
 lib/radix/float.rb
 lib/radix/integer.rb

@@ -1,10 +1,12 @@
 # Radix
 
-[Website](http://rubyworks.github.com/radix) /
-[Report Issue](http://github.com/rubyworks/radix/issues) /
-[Source Code](http://github.com/rubyworks/radix) /
-[![Build Status](https://secure.travis-ci.org/rubyworks/radix.png)](http://travis-ci.org/rubyworks/radix) /
-[![Gem Version](https://badge.fury.io/rb/radix.png)](http://badge.fury.io/rb/radix)
+[Website](http://rubyworks.github.com/radix) &middot;
+[Report Issue](http://github.com/rubyworks/radix/issues) &middot;
+[Source Code](http://github.com/rubyworks/radix) &middot;
+[![Build Status](https://secure.travis-ci.org/rubyworks/radix.png)](http://travis-ci.org/rubyworks/radix) &middot;
+[![Gem Version](https://badge.fury.io/rb/radix.png)](http://badge.fury.io/rb/radix) &nbsp; &nbsp;
+[![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
+
 
 Radix is a very easy to use Ruby library for converting numbers to and from
 any base. It supports both Integer, Float and Rational numbers, as well as 
@@ -67,6 +69,13 @@ To install with RubyGems simply open a console and type:
 
 Radix follows [Ruby Setup](http://rubyworks.github.com/setup) package standard
 so it can also be installed in an FHS compliant manner using setup.rb.
+
+
+## Special Thanks
+
+Special thanks to **douglascodes** for taking the time to fully document
+Radix's API. Documentation is an under-addressed and time-consuming affair,
+so your contribution is greatly appreciated. Thank you, Douglas!
 
 
 ## Copyrights
