@@ -37,10 +37,12 @@ module Radix
     ##
     # Starts a new instance of the Radix::Integer class
     #
-    # @param [Radix::Integer, Radix::Float, Numeric, Array, String] value The
-    #   value of the new integer in context of base.
+    # @param [Radix::Numeric, Numeric, Array, String] value
+    #   The value of the new integer in context of base.
+    #
     # @param [Fixnum, Array<String>] base The base context in which value is
     #   determined. Can be an array of characters to use in place of default.
+    #
     # @return [void]
     def initialize(value, base=10)
       @value = parse_value(value, base)
@@ -51,9 +53,12 @@ module Radix
     # Takes a Radix::Numeric, String or array and returns the decimal value for
     # storage in @value.
     #
-    # @param [Radix::Integer, Radix::Float, Numeric, String, Array<Numeric,
-    #   String>] value The value of the integer in base context.
-    # @param [Fixnum, Array<String>] base The context base of value.
+    # @param [Radix::Numeric, Numeric, String, Array<Numeric, String>] value
+    #   The value of the integer in base context.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   The context base of value.
+    #
     # @return [Fixnum] Decimal value of Integer.
     def parse_value(value, base)
       case value
@@ -71,11 +76,14 @@ module Radix
     ##
     # Take an Array in the form of [..., d2, d1, d0] and convert it to
     # base ten, and store in @value.
+    #
     # @note If a float style array is passed in for +value+, e.g. [9, '.', 5],
-    # the fractional part will simply be truncated.
+    #       the fractional part will simply be truncated.
     #
     # @param [Array<String, Numeric>] value Given value.
+    #
     # @param [Fixnum, Array<String>] base Desired base.
+    #
     # @return [Fixnum] Decimal version of array value in base context.
     def parse_array(value, base)
       if i = value.index(DOT)
@@ -97,8 +105,7 @@ module Radix
       value.to_i #(sign + convert(10).digits.join('')).to_i
     end
 
-    #
-    alias_method :to_int, :to_i
+    alias :to_int :to_i
 
     ##
     # Makes this Radix::Integer a ruby float.
@@ -112,7 +119,8 @@ module Radix
     # Makes this Radix::Integer an array using code if defined. Returns an
     # array using default chars otherwise.
     #
-    # @param [Fixnum] base Desired base.
+    # @param [Fixnum] base  Desired base.
+    #
     # @return [Array<Fixnum, String>] Current base encoded array.
     def to_a(base=nil)
       if base
@@ -125,10 +133,15 @@ module Radix
     ##
     # Creates an encoded string in desired base, with desired digit divider.
     #
-    # @param [Fixnum, Array<String>] base Desired base.
-    # @param [String] divider Desired divider character(s).
-    # @return [String] Encoded string with specified divider.
     # @note For base 10 or less does not use a divider unless specified.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   Desired base.
+    #
+    # @param [String] divider
+    #   Desired divider character(s).
+    #
+    # @return [String] Encoded string with specified divider.
     def to_s(base=nil, divider=nil)
       divider = divider.to_s if divider
       if base
@@ -184,8 +197,10 @@ module Radix
     ##
     # Converts Integer to a new base.
     # 
-    # @param [Fixnum, Array<String>] base The base context in which value is
-    #   determined. Can be an array of characters to use in place of default.
+    # @param [Fixnum, Array<String>] base
+    #   The base context in which value is determined. Can be an array
+    #   of characters to use in place of default.
+    #
     # @return [Radix:Integer] New Integer of same value, different base.
     def convert(base)
       self.class.new(value, base)
@@ -194,10 +209,10 @@ module Radix
     end
 
     ##
-    # Addition: binary operation
+    # Addition binary operation.
     #
     # @param [#to_i] other
-    # @return [Radix::Integer] Result of arithmetic operation.
+    #
     # @example Which operand determines the base?
     #   > i = Radix::Integer.new(123,16)
     #   7 11 (16)
@@ -207,51 +222,58 @@ module Radix
     #   2 4 3 (16)        # so base of return is 16
     #   > i2 + i          # i2 is base 10 and is first operand
     #   5 7 9 (10)        # so base of return is 10
+    #
+    # @return [Radix::Integer] Result of arithmetic operation.
     def +(other)
       operation(:+, other)
     end
 
     ##
-    # Subtraction: binary operation
+    # Subtraction binary operation.
     #
     # @param [#to_i] other
+    #
     # @return [Radix::Integer] Result of arithmetic operation.
     def -(other)
       operation(:-, other)
     end
 
     ##
-    # Multiplication: binary operation
+    # Multiplication binary operation.
     #
     # @param [#to_i] other
+    #
     # @return [Radix::Integer] Result of arithmetic operation.
     def *(other)
       operation(:*, other)
     end
 
     ##
-    # Division: binary operation
+    # Division binary operation.
     #
     # @param [#to_i] other
+    #
     # @return [Radix::Integer] Result of arithmetic operation.
     def /(other)
       operation(:/, other)
     end
 
     ##
-    # Power. Exponentional operation.
+    # Power, exponentional operation.
     #
-    # @param [#to_i] other The exponent by which to raise
-    #   Integer.
+    # @param [#to_i] other
+    #   The exponent by which to raise Integer.
+    #
     # @return [Radix::Integer] Result of exponential operation.
     def **(other)
       operation(:**, other)
     end
 
     ##
-    # Modulo: binary operation
+    # Modulo binary operation.
     #
-    # @param [#to_i] other 
+    # @param [#to_i] other
+    #
     # @return [Radix::Integer] Modulo result of division operation.
     def %(other)
       operation(:%, other)
@@ -259,22 +281,26 @@ module Radix
 
     ##
     # Leftwise bit shift operator.
-    # @note Negative numbers will shift rightward. This will truncate bytes
-    #   that get carried past zero. 
     #
-    # @param [#to_int] o The number of places to shift the bits of self.
+    # @note Negative numbers will shift rightward. This will truncate bytes
+    #       that get carried past zero. 
+    #
+    # @param [#to_int] integer
+    #   The number of places to shift the bits of self.
+    #
     # @return [Radix::Integer] The new Radix::Integer with shifted bits.
-    def <<(o)
-      Radix::Integer.new(to_int << o.to_int, base)
+    def <<(integer)
+      Radix::Integer.new(to_int << integer.to_int, base)
     end
 
     ##
     # AND bitwise operator
     #
-    # @param [#to_i] o 
+    # @param [#to_int] integer
+    #
     # @return [Radix::Integer] The logical AND.
-    def &(o)
-      Radix::Integer.new(to_int & o.to_int, base)
+    def &(integer)
+      Radix::Integer.new(to_int & integer.to_int, base)
     end
 
     ##
@@ -288,7 +314,9 @@ module Radix
     ##
     # Strict equality requires same class as well as value.
     #
-    # @param [Object] num Test object
+    # @param [Object] num
+    #   Object to compare.
+    #
     # @return [Boolean] True if class and value are equal.
     def eql?(num)
       self.class.equal?(num.class) && self == num
@@ -298,7 +326,9 @@ module Radix
     # Simple equality requires equal values only.
     # @todo Handle Float and Radix::Float.
     #
-    # @param [#value] other Any object that responds to value.
+    # @param [#value] other
+    #   Any object that responds to value.
+    #
     # @return [Boolean] True if values are equal.
     def ==(other)
       case other
@@ -313,7 +343,7 @@ module Radix
     # Comparitive binary operation. Very useful for sorting methods.
     # 
     # @param [#to_f] other The object to compare value against.
-    # @return [Fixnum] Returns-1 for less than. 0 for equal. 1 for more than.
+    #
     # @example Comparison testing
     #   > lower = Radix::Integer.new(123,10)
     #   1 2 3 (10)
@@ -325,6 +355,8 @@ module Radix
     #   0
     #   > higher <=> lower
     #   1
+    #
+    # @return [Fixnum] Returns -1 for less than, 0 for equal or 1 for more than.
     def <=>(other)
       value <=> other.to_f  # to_num
     end
@@ -344,7 +376,7 @@ module Radix
     # Perform passed arithmetic operation.
     #
     # @param [#to_i] other  
-    # @return [Radix::Integer] Result of binary operation in @base.
+    #
     # @example Which operand determines the base?
     #   > i = Radix::Integer.new(123,16)
     #   7 11 (16)
@@ -354,6 +386,8 @@ module Radix
     #   2 4 3 (16)        # so base of return is 16
     #   > i2 + i          # i2 is base 10 and is first operand
     #   5 7 9 (10)        # so base of return is 10
+    #
+    # @return [Radix::Integer] Result of binary operation in @base.
     def operation(op, other)
       a = self.to_i
       b = other.to_i
@@ -367,6 +401,7 @@ module Radix
     # 
     # @param (see #Radix::Integer.value)
     # @param (see #Radix::Integer.base)
+    #
     # @return [Array<Fixnum>]
     def base_conversion(value, base)
       #if value < 0

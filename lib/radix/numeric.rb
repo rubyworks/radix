@@ -1,22 +1,17 @@
 require 'radix/base'
 
-##
-# @author Thomas Sawyer
-#
 module Radix
 
-  ##
   # Radix separator used in string and array representations.
   DOT = '.'
 
-  ##
   # Division character for rational numbers
   DIV = '/'
 
-  ##
   # Default seperator character.
   DIVIDER = " "
 
+  ##
   # Radix::Numeric class inherits from Ruby's Numeric class. It is then
   # subclassed by Radix::Integer and Radix::Float.
   #
@@ -34,36 +29,40 @@ module Radix
   class Numeric < ::Numeric
 
     ##
-    # Addition: binary operation
+    # Addition, binary operation.
     #
     # @param [Radix::Numeric] other
+    #
     # @return [Radix::Numeric] Result of arithmetic operation.
     def +(other)
       operation(:+, other)
     end
 
     ##
-    # Subtraction: binary operation
+    # Subtraction, binary operation.
     #
     # @param [Radix::Numeric] other
+    #
     # @return [Radix::Numeric] Result of arithmetic operation.
     def -(other)
       operation(:-, other)
     end
 
     ##
-    # Multiplication: binary operation
+    # Multiplication, binary operation.
     #
     # @param [Radix::Numeric] other
+    #
     # @return [Radix::Numeric] Result of arithmetic operation.
     def *(other)
       operation(:*, other)
     end
 
     ##
-    # Division: binary operation
+    # Division, binary operation.
     #
     # @param [Radix::Numeric] other
+    #
     # @return [Radix::Numeric] Result of arithmetic operation.
     def /(other)
       operation(:/, other)
@@ -74,10 +73,13 @@ module Radix
     ##
     # Parses the value of the base and character set to use.
     #
-    # @param [Fixnum, Array<String>] base The value of the base, or a set of
-    #   characters to use as representation of the base.
+    # @param [Fixnum, Array<String>] base
+    #   The value of the base, or a set of characters to use as
+    #   representation of the base.
+    #
     # @note If an array of String characters is passed, its length is the
     #   value of the base level.
+    #
     # @return [Array<(Fixnum, [Array<String>, nil])>] Two part array:
     #   0 - Fixnum value of the base.
     #   1 - Nil, or Array of characters representing the base values.
@@ -99,6 +101,7 @@ module Radix
     # 
     # @param [Radix::Float, Radix::Integer] value Given value.
     # @param [Fixnum, Array<String>] base Desired base.
+    #
     # @return [Radix::Float, Radix::Integer] The passed value.
     def parse_numeric(value, base)
       value
@@ -108,8 +111,12 @@ module Radix
     # If a float style string is passed in for +value+, e.g. "9.5", the
     # decimal will simply be truncated. So "9.x" would become "9".
     # 
-    # @param [String] value Given value.
-    # @param [Fixnum, Array<String>] base Desired base.
+    # @param [String] value
+    #   Given value.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   Desired base.
+    #
     # @return [Radix::Float, Radix::Integer] The passed value.
     def parse_string(value, base)
       digits = value.split(//)
@@ -122,6 +129,7 @@ module Radix
     #
     # @param [Array<String, Numeric>] value Given value.
     # @param [Fixnum, Array<String>] base Desired base.
+    #
     # @return [Fixnum] Decimal version of passed array in base context.
     def parse_array(value, base)
       value = value.dup
@@ -147,8 +155,12 @@ module Radix
     # Convert array of values of a different base to decimal. This handles
     # integer values. The method for Radix::Float is slighly different.
     #
-    # @param [Array<Numeric, String>] digits Representation of Base values.
-    # @param [Fixnum, Array<String>] base The base to convert from.
+    # @param [Array<Numeric, String>] digits
+    #   Representation of base values.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   The base to convert from.
+    #
     # @return [Integer] The digits of base converted to decimal.
     def decimal(digits, base)
       e = digits.size - 1
@@ -164,7 +176,8 @@ module Radix
     # Map array of values to base encoding. If no encoding is defined
     # this simply returns the +digits+ unchanged.
     # 
-    # @param [Array<String, Numeric>] digits The  
+    # @param [Array<String, Numeric>] digits
+    #
     # @return [Array<String, Fixnum>] Encoded digits, or digits if @code is nil
     def base_encode(digits)
       return digits unless @code
@@ -179,9 +192,10 @@ module Radix
     end
 
     ##
-    # Decode an encoded array. Defaults to Base::B62 if self.code is not set.
+    # Decode an encoded array. Defaults to BASE::B62 if self.code is not set.
     # 
     # @param [Array<String, Numeric>] digits The encoded characters. 
+    #
     # @return [Array<String, Numeric>] Decoded array. 
     def base_decode(digits)
       #return digits unless code

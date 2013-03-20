@@ -38,12 +38,15 @@ module Radix
     private
 
     ##
-    # Starts a new instance of the Radix::Float class
+    # Starts a new instance of the Radix::Float class.
     #
-    # @param [Radix::Integer, Radix::Float, Numeric, Array, String] value The
-    #   value of the new integer in context of base.
-    # @param [Fixnum, Array<String>] base The base context in which value is
-    #   determined. Can be an array of characters to use in place of default.
+    # @param [Radix::Numeric, Numeric, Array, String] value
+    #   The value of the new integer in context of base.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   The base context in which value is determined. Can be an array
+    #   of characters to use in place of default.
+    #
     # @return [void]    
     def initialize(value, base=10)
       @value = parse_value(value, base)
@@ -54,9 +57,12 @@ module Radix
     # Takes a Radix::Numeric, String or array and returns the decimal float
     # value for storage in @value.
     #
-    # @param [Radix::Integer, Radix::Float, Numeric, String, Array<Numeric,
-    #   String>] value The value of the integer in base context.
-    # @param [Fixnum, Array<String>] base The context base of value.
+    # @param [Radix::Numeric, Numeric, String, Array<Numeric, String>] value
+    #   The value of the integer in base context.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   The context base of value.
+    #
     # @return [Float] Float value of Integer.
     def parse_value(value, base)
       case value
@@ -95,7 +101,9 @@ module Radix
     # Makes this Radix::Float an array using code if defined. Returns an
     # array using default chars otherwise. 
     #
-    # @param [Fixnum] base Desired base.
+    # @param [Fixnum] base
+    #   Desired base.
+    #
     # @return [Array<Fixnum, String>] Current base encoded array.
     def to_a(base=nil)
       if base
@@ -108,10 +116,15 @@ module Radix
     ##
     # Creates an encoded string in passed base, with passed digit divider.
     #
-    # @param [Fixnum, Array<String>] base Desired base.
-    # @param [String] divider Desired divider character(s).
-    # @return [String] Encoded string with specified divider.
     # @note For base 10 or less does not use a divider unless specified.
+    #
+    # @param [Fixnum, Array<String>] base
+    #   Desired base.
+    #
+    # @param [String] divider
+    #   Desired divider character(s).
+    #
+    # @return [String] Encoded string with specified divider.
     def to_s(base=nil, divider=nil)
       divider = divider.to_s if divider
       if base
@@ -140,8 +153,8 @@ module Radix
     ##
     # Returns an array representation of each column's value in decimal chars.
     #
-    # @return [Array<String, Fixnum>] Values per column of @base as array. 
-    #   Prepended with "-" if negative. 
+    # @return [Array<String, Fixnum>]
+    #   Values per column of @base as array. Prepended with "-" if negative. 
     def digits
       i, f = base_conversion(value, base)
       if negative?
@@ -154,15 +167,15 @@ module Radix
     ##
     # Returns digits, or coded version of digits if @code.
     #
-    # @return [Array<String, Fixnum>] Values per column of @base as array. 
-    #   Prepended with "-" if negative. Or encoded version if @code is
-    #   defined.
+    # @return [Array<String, Fixnum>]
+    #   Values per column of @base as array. Prepended with "-" if negative.
+    #   Or encoded version if @code is defined.
     def digits_encoded
       base_encode(digits)
     end
 
     ##
-    # Returns true if the number negative?
+    # Returns true if the number is negative?
     #
     # @return [Boolean] True if float value is < 0.
     def negative?
@@ -178,19 +191,21 @@ module Radix
     end
 
     ##
-    # Power. Exponentional operation.
+    # Power exponentional operation.
     #
-    # @param [#to_f] other The exponent by which to raise
-    #   Float.
+    # @param [#to_f] other
+    #   The exponent by which to raise Float.
+    #
     # @return [Radix::Float] Result of exponential operation.
     def **(other)
       operation(:**, other)
     end
 
     ##
-    # Modulo: binary operation
+    # Modulo binary operation.
     #
-    # @param [#to_f] other 
+    # @param [#to_f] other
+    #
     # @return [Radix::Float] Modulo result of division operation.
     def %(other)
       operation(:%, other)
@@ -228,7 +243,6 @@ module Radix
     # Returns a new Radix::Float instance of same base, rounded to the nearest 
     # whole integer.
     # 
-    # @return [Radix::Float] New Instance
     # @example Rounding Radix Float
     #   > round_test = Radix::Float.new(123.03, 16)
     #   7 11 . 0 7 10 14 1 4 7 10 14 1 (16)
@@ -246,6 +260,8 @@ module Radix
     #   7 12 . 0 (16)
     #   > round_test.round.value
     #   124.0
+    #
+    # @return [Radix::Float] New Instance
     def round
       return self.class.new((value + 0.5).floor, base) if self > 0.0
       return self.class.new((value - 0.5).ceil,  base) if self < 0.0
@@ -255,7 +271,9 @@ module Radix
     ##
     # Strict equality requires same class as well as value.
     #
-    # @param [Object] num Test object
+    # @param [Object] num
+    #   Object to compare.
+    #
     # @return [Boolean] True if class and value are equal.
     def eql?(num)
       self.class.equal?(num.class) && self == num
@@ -264,7 +282,9 @@ module Radix
     ##
     # Simple equality requires equal values only.
     #
-    # @param [Fixnum, Radix::Integer, Radix::Float] other Fixnum or Numeric.
+    # @param [Numeric] other
+    #   Any Numeric instance.
+    #
     # @return [Boolean] True if values are equal.
      def ==(other)
       case other
@@ -278,8 +298,9 @@ module Radix
     ##
     # Comparitive binary operation. Very useful for sorting methods.
     # 
-    # @param [#to_f] other The object to compare value against.
-    # @return [Fixnum] Returns -1 for less than. 0 for equal. 1 for more than.
+    # @param [#to_f] other
+    #   The object to compare value against.
+    #
     # @example Comparison testing
     #   > lower = Radix::Float.new(123.00,10)
     #   1 2 3 . 0 (10)
@@ -293,6 +314,8 @@ module Radix
     #   0
     #   > higher <=> lower
     #   1
+    #
+    # @return [Fixnum] Returns -1 for less than, 0 for equal or 1 for more than.
     def <=>(other)
       to_f <=> other.to_f
     end
@@ -313,14 +336,14 @@ module Radix
     #end
 
     ##
-    # Create a new Radix::Float from value in Base-10
+    # Create a new Radix::Float from value in Base-10.
     # 
-    # @param [Radix::Integer, Radix::Float, Numeric, Array, String] o The
-    #   value of the new integer in base-10.
-    # @return [Array<Radix::Float>] An array of the new Float object and
-    #   self.
-    def coerce(o)
-      [Radix::Float.new(o), self]  
+    # @param [Numeric, Array, String] other
+    #   The value of the new integer in base-10.
+    #
+    # @return [Array<Radix::Float>] An array of the new Float object and self.
+    def coerce(other)
+      [Radix::Float.new(other), self]  
     end
 
     private
@@ -328,7 +351,8 @@ module Radix
     ##
     # Perform passed arithmetic operation.
     #
-    # @param [#to_f] other  
+    # @param [#to_f] other
+    #
     # @return [Radix::Float] Result of binary operation in @base.
     def operation(op, other)
       a = self.to_f
@@ -342,9 +366,10 @@ module Radix
     # Returns two arrays. The integer part and the fractional part of the Float
     # value in param base.
     #
-    # @param [Float] value Float's decimal value.
-    # @param [Fixnum] base The base level of Float instance.
-    # @param [Fixnum] prec The # of places to extend F-part.
+    # @param [Float] value  Float's decimal value.
+    # @param [Fixnum] base  The base level of Float instance.
+    # @param [Fixnum] prec  The # of places to extend F-part.
+    #
     # @return [Array<(Array[Fixnum], Array[Fixnum])>] 
     def base_conversion(value, base, prec=10)
       #if value < 0
@@ -381,8 +406,9 @@ module Radix
     # Convert array of values of a different base to decimal as called by
     # parse_array.
     #
-    # @param [Array<Numeric, String>] digits Representation of Base values.
-    # @param [Fixnum, Array<String>] base The base to convert from.
+    # @param [Array<Numeric, String>] digits  Representation of Base values.
+    # @param [Fixnum, Array<String>] base  The base to convert from.
+    #
     # @return [Float] The digits of base converted to decimal.
     def decimal(digits, base)
       i, f = split_digits(digits)
@@ -398,8 +424,9 @@ module Radix
     ##
     # Returns the I-Part and F-Part of the passed value as arrays of fixnums.
     # 
-    # @param [Array<Numeric, String>] value The array of decimal values per
-    #   column of @base.
+    # @param [Array<Numeric, String>] value
+    #   The array of decimal values per column of @base.
+    #
     # @return [Array<(Array<Fixnum>, Array<Fixnum>)>]
     def split_digits(value)
       if d = value.index(DOT) || value.index('.')
@@ -415,7 +442,8 @@ module Radix
     ##
     # Returns an array of Integer and Float portions of the Radix::Float
     #
-    # @param [Radix::Float] float Float value to split
+    # @param [Radix::Float] float  Float value to split
+    #
     # @return [Array<(Integer, Float)>]
     def split_float(float)
       i, f = float.to_s.split('.')
