@@ -5,7 +5,7 @@
 Good documentation is so under-addressed by most developers that we really
 have to roll out the bright lights when someone comes along and takes 
 up the time consuming mantle of documenting an API in complete detail.
-This is exactly what happenned with Radix this last month. A coder going
+This is exactly what happened with Radix this last month. A coder going
 by the unassuming handle, **douglascodes**, announced his desire to 
 document Radix and proceeded to do so until YARD pronounced 100%
 completeness. Hey, we think that is worth of a whole version bump and 
@@ -13,7 +13,7 @@ a big shout-out for Douglas!
 
 Changes:
 
-* 100% API documetnation coverage. (douglascodes)
+* 100% API documentation coverage. (douglascodes)
 
 
 ## 2.1.1 / 2013-02-06
@@ -22,7 +22,7 @@ Minor release to fix gemspec. Which, alas, Bundler cannot do without.
 
 Changes:
 
-* Update .gemspec file for lastest indexer.
+* Update .gemspec file for latest indexer.
 
 
 ## 2.1.0 / 2013-01-31
@@ -44,7 +44,7 @@ Changes:
 
 ## 2.0.1 / 2011-10-23
 
-This release is simply an adminstrative release to update the project
+This release is simply an administrative release to update the project
 build configuration. The functionality of the library itself has not
 changed. This release also transitions the project to the BSD-2-Clause
 license.
@@ -75,8 +75,8 @@ Radix now provides an actual Numeric subclass, Radix::Number, that stores
 the base and can be used like any other Numeric object. This makes it very
 easy to convert and manipulate numbers in any base. The implementation is still
 a bit nascent. For the moment, it only supports the most basic math operators
-and only handles integer values, but furture releases will continue to expand
-on it's capabilites.
+and only handles integer values, but future releases will continue to expand
+on it's capabilities.
 
 Changes:
 
