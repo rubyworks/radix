@@ -43,10 +43,22 @@ module Radix
   #     nil       # Fails because "YY" is not a key in the +values+ hash.
   class Base
 
+    ##
+    # The characters for this base level.
+    #
+    # @return [Array<String>] The ASCII character set in use.
     attr :chars
 
+    ##
+    # The base of this instance.
+    #
+    # @return [Fixnum] The base level in use.
     attr :base
 
+    ##
+    #
+    # @return [Hash{String=>Fixnum}] A hash of characters and their respective
+    #   value.
     attr :values
 
     ##

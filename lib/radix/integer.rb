@@ -14,13 +14,22 @@ module Radix
   #   @return [Array<String>, nil] Substitution chars or nil if default.
   class Integer < Numeric
 
+    ##
     # Stores the numeric value as normal number.
+    #
+    # @return [Fixnum] Integer's decimal value.
     attr :value
 
+    ##
     # Base of the number.
+    #
+    # @return [Fixnum] The base level of Integer instance.
     attr :base
 
+    ##
     # Base encoding table.
+    #
+    # @return [Array<String>, nil] Substitution chars or nil if default.
     attr :code
 
     private
@@ -32,6 +41,7 @@ module Radix
     #   value of the new integer in context of base.
     # @param [Fixnum, Array<String>] base The base context in which value is
     #   determined. Can be an array of characters to use in place of default.
+    # @return [void]
     def initialize(value, base=10)
       @value = parse_value(value, base)
       @base, @code = parse_base(base)
@@ -137,9 +147,9 @@ module Radix
     end
 
     ##
-    # Prints the digits of Integer's values per column of its current base.
-    # 
-    # @return [String] Formatted digits of self and @base.
+    # Creates a string representation of self.
+    #
+    # @return [String] String rep of self.digits and @base.
     def inspect
       "#{digits.join(' ')} (#{base})"
     end

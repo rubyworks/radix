@@ -1,14 +1,19 @@
 require 'radix/base'
 
+##
 # @author Thomas Sawyer
+#
 module Radix
 
+  ##
   # Radix separator used in string and array representations.
   DOT = '.'
 
+  ##
   # Division character for rational numbers
   DIV = '/'
 
+  ##
   # Default seperator character.
   DIVIDER = " "
 
@@ -160,7 +165,7 @@ module Radix
     # this simply returns the +digits+ unchanged.
     # 
     # @param [Array<String, Numeric>] digits The  
-    # @return [Array<String>] The encoded digits. Or digits if @code exists.
+    # @return [Array<String, Fixnum>] Encoded digits, or digits if @code is nil
     def base_encode(digits)
       return digits unless @code
       digits.map do |i|

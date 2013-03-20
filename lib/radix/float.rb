@@ -17,13 +17,22 @@ module Radix
   #   @return [Array<String>, nil] Substitution chars or nil if default.
   class Float < Numeric
 
+    ##
     # Internal floating point value.
+    #
+    # @return [Float] Float's decimal value.
     attr :value
 
+    ##
     # Base of the number.
+    #
+    # @return [Fixnum] The base level of Float instance.
     attr :base
 
+    ##
     # Base encoding table.
+    #
+    # @return [Array<String>, nil] Substitution chars or nil if default.
     attr :code
 
     private
@@ -35,6 +44,7 @@ module Radix
     #   value of the new integer in context of base.
     # @param [Fixnum, Array<String>] base The base context in which value is
     #   determined. Can be an array of characters to use in place of default.
+    # @return [void]    
     def initialize(value, base=10)
       @value = parse_value(value, base)
       @base, @code = parse_base(base)
@@ -120,9 +130,9 @@ module Radix
     end
 
     ##
-    # Prints the digits of Float's values per column of its current base.
-    # 
-    # @return [String] Formatted digits of self and @base.
+    # Creates a string representation of self.
+    #
+    # @return [String] String rep of self.digits and @base.
     def inspect
       "#{digits.join(' ')} (#{base})"
     end
@@ -142,8 +152,11 @@ module Radix
     end
 
     ##
+    # Returns digits, or coded version of digits if @code.
     #
-    #
+    # @return [Array<String, Fixnum>] Values per column of @base as array. 
+    #   Prepended with "-" if negative. Or encoded version if @code is
+    #   defined.
     def digits_encoded
       base_encode(digits)
     end
@@ -203,7 +216,7 @@ module Radix
     end
 
     ##
-    # Returns the smallest integer greater than or equal to self as a
+    # Returns the smallest integer less than or equal to self as a
     # Radix::Float.
     #
     # @return [Radix::Float] 
@@ -326,10 +339,13 @@ module Radix
     end
 
     ##
-    # Returns two arrays. the integer part and the fractional part of the Float
-    # value. Gets seperated and "negated" by the calling .digits method.
+    # Returns two arrays. The integer part and the fractional part of the Float
+    # value in param base.
     #
-    # @return [Array<Array[Fixnum], Array[Fixnum]>] 
+    # @param [Float] value Float's decimal value.
+    # @param [Fixnum] base The base level of Float instance.
+    # @param [Fixnum] prec The # of places to extend F-part.
+    # @return [Array<(Array[Fixnum], Array[Fixnum])>] 
     def base_conversion(value, base, prec=10)
       #if value < 0
       #  @negative, value = true, value.abs
@@ -382,8 +398,8 @@ module Radix
     ##
     # Returns the I-Part and F-Part of the passed value as arrays of fixnums.
     # 
-    # @param [Array<Numeric, String>] The array of decimal values per column 
-    #   of @base.
+    # @param [Array<Numeric, String>] value The array of decimal values per
+    #   column of @base.
     # @return [Array<(Array<Fixnum>, Array<Fixnum>)>]
     def split_digits(value)
       if d = value.index(DOT) || value.index('.')
@@ -397,9 +413,9 @@ module Radix
     end
 
     ##
-    #  Returns an array of Integer and Float portions of the Radix::Float
+    # Returns an array of Integer and Float portions of the Radix::Float
     #
-    # @param [Radix::Float] Float value to split
+    # @param [Radix::Float] float Float value to split
     # @return [Array<(Integer, Float)>]
     def split_float(float)
       i, f = float.to_s.split('.')
