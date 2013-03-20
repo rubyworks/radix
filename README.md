@@ -2,7 +2,7 @@
 
 [Website](http://rubyworks.github.com/radix) &middot;
 [Report Issue](http://github.com/rubyworks/radix/issues) &middot;
-[Source Code](http://github.com/rubyworks/radix) &middot;
+[Source Code](http://github.com/rubyworks/radix)  &nbsp; &nbsp;
 [![Build Status](https://secure.travis-ci.org/rubyworks/radix.png)](http://travis-ci.org/rubyworks/radix) &middot;
 [![Gem Version](https://badge.fury.io/rb/radix.png)](http://badge.fury.io/rb/radix) &nbsp; &nbsp;
 [![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
