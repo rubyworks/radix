@@ -1,12 +1,16 @@
+[![Gem Version](http://img.shields.io/gem/v/radix.svg?style=flat)](http://rubygems.org/gem/radix)
+[![Build Status](http://img.shields.io/travis/rubyworks/radix.svg?style=flat)](http://travis-ci.org/rubyworks/radix)
+[![Fork Me](http://img.shields.io/travis/rubyworks/fork-github-lightblue?style=flat)](http://travis-ci.org/rubyworks/radix)
+[![Report Issue](http://img.shields.io/github/issues/rubyworks/radix.svg?style=flat)](http://github.com/rubyworks/radix/issues)
+[![Gittip](http://img.shields.io/badge/gittip-$1/wk-green.svg?style=flat)](https://www.gittip.com/on/github/rubyworks/)
+[![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
+
+
 # Radix
 
 [Website](http://rubyworks.github.com/radix) &middot;
 [Report Issue](http://github.com/rubyworks/radix/issues) &middot;
-[Source Code](http://github.com/rubyworks/radix)  &nbsp; &nbsp;
-[![Build Status](https://secure.travis-ci.org/rubyworks/radix.png)](http://travis-ci.org/rubyworks/radix)
-[![Gem Version](https://badge.fury.io/rb/radix.png)](http://badge.fury.io/rb/radix) &nbsp; &nbsp;
-[![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
-
+[Source Code](http://github.com/rubyworks/radix)
 
 Radix is a very easy to use Ruby library for converting numbers to and from
 any base. It supports both Integer, Float and Rational numbers, as well as 
