@@ -2,7 +2,7 @@
 revision: 2013
 type: ruby
 sources:
-- var
+- index
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
@@ -48,12 +48,12 @@ customs: []
 paths:
   lib:
   - lib
-created: '2009-07-01'
-summary: Convert to and from any base.
-title: Radix
-version: 2.2.0
 name: radix
-description: ! "Radix is a very easy to use Ruby library for converting numbers to
-  and from\nany base. It supports both Integer, Float and Rational numbers, as well
-  as \nrepresentational string-notations that need not be in ASCII order."
-date: '2013-03-20'
+title: Radix
+summary: Convert to and from any base.
+created: '2009-07-01'
+description: "Radix is a very easy to use Ruby library for converting numbers to and
+  from\nany base. It supports both Integer, Float and Rational numbers, as well as
+  \nrepresentational string-notations that need not be in ASCII order."
+version: 2.2.0
+date: '2014-07-19'
