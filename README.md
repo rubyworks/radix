@@ -1,6 +1,6 @@
 # Radix
 
-[![Home Page](http://img.shields.io/badge/home-page-black.svg?style=flat)](https://rubyworks.github.io/radix)
+[![Home Page](http://img.shields.io/badge/home-page-yellow.svg?style=flat)](https://rubyworks.github.io/radix)
 [![Gem Version](http://img.shields.io/gem/v/radix.svg?style=flat)](http://rubygems.org/gem/radix)
 [![Build Status](http://img.shields.io/travis/rubyworks/radix.svg?style=flat)](http://travis-ci.org/rubyworks/radix)
 [![Fork Me](http://img.shields.io/badge/scm-github-blue.svg?style=flat)](http://github.com/rubyworks/radix)
