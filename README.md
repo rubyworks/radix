@@ -4,18 +4,9 @@
 [Report Issue](http://github.com/rubyworks/radix/issues) &middot;
 [Source Code](http://github.com/rubyworks/radix)
 
-Radix is a very easy to use Ruby library for converting numbers to and from
+<b>Radix is a very easy to use Ruby library for converting numbers to and from
 any base. It supports both Integer, Float and Rational numbers, as well as 
-representational string-notations that need not be in ASCII order.
-
-
-## Features
-
-* Convert to and from any base.
-* Convert Integers, Floats and Rational numbers.
-* Define custom encoding and character sets.
-* Can be used to encode/decode bytecode strings.
-* Very intuitive API.
+representational string-notations that need not be in ASCII order.</b>
 
 
 ## Status
@@ -26,6 +17,15 @@ representational string-notations that need not be in ASCII order.
 [![Report Issue](http://img.shields.io/github/issues/rubyworks/radix.svg?style=flat)](http://github.com/rubyworks/radix/issues)
 [![Gittip](http://img.shields.io/badge/gittip-$1/wk-green.svg?style=flat)](https://www.gittip.com/on/github/rubyworks/)
 [![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
+
+
+## Features
+
+* Convert to and from any base.
+* Convert Integers, Floats and Rational numbers.
+* Define custom encoding and character sets.
+* Can be used to encode/decode bytecode strings.
+* Very intuitive API.
 
 
 ## Usage
