@@ -1,6 +1,6 @@
 [![Gem Version](http://img.shields.io/gem/v/radix.svg?style=flat)](http://rubygems.org/gem/radix)
 [![Build Status](http://img.shields.io/travis/rubyworks/radix.svg?style=flat)](http://travis-ci.org/rubyworks/radix)
-[![Fork Me](http://img.shields.io/travis/rubyworks/fork-github-lightblue?style=flat)](http://travis-ci.org/rubyworks/radix)
+[![Fork Me](http://img.shields.io/travis/rubyworks/fork-github-blue?style=flat)](http://github.com/rubyworks/radix)
 [![Report Issue](http://img.shields.io/github/issues/rubyworks/radix.svg?style=flat)](http://github.com/rubyworks/radix/issues)
 [![Gittip](http://img.shields.io/badge/gittip-$1/wk-green.svg?style=flat)](https://www.gittip.com/on/github/rubyworks/)
 [![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
