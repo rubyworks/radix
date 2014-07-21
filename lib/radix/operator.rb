@@ -48,12 +48,25 @@ class ::String
   #   The desired base.
   #
   # @return [Radix::Integer, Radix::Float]
-  def b(base)
+  def b_with_radix(base = nil)
+    # assume this is the ruby String#b being called if base is nil
+    return b_without_radix if base.nil? && respond_to?(:b_without_radix)
+
     if index('.')
       Radix::Float.new(self, base)
     else
       Radix::Integer.new(self, base)
     end
+  end
+
+  # String#b in Radix conflicts with String#b in ruby 2.x
+  # to get around this without breaking the Radix API
+  # we can set up a method chain
+  if "".respond_to?(:b)
+    alias_method :b_without_radix, :b
+    alias_method :b, :b_with_radix
+  else
+    alias :b :b_with_radix
   end
 end
 
