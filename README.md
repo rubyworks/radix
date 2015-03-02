@@ -11,7 +11,7 @@
 
 
 <b>[Radix]((http://rubyworks.github.com/radix)) is a very easy to use Ruby library
-for converting numbers to and from any base. It supports both Integer, Float and
+for converting numbers to and from any base. It supports Integer, Float and
 Rational numbers, as well as representational string-notations that need not be
 in ASCII order.</b>
 
@@ -78,12 +78,17 @@ To learn more have a look at the [QED Demo](http://rubydoc.info/gems/radix/file/
 
 ## Installing
 
+If using Bundler, then add the ususal gem entry to your project's Gemfile.
+
+    gem 'radix'
+
 To install with RubyGems simply open a console and type:
 
     $ gem install radix
 
 Radix follows [Ruby Setup](http://rubyworks.github.com/setup) package standard
-so it can also be installed in an FHS compliant manner using setup.rb.
+so it can also be installed in an FHS compliant manner using setup.rb (very
+old-school and no longer recommeded).
 
 
 ## Special Thanks
@@ -95,7 +100,7 @@ so your contribution is greatly appreciated. Thank you, Douglas!
 
 ## Copyrights
 
-Copyright (c) 2009 Rubyworks
+Copyright (c) 2009 [Rubyworks](https://rubyworks.github.io)
 
 This program is distributable in accordance with the *BSD-2-Clause* license.
 
