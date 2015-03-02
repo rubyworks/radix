@@ -10,6 +10,7 @@ demo/applique/ae.rb
 demo/applique/check.rb
 demo/applique/radix.rb
 demo/issues/004_zero_empty_string.md
+demo/issues/012_array_base.md
 lib/radix/base.rb
 lib/radix/float.rb
 lib/radix/integer.rb
@@ -18,7 +19,7 @@ lib/radix/operator.rb
 lib/radix/rational.rb
 lib/radix.rb
 lib/radix.yml
-HISTORY.md
 README.md
+HISTORY.md
 DEMO.md
 LICENSE.txt

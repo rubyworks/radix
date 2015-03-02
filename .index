@@ -29,9 +29,6 @@ resources:
 - type: code
   uri: http://github.com/rubyworks/radix
   label: Source Code
-- type: mail
-  uri: http://groups.google.com/groups/rubyworks-mailinglist
-  label: Mailing List
 - type: bugs
   uri: http://github.com/rubyworks/radix/issues
   label: Issue Tracker
@@ -55,5 +52,5 @@ created: '2009-07-01'
 description: "Radix is a very easy to use Ruby library for converting numbers to and
   from\nany base. It supports both Integer, Float and Rational numbers, as well as
   \nrepresentational string-notations that need not be in ASCII order."
-version: 2.2.0
-date: '2014-07-19'
+version: 2.2.1
+date: '2015-03-02'

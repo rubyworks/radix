@@ -1,5 +1,22 @@
 # RELEASE HISTORY
 
+## 2.2.1 / 2014-03-02
+
+This release fixes a couple of issues. One unsettling issue in particular,
+somewhere around Ruby 2.0, `String#b` became an offical core method
+that force-encodes a string to ASCII 8-bit. This, of course, broke Radix :(
+That aside, it seems like a rather weak name for such a method. `String#ascii`
+seems a much better choice (IOHO). Thankfully, there's just enough wiggle-room
+to implement a work around, so the Radix API remains the same. In addition,
+there was a bug when trying to decode custom character sets, which has been
+fixed.
+
+Changes:
+
+* Work around Ruby's `String#b` method.
+* Fix custom base decoding.
+
+
 ## 2.2.0 / 2013-03-20
 
 Good documentation is so under-addressed by most developers that we really
