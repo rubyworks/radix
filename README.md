@@ -1,6 +1,6 @@
 # Radix
 
-[![Gem Version](http://img.shields.io/gem/v/radix.svg?style=flat)](http://rubygems.org/gem/radix)
+[![Gem Version](http://img.shields.io/gem/v/radix.svg?style=flat)](https://rubygems.org/gems/radix)
 &nbsp; &nbsp;
 [![Fork Me](http://img.shields.io/badge/scm-github-blue.svg?style=flat)](http://github.com/rubyworks/radix)
 [![Report Issue](http://img.shields.io/github/issues/rubyworks/radix.svg?style=flat)](http://github.com/rubyworks/radix/issues)
