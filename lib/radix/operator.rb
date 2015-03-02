@@ -40,6 +40,17 @@ end
 # instances.
 class ::String
 
+  # Ruby 2.x defines it's own `String#b` method for converting to ASCII 8-bit.
+  # That breaks Radix (of course), but it a terrbile name. `String#ascii` is 
+  # much better (duh!). So that's what we are doing.
+  if method_defined?(:b)
+    alias :ascii :b
+  else
+    def ascii
+      force_encoding('ASCII')
+    end
+  end
+
   ##
   # Takes a String and makes it into a Radix::Integer or Radix::Float as given
   # base. Float is determined by a "." character in string instance
@@ -48,7 +59,9 @@ class ::String
   #   The desired base.
   #
   # @return [Radix::Integer, Radix::Float]
-  def b(base)
+  def b(base=nil)
+    return ascii unless base
+
     if index('.')
       Radix::Float.new(self, base)
     else
