@@ -49,8 +49,8 @@ module Radix
     #
     # @return [void]    
     def initialize(value, base=10)
-      @value = parse_value(value, base)
       @base, @code = parse_base(base)
+      @value = parse_value(value, @base)
     end
 
     ##
@@ -77,10 +77,10 @@ module Radix
       end
     end
 
-    public
+  public
 
     ##
-    # Makes this Radix::Float a ruby Integer.
+    # Convert the Radix::Float a Ruby Integer.
     # 
     # @return [Integer] Base(10) value as Integer.
     def to_i
@@ -90,7 +90,7 @@ module Radix
     alias_method :to_int, :to_i
 
     ##
-    # Makes this Radix::Float a ruby float.
+    # Convert Radix::Float to a Ruby float.
     # 
     # @return [Float] Base(10) value as Float.
     def to_f

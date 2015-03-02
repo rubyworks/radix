@@ -40,7 +40,7 @@ module Radix
     # @return [Array<String>, nil] Substitution chars or nil if default.
     attr :code
 
-    private
+  private
 
     ##
     # Create a new Radix::Rational instance.

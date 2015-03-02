@@ -32,7 +32,7 @@ module Radix
     # @return [Array<String>, nil] Substitution chars or nil if default.
     attr :code
 
-    private
+  private
 
     ##
     # Starts a new instance of the Radix::Integer class
@@ -45,8 +45,8 @@ module Radix
     #
     # @return [void]
     def initialize(value, base=10)
-      @value = parse_value(value, base)
       @base, @code = parse_base(base)
+      @value = parse_value(value, @base)
     end
 
     ##
@@ -94,8 +94,7 @@ module Radix
 
     ## digits << #Radix.convert(d, base, 10).to_i
 
-    public
-
+  public
 
     ##
     # Makes this Radix::Integer a ruby integer.

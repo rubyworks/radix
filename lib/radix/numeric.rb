@@ -68,7 +68,7 @@ module Radix
       operation(:/, other)
     end
 
-    private
+  private
 
     ##
     # Parses the value of the base and character set to use.
@@ -85,7 +85,7 @@ module Radix
     #   1 - Nil, or Array of characters representing the base values.
     def parse_base(base)
       case base
-       when Array
+      when Array
         code = base
         base = base.size
       else
@@ -192,7 +192,7 @@ module Radix
     end
 
     ##
-    # Decode an encoded array. Defaults to BASE::B62 if self.code is not set.
+    # Decode an encoded array. Defaults to BASE::B62 if @code is not set.
     # 
     # @param [Array<String, Numeric>] digits The encoded characters. 
     #
