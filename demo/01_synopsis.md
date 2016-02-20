@@ -37,7 +37,7 @@ To use a custom character set, use an array of characters as the base
 rather than an integer. For example we can convert a base 10 number
 to another base 10 number but useing a different encoding.
 
-    base = %w[Q W E R T Y U I O U]
+    base = %w[Q W E R T Y U I O P]
 
     "10".b(10).to_a(base)  #=> ["W", "Q"]
 
