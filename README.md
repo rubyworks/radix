@@ -50,14 +50,13 @@ For example, a number in base 256 can be represented by the array `[100, 10]`
 [100,10].b(256).to_a(10)  #=> [2,5,6,1,0]
 ```
 
-Or, to get a string representation for any base up to 62.
+Or, to get a string representation for any base.
 
 ```ruby
 [100,10].b(256).to_s(10)  #=> "25610"
 ```
 
-A string representation of a number can be converted too, again,
-up to base 62.
+A string representation of a number can be converted too.
 
 ```ruby
 "10".b(62).to_s(10)  #=> "62"
