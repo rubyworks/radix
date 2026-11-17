@@ -286,7 +286,7 @@ module Radix
     #   Any Numeric instance.
     #
     # @return [Boolean] True if values are equal.
-     def ==(other)
+    def ==(other)
       case other
       when Float, Integer  # Radix
         value == other.value

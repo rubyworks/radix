@@ -1,11 +1,8 @@
 *.gem
 *.lock
-DEMO.md
-.ergo/digest
 .yardoc
 doc/
 log/
 pkg/
 tmp/
 web/
-

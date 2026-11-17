@@ -292,20 +292,3 @@ class ::Array
     Radix::Rational.new(*args)
   end
 end
-
-if RUBY_VERSION < '1.9'
-  class ::Float
-
-    ##
-    # Adds a #to_r method to pre-1.9 ruby Rationals.
-    # 
-    # @return [Rational] 
-    def to_r
-      n, f = to_s.split('.')
-      d = (10 ** f.size).to_i
-      n = (n.to_i * d) + f.to_i
-      Rational(n, d) 
-    end
-  end
-end
-

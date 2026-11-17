@@ -1,16 +1,9 @@
 # Radix
 
-[![Gem Version](http://img.shields.io/gem/v/radix.svg?style=flat)](https://rubygems.org/gems/radix)
-&nbsp; &nbsp;
-[![Fork Me](http://img.shields.io/badge/scm-github-blue.svg?style=flat)](http://github.com/rubyworks/radix)
-[![Report Issue](http://img.shields.io/github/issues/rubyworks/radix.svg?style=flat)](http://github.com/rubyworks/radix/issues)
-[![Build Status](http://img.shields.io/travis/rubyworks/radix.svg?style=flat)](http://travis-ci.org/rubyworks/radix)
-&nbsp; &nbsp;
-[![Gittip](http://img.shields.io/badge/gittip-$1/wk-green.svg?style=flat)](https://www.gittip.com/on/github/rubyworks/)
-[![Flattr Me](http://api.flattr.com/button/flattr-badge-large.png)](http://flattr.com/thing/324911/Rubyworks-Ruby-Development-Fund)
+[![Gem Version](https://img.shields.io/gem/v/radix.svg?style=flat)](https://rubygems.org/gems/radix)
+[![CI](https://github.com/rubyworks/radix/actions/workflows/ci.yml/badge.svg)](https://github.com/rubyworks/radix/actions/workflows/ci.yml)
 
-
-<b>[Radix]((http://rubyworks.github.com/radix)) is a very easy to use Ruby library
+<b>[Radix](https://rubyworks.github.io/radix) is a very easy to use Ruby library
 for converting numbers to and from any base. It supports Integer, Float and
 Rational numbers, as well as representational string-notations that need not be
 in ASCII order.</b>
@@ -30,34 +23,33 @@ in ASCII order.</b>
 Base conversions with ASCII ordered notations are easy in Ruby.
 
 ```ruby
-255.to_s(16)   #=> "FF"
+255.to_s(16)   #=> "ff"
 
 "FF".to_i(16)  #=> 255
 ```
 
-But Ruby reaches it's limit at base 36.
+But Ruby reaches its limit at base 36.
 
 ```ruby
-255.to_s(37)   #=> Error
+255.to_s(37)   #=> ArgumentError
 ```
 
 Radix provides the means of converting to and from any base.
 
 For example, a number in base 256 can be represented by the array `[100, 10]`
-(`100**256 + 10**1`) and can be convert to base 10.
+(`100*256 + 10`) and can be converted to base 10.
 
 ```ruby
 [100,10].b(256).to_a(10)  #=> [2,5,6,1,0]
 ```
 
-Or, to get a string representation for any base up to 62.
+Or, to get a string representation for any base.
 
 ```ruby
 [100,10].b(256).to_s(10)  #=> "25610"
 ```
 
-A string representation of a number can be converted too, again,
-up to base 62.
+A string representation of a number can be converted too.
 
 ```ruby
 "10".b(62).to_s(10)  #=> "62"
@@ -68,27 +60,35 @@ rather than an integer. For example we can convert a base 10 number
 to another base 10 number using a different encoding.
 
 ```ruby
-base = [:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :U]
+base = [:Q, :W, :E, :R, :T, :Y, :U, :I, :O, :P]
 
 "10".b(10).to_a(base)  #=> [:W, :Q]
 ```
 
-To learn more have a look at the [QED Demo](http://rubydoc.info/gems/radix/file/DEMO.md).
+To learn more have a look at the [demos](demo/), which are also Radix's
+tests.
+
+### Ruby's own `String#b`
+
+Ruby has a `String#b` method of its own, which returns a copy of a string in
+ASCII-8BIT encoding. Radix's `#b` takes a base; called without one, on a
+string, it is still Ruby's method. If you would rather not use the core
+extensions, the classes can be used directly:
+
+```ruby
+Radix::Integer.new("10", 62).to_s(10)  #=> "62"
+```
 
 
 ## Installing
 
-If using Bundler, then add the ususal gem entry to your project's Gemfile.
+Radix needs Ruby 2.7 or later. With Bundler, add it to your project's Gemfile:
 
     gem 'radix'
 
-To install with RubyGems simply open a console and type:
+Or install it with RubyGems:
 
     $ gem install radix
-
-Radix follows [Ruby Setup](http://rubyworks.github.com/setup) package standard
-so it can also be installed in an FHS compliant manner using setup.rb (very
-old-school and no longer recommeded).
 
 
 ## Special Thanks
