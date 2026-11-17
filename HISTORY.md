@@ -1,5 +1,26 @@
 # RELEASE HISTORY
 
+## Unreleased
+
+Radix's first changes since 2015 are housekeeping: the library does what it
+did, on the Rubies in use today.
+
+Changes:
+
+* Require Ruby 2.7 or later, and test on Ruby 2.7 to 4.0.
+* Remove `Radix.metadata` and the constants it supplied, other than
+  `Radix::VERSION`, which is now an ordinary constant.
+* Remove the `Float#to_r` that was defined for Ruby 1.8.
+* Fix the README's custom character set example, which used the same
+  character twice. (Javier Cejudo)
+* Correct the README on string output for bases above 62. (Jakukyo Friel)
+* Fix the README's arithmetic for `[100, 10]` in base 256, which is
+  `100*256 + 10`.
+* Document and test that `String#b` without a base is Ruby's own method.
+* Replace the Indexer, Assembly and Travis CI files with a standard gemspec,
+  a Rakefile and GitHub Actions.
+
+
 ## 2.2.1 / 2014-03-02
 
 This release fixes a couple of issues. One unsettling issue in particular,
